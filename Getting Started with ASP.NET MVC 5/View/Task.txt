@@ -1,0 +1,23 @@
+This task requires that you modify the HelloWorldController class to use view template files to cleanly encapsulate the process of generating HTML responses to a client.
+***********
+
+Change the Index method to return a View object
+MVC 5 View Page with (Layout Razor)
+Call it Index
+Select the default .cshtml template
+Add the required code to \Views\HelloWorld\Index.cshtml
+
+open the _Layout.cshtml
+Change the "Application name" part at the top of the tab
+Change the contents of the title element. Change the ActionLink in the layout template from "Application name" to "MVC Movie" and the controller from Home to Movies.
+
+Open MvcMovie\Views\HelloWorld\Index.cshtml.
+Change the title of the Index view.
+
+Go to the HelloWorldController.cs file and change the Welcome method to add a Message and NumTimes value to the ViewBag object. 
+
+Build a welcome view template
+create a loop which prints out "Hello" as many times as the user says it should
+
+Run the application and browse to the following URL:
+http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4

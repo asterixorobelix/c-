@@ -6,7 +6,7 @@ https://www.sololearn.com/Course/CSharp/
 https://www.tutorialspoint.com/csharp/
 https://code.tutsplus.com/courses/30-days-to-learn-c
 
-Practicing websights
+Practicing websites
 https://www.codewars.com/
 http://www.programmr.com/
 https://www.codingame.com/start
@@ -40,6 +40,15 @@ MVC
 
 ASP.NET MVC targets developers focussing on test-driven development. MVC = Model,View,Controllers. Splitting up a website/app in this way allows seperate teams to work on each aspect.
 Each component can then also be tested independently.
+Model = classes for data and logic
+View = templates for HTML
+Controllers = classes for browser requests and retrieving data
+
+MVC uses different controller classes and their different action methods, depending on the incoming URL. The first part of the URL specifies the controller class to execute. So, /HelloWorld maps to the HelloWorld Controller class.
+The second part of the URL specifies the method to execute. So, /HelloWorld/Index invokes the Index method of the HelloWorld Controller class. Methods which are named Index are automatically the default. Defaults are called if not explicitly specified.
+http://localhost:1234/HelloWorld/Welcome
+
+The controller handles the logic of the application and acts as the coordinator between the view and the model. The controller receives input from the user via the View. The Controller also receives relevant and processed data from the model. The controller then sends these results to the View.
 
 Test Driven Development (TDD)
 
@@ -55,7 +64,11 @@ Entity Framework (EF)
 
 This is an opensource object relational mapping framework and has been added to the .NET framework. It enables one to work with data, such as customer addresses, without being concerned with where and how the data is stored.
 A higher level of abstraction creates a virtual database, even if the data is stored with different languages and on different types of computer hardware.
-You basically convert the data into a simpler form for storage and then convert it back, in a standardised manner upon retrieval.
+You basically convert the data into a simpler form for storage and then convert it back, in a standardised manner upon retrieval. The Entity Framework (EF) supports a development paradigm called Code First. Code First allows you to create model objects by writing simple classes.
+You can then have the database created on the fly from your classes, which enables a very clean and rapid development workflow.
+There are three ways you can work with data models and databases in the Entity Framework: Database First, Model First, and Code First.
+If you already have a database, the Entity Framework designer built into Visual Studio can automatically generate a data model that consists of classes and properties that correspond to existing database objects such as tables and columns. 
+ If you don't have a database, you can code your own classes and properties that correspond to tables and columns. If you do have a database, Entity Framework tools can generate the classes and properties that correspond to existing tables and columns. 
 
 Web API
 
@@ -129,6 +142,13 @@ Empower the team
 Build integrity in
 See the whole
 
+Razor is a markup syntax that lets you embed server-based code into web pages using C#. It is not a programming language. It is a server side markup language.
+Razor has no ties to ASP.NET MVC because Razor is a general-purpose templating engine. You can use it anywhere to generate output like HTML. It's just that ASP.NET MVC has implemented a view engine that allows us to use Razor inside of an MVC application to produce HTML.
+You will have a template file that's a mix of some literal text and some blocks of code. You combine that template with some data or a specific model where the template specifies where the data is supposed to appear, and then you execute the template to generate your output.
+With Razor syntax you can begin a bit of C# code by using the ‘@’ sign and the Razor parse will automatically switch into parsing this statement, for each statement, as a bit of C# code.
+The @ character can start inline expressions, single statement blocks and multi-statement blocks.
+
+The ViewBag syntax allows you to transfer temporary data from the controller to the view.
 c#
 
 c# code, when stored in plain text files, have the extension .cs added to the end of the fileName. eg HelloWorld.cs.
