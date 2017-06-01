@@ -1,0 +1,8 @@
+Create a controller class
+Add an MVC 5 controller
+Name your controller "HelloWorldController"
+Create a method called Index, which prints "This is my default action in bold"
+Run the app and browse to /HelloWorld/Welcome to check the output
+Modify the example slightly so that you can pass some parameter information from the URL to the controller. In this case, pass a name and number of times to repeat printing the name
+the URL segment should be passed as query strings
+Create a parameter (ID) which matches the URL specification in the RegisterRoutes method. (passing parameters as route data)

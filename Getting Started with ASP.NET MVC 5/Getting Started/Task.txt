@@ -1,0 +1,2 @@
+Create a new project called "MvcMovie"
+Make it an MVC project

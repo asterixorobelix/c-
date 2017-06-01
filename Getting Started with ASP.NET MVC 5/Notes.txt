@@ -1,0 +1,19 @@
+https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started
+
+public string Welcome(string name, int numTimes = 1) {//1 is the default for the parameter numTimes
+     return HttpUtility.HtmlEncode("Hello " + name + ", NumTimes is: " + numTimes);
+}
+
+Below is a query string
+http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4)
+
+The ? (question mark) in the above URL is a separator, and the query strings follow. The & character separates query strings.
+
+public string Welcome(string name, int ID = 1)
+{
+    return HttpUtility.HtmlEncode("Hello " + name + ", ID: " + ID);
+}
+Run the application and enter the following URL: http://localhost:xxx/HelloWorld/Welcome/3?name=Rick
+
+This time the third URL segment matched the route parameter ID. The Welcome action method contains a parameter (ID) that matched the URL specification in the RegisterRoutes method.
+It's more typical to pass in parameters as route data (like we did with ID above) than passing them as query strings. 
