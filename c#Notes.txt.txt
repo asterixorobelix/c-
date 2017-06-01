@@ -1,0 +1,161 @@
+c# learning websites
+
+https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169?l=Lvld4EQIC_2706218949
+http://www.learncs.org/
+https://www.sololearn.com/Course/CSharp/
+https://www.tutorialspoint.com/csharp/
+https://code.tutsplus.com/courses/30-days-to-learn-c
+
+Practicing websights
+https://www.codewars.com/
+http://www.programmr.com/
+https://www.codingame.com/start
+https://codefights.com/
+
+ASP.NET
+http://www.tutorialsteacher.com/mvc/asp.net-mvc-tutorials
+https://www.tutorialspoint.com/asp.net_mvc/
+
+XAML
+https://www.tutorialspoint.com/xaml/index.htm
+http://www.wpf-tutorial.com/xaml/basic-xaml/
+https://www.pluralsight.com/courses/enterprise-wpf-xaml-csharp-from-scratch
+
+Terminology
+
+.net framework
+
+A framework is a collection of APIs and shared library of code. A framework is code which the programmer can use without writing it explicitly.
+.NET is both a library of code called the Framework class library (FCL) and a runtime environment (virtual machine). The framework creates a virtual machine, in which the programs run.
+The virtual machine handle things like memory management and security. The virtual machine also allows the user experience to be the same across supported languages, such as c++ and c#.
+Mono is a version of .NET for linux
+
+ASP.NET
+
+ASP = Active Server Pages. ASP.NET is a virtual machine hosted on a server. It is a server side web technology. Allows you to develop dynamic websites and web apps.
+ASP supports and .NET supported language. ASP works on top of the HTML protocol, it is also a part of the .NET framework, providing you with access to its infrastructure.
+ASP has three frameworks for creating web applications: web forms, MVC and web pages.
+
+MVC
+
+ASP.NET MVC targets developers focussing on test-driven development. MVC = Model,View,Controllers. Splitting up a website/app in this way allows seperate teams to work on each aspect.
+Each component can then also be tested independently.
+
+Test Driven Development (TDD)
+
+This is a software development process which relies on the repetition of extremely short development cycles. A user requirement is turned into a specific test case and then software is developed to pass that test only.
+Nothing additional is added to the software, a minimum of code should be written to pass the test. If the software is proven to pass the test, the cycle begins again. These cycles should repeat as quickly as possible.
+TDD is different to unit testing, in which the code is tested after it is written. Writing the test before the code makes you focus on the user requirement before coding.
+TDD can reduce the debugging effort and makes documentation better. If used with version control software, reverting to the last successful code is often easier than debugging the current code.
+This system also allows one to focus on a small chunk, rather than being overwhelmed by the whole task. Also, because all the code in the final project has been through at least one test, you have more confidence in the final solution.
+The method also makes you think of software as a group of much smaller units of code, allowing one to write more modularized, flexible and extensible code.
+The final result is a bunch of small code units, written and tested independently and integrated later.
+
+Entity Framework (EF)
+
+This is an opensource object relational mapping framework and has been added to the .NET framework. It enables one to work with data, such as customer addresses, without being concerned with where and how the data is stored.
+A higher level of abstraction creates a virtual database, even if the data is stored with different languages and on different types of computer hardware.
+You basically convert the data into a simpler form for storage and then convert it back, in a standardised manner upon retrieval.
+
+Web API
+
+An API is a set of clearly defined systems of communication between software components. This makes it easier to use the technology within a software component, without a knowing specifics about how the goal is achieved.
+The implementation is hidden away and only exposes the parts required by the user to interface with the code. The API describes and prescribes the expected behaviour.
+
+Examples of web APIs are HTTP or JSON. The ASP.NET web API is a framework for building HTTP services. It is similar to ASP.NET MVC, but it is not part of the MVC framework.
+The web API allows you to develop one website which is compatible with multiple browsers and mobile devices.
+
+Windows Presentation Foundation (WPF)
+
+WPF is the category of features in the .NET Framework which deals with the visual presentation of Windows-based applications and Web browser-based client applications.
+WPF uses XAML for constructing visually stunning user interfaces (UI) in markup instead of in a programming language such as C#. 
+WPF unifies how Windows creates, displays, and manipulates documents, media, and user interface (UI).
+
+XAML - pronounced "Zammel"
+
+This is a markup language, similar to HTML. Extensible Application Markup Language = XAML
+You can create elaborate user interfaces, entirely in XAML by defining elements such as controls, text, images, shapes, animation, and more.
+eg <Ellipse Fill="Gray" Height = "100"/>
+When represented as text, XAML files are XML files which generally have the .xaml extension.
+The XAML language defines concepts of its own, but these concepts work within the XML language and markup form.
+It can be combined with c# to create logic.
+XAML can be used in different platforms such as WPF (Windows Presentation Foundation), Silverlight, Mobile Development, and Windows Store App. It can be used across different .Net framework and CLR (common language runtime) versions.
+In the earlier GUI frameworks, there was no real separation between how an application looks like and how it behaves. Both the GUI and its behavior were created in the same language, e.g. C# or VB.net, which would require more effort from the developer to implement both the UI and the behavior associated with it.
+
+Visual studio
+
+Microsoft Visual Studio is an integrated development environment (IDE) from Microsoft. 
+It is used to develop computer programs for Microsoft Windows, as well as web sites, web apps, web services and mobile apps.
+Visual Studio includes a code editor, with auto code completion and an integrated debugger . Other built-in tools include templates for building GUI and web apps.
+As code is being written, Visual Studio compiles it in the background in order to provide feedback about syntax and compilation errors, which are flagged with a red wavy underline.
+
+Agile software development
+
+Agile software development describes a set of principles for software development under which requirements and solutions evolve through the collaborative effort of self-organizing cross-functional teams.
+It advocates adaptive planning, evolutionary development, early delivery, and continuous improvement, and it encourages rapid and flexible response to change.
+The main principles:
+Individuals and interactions
+Self-organization and motivation are important, as are interactions like co-location and pair programming.
+Working software
+Working software is more useful and welcome than just presenting documents to clients in meetings.
+Customer collaboration
+Requirements cannot be fully collected at the beginning of the software development cycle, therefore continuous customer or stakeholder involvement is very important.
+Responding to change
+Agile software development methods are focused on quick responses to change and continuous development.
+
+Iterative, incremental and evolutionary
+Most agile development methods break product development work into small increments that minimize the amount of up-front planning and design. 
+Iterations are short time frames (timeboxes) that typically last from one to four weeks. Each iteration involves a cross-functional team working in all functions: planning, analysis, design, coding, unit testing, and acceptance testing. 
+At the end of the iteration a working product is demonstrated to stakeholders. This minimizes overall risk and allows the product to adapt to changes quickly.
+An iteration might not add enough functionality to warrant a market release, but the goal is to have an available release (with minimal bugs) at the end of each iteration.[20] Multiple iterations might be required to release a product or new features.
+
+Efficient and face-to-face communication
+Very short feedback loop and adaptation cycle
+
+Popular methods include:
+Lean software development
+Kanban
+Rapid application development (RAD)
+Scrum
+Scrumban
+
+Lean Software Development is considered an Agile Software Development Method.
+Lean development can be summarized by seven principles, very close in concept to lean manufacturing principles:
+Eliminate waste
+Amplify learning
+Decide as late as possible
+Deliver as fast as possible
+Empower the team
+Build integrity in
+See the whole
+
+c#
+
+c# code, when stored in plain text files, have the extension .cs added to the end of the fileName. eg HelloWorld.cs.
+It can be compiled in the terminal with the C# compiler which is downloaded with Visual Studio.
+Open up Developer Command Prompt (which is found under Start>Visual Studio>Visual Studio Tools) and cd into the directory where your saved file is located.
+eg C:\Users\8460p\Dropbox
+Enter "csc HelloWorld.cs"
+This will produce a file in the same locale named HelloWorld.exe.
+In the same command line type: "HelloWorld.exe" to execute the file.
+If you type: "HelloWorld.exe &pause", the system will wait until you hit any key to continue.
+You can also double click on the exe file.
+
+You can give the compiler a few additional options, such as:
+/out allows you to set the file name of the assembly to be created. If not specified then the output is the same as the initial *.cs file name
+/target:exe allows you to set the default assembly output to an executable. This is the default and it can be removed for this type of application
+/target:library allows you to set the assembly output to a *.dll
+/target:winexe prevents the console application from appearing in the background
+
+eg csc /target:exe /out:HelloWorld_New.exe HelloWorld.cs
+
+Another way to compile C# programs (without using Visual Studio or without having it installed) is to create a user variable in environment variables, namely "PATH".
+Copy the following path in this variable:
+"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
+or depending upon which .NET your PC have.
+So you don't have to mention the whole path every time you compile a code. Simply use
+"C:\Users\UserName\Desktop>csc [options] filename.cs"
+or wherever the path of your code is.
+
+https://www.codetuts.tech/compile-c-sharp-command-line/
+
