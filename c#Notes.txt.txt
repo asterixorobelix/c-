@@ -50,6 +50,14 @@ http://localhost:1234/HelloWorld/Welcome
 
 The controller handles the logic of the application and acts as the coordinator between the view and the model. The controller receives input from the user via the View. The Controller also receives relevant and processed data from the model. The controller then sends these results to the View.
 
+When a user types a URL into the browser address bar, this calls a method, which belongs to a class. This is the Controller. 
+The Model is packaged data to present to the user and which the user interacts with. It is a class. It is the data which the controller passes to the View.
+The View takes the data and turns it into HTML. It is a template for the data, without any logic.
+
+Controllers are classes with methods, models are classes without methods.
+
+Generally, MVC is not the whole app. Other features will often be added.
+
 Test Driven Development (TDD)
 
 This is a software development process which relies on the repetition of extremely short development cycles. A user requirement is turned into a specific test case and then software is developed to pass that test only.
