@@ -149,6 +149,7 @@ With Razor syntax you can begin a bit of C# code by using the ‘@’ sign and the R
 The @ character can start inline expressions, single statement blocks and multi-statement blocks.
 
 The ViewBag syntax allows you to transfer temporary data from the controller to the view.
+
 c#
 
 c# code, when stored in plain text files, have the extension .cs added to the end of the fileName. eg HelloWorld.cs.
