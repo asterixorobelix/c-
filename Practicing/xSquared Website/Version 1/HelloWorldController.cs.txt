@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Squared.Controllers
+{
+    public class HelloWorldController : Controller
+    {
+        // GET: HelloWorld
+        public string Index()
+        {
+            return "This page will double the number which you give it.";
+        }
+
+        // 
+        // GET: /HelloWorld/Welcome/ 
+
+        public string Welcome(string name = "Nathan", int numTimes=1)
+        {
+            return HttpUtility.HtmlEncode("Hello " +name+", "+numTimes+" doubled is: "+numTimes*numTimes); 
+		// http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4
+		//In the sample above, the URL segment ( Parameters) is not used, the name and numTimes parameters are passed as query strings. The ? (question mark) is a separator, and the query strings follow. The & character separates query strings.
+        }
+    }
+}
