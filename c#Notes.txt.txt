@@ -189,3 +189,6 @@ or wherever the path of your code is.
 
 https://www.codetuts.tech/compile-c-sharp-command-line/
 
+MVC
+
+Controller Actions are the public methods of the controller classes.
