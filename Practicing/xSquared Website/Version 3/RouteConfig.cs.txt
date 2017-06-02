@@ -21,8 +21,9 @@ namespace Squared
 
             //added a route to pass both the name and numtimes in parameters as route data in the URL
             routes.MapRoute(
-                name: "Hello",
-                url: "{controller}/{action}/{name}/{id}"
+                name: "HelloWorld",
+                url: "{controller}/{action}/{name}/{id}" //specifies that any URL that starts with domainName/HelloWorld, must be handled by HelloWorldController
+                                                         // localhost:XXX/HelloWorld/Welcome/Scott/3
                 );
         }
     }

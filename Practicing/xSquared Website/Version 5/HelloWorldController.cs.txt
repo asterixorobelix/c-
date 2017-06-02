@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Squared.Controllers
+{
+    public class HelloWorldController : Controller
+    {
+        // GET: HelloWorld
+        public ActionResult Index()
+        {   //The Index method above uses a view template to generate an HTML response to the browser
+            return View();
+        }
+
+        // 
+        // GET: /HelloWorld/Welcome/ 
+
+        public ActionResult Welcome(string name = "Nathan", int ID=3)
+        {   //Controller now uses a view template
+
+            ViewBag.Message = "Hello " + name +", "+ID +" doubled is: "; //The ViewBag object contains data which will be passed to the view automatically
+            ViewBag.NumTimes = ID;
+
+            return View();
+            //http://localhost:63496/HelloWorld/Welcome results in "Hello Nathan, 3 doubled is: 9" being output because Nathan and 3 are the defaults for name and ID.
+            // http://localhost:63496/HelloWorld/Welcome/4 outputs "Hello Nathan, 4 doubled is: 16"
+
+            //This system passes data from the URL and to the controller using the model binder (convert values and route data into objects). The controller packages the data into a ViewBag object and passes that object to the view. The view then displays the data as HTML to the user.
+		//This system used a ViewBag object to pass data from the controller to a view. You can also use a view model to pass data from a controller to a view. The view model approach to passing data is generally much preferred over the view bag approach.
+
+
+
+        }
+    }
+}

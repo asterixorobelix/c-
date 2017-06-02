@@ -155,6 +155,7 @@ Razor has no ties to ASP.NET MVC because Razor is a general-purpose templating e
 You will have a template file that's a mix of some literal text and some blocks of code. You combine that template with some data or a specific model where the template specifies where the data is supposed to appear, and then you execute the template to generate your output.
 With Razor syntax you can begin a bit of C# code by using the ‘@’ sign and the Razor parse will automatically switch into parsing this statement, for each statement, as a bit of C# code.
 The @ character can start inline expressions, single statement blocks and multi-statement blocks.
+Basically, the @ is just where c# code has been written in a file which contains html and is a .cshtml extension.
 
 The ViewBag syntax allows you to transfer temporary data from the controller to the view.
 
