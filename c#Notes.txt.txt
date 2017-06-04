@@ -1,10 +1,11 @@
 c# learning websites
 
 https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169?l=Lvld4EQIC_2706218949
-http://www.learncs.org/
 https://www.sololearn.com/Course/CSharp/
-https://www.tutorialspoint.com/csharp/
 https://code.tutsplus.com/courses/30-days-to-learn-c
+
+done 
+https://www.tutorialspoint.com/csharp/
 
 Practicing websites
 https://www.codewars.com/
@@ -191,7 +192,7 @@ or wherever the path of your code is.
 https://www.codetuts.tech/compile-c-sharp-command-line/
 
 Namespace
-A namespace is a place where particular names have meaning. We have namespaces in our conversations too, if I am using the "Football" namespace and I say “That team is really on fire” I'm saying something good. If I am using the "Firefighter" namespace I'm saying something less good.
+A namespace is a place where particular names have meaning (it provides context). We have namespaces in our conversations too, if I am using the "Football" namespace and I say “That team is really on fire” I'm saying something good. If I am using the "Firefighter" namespace I'm saying something less good.
 It is possible to put one namespace inside another (just like a librarian would put a cabinet of Vases in the Roman room which he could refer to as Roman.Vases) and so the IO namespace is actually held within the System namespace. However, just because you use a namespace, this does not imply that you use all the namespaces defined within it
 
 Classes
@@ -204,9 +205,6 @@ In C# an identifier is a name that the programmer chooses for something in the p
 
 Casting
 We can force C# to regard a value as being of a certain type by the use of casting. A cast takes the form of an additional instruction to the compiler to force it to regard a value in a particular way. You cast a value by putting the type you want to see there in brackets before it. For example:
-double d = 1.5; float f = (float) d ;
-
-Or
 int i = 3, j = 2 ; 
 float fraction = (float) i / (float) j ;
 The (float) cast in the above tells the compiler to regard the values in the integer variables as floating point ones, so that we get 1.5 printed out rather than 1.
@@ -231,7 +229,9 @@ Means “Give me the value after the increment”
 
 Adjusting real number precision
 Placeholders can have formatting information added to them:
-int i = 150 ; double f = 1234.56789 ; Console.WriteLine ( "i: {0:0} f: {1:0.00}", i, f ) ;
+int i = 150 ; 
+double f = 1234.56789 ; 
+Console.WriteLine ( "i: {0:0} f: {1:0.00}", i, f ) ;
 This would print out:
 i: 150 f: 1234.57
 The 0 characters stand for one or more digits. When placed after a decimal point they can be used to control the number of decimal places which are used to express a value. Note that doing this means that if the number is an integer it is printed out as 12.00.
@@ -291,7 +291,7 @@ The code above makes a call to the new method, and also has the word ref in fron
 Note that you have to put the word ref in the method heading and also in the call of the method.
 
 Passing Parameter values as "out" references
-When you pass a parameter as a reference you are giving the method complete control of it. Sometimes you don't want this. Instead you want to just allow the method to change the variable. This is the case when we want to read in the name and age of a user. The original value of the parameters is of no interest to the method. Instead it just wants to deliver results to them. In this case I can replace the ref with the keyword out:
+When you pass a parameter as a reference you are giving the method complete control of it. So, the method can perform operations on the variable, such as divide, multiply and add. Sometimes you don't want this. Instead you want to just allow the method to give the variable a value. This is the case when we want to read in the name and age of a user. The original value of the parameters is of no interest to the method. Instead it just wants to deliver results to them. In this case I can replace the ref with the keyword out:
 static void readPerson ( out string name, out int age ) 
 { 
     name = readString ( "Enter your name : " ); 
@@ -354,7 +354,7 @@ Alternatively you can think of it as stationary, and therefore not going anywher
 This keyword makes sure that the method which follows is always present, i.e. the word static in this context means "is part of the enclosing class and is always here".
 Static methods can only access static variables.
 
-C# provides us with a thing called an array. An array allows us to declare a whole row of a particular kind of box. We can then use things called subscripts to indicate which box in the row that we want to use. Consider the following:
+C# provides us with a thing called an array. We then access entries in the array using subscripts. Consider the following:
 using System; 
 
 class ArrayDemo 
@@ -372,7 +372,8 @@ The int [] scores part tells the compiler that we want to create an array variab
 C# numbers the boxes starting at 0. This means that you specify the element at the start of the array by giving the subscript 0.
 
 However, sometimes we want to hold more than just a row. Sometimes we want a grid. We can do this by creating a two dimensional array. You can think of this as an "array of arrays" if you like (but only if this doesn't make your head hurt). For example, to hold the board for a game of noughts and crosses (tic tac toe) we could use:
-int [,] board = new int [3,3]; board [1,1] = 1;
+int [,] board = new int [3,3]; 
+board [1,1] = 5; //Here, you are setting the value of row 1, column 1 to 5
 This looks very like our one dimensional array, but there are some important differences. The [,] now has a comma. The presence of a comma implies something each side of it. This means that the array now has two dimensions, rather than just one.
 The first subscript could be used to specify which row and the second which column.
 
@@ -392,7 +393,7 @@ int [,] squareWeights = new int [3,3]
 {1,0,1} 
 };
 
-We can make our programs deal with invalid text input to Parse by adding code that will catch the exceptions that Parse throws and try to fix the problem. In programming terms this is called “dynamic error handling” in that our program is responding to an error when it occurs. To do this we have to use a new C# construction, the try – catch clause. The try keyword is followed by a block of code. After the block of code comes the catch clause. If any of the statements following the try throws an exception the program runs the code in the catch clause to handle this error.
+We can make our programs deal with invalid text input to Parse by adding code that will catch the exceptions which Parse throws and try to fix the problem. In programming terms this is called “dynamic error handling” in that our program is responding to an error when it occurs. To do this we have to use a new C# construction, the try – catch clause. The try keyword is followed by a block of code. After the block of code comes the catch clause. If any of the statements following the try throws an exception the program runs the code in the catch clause to handle this error.
 int age; 
 try 
 { 
@@ -403,7 +404,8 @@ catch
 { 
     Console.WriteLine("Invalid age value"); 
 }
-Code Sample 17 Simple Exception Catching
+
+Simple Exception Catching
 The code above uses Parse to decode the age string. However, the parse action takes place inside the try block. If the call of Parse throws an exception the code in the catch block runs and will display a message to the user. Note that once the exception has been thrown there is no return to the code in the try block
 
 When Parse fails it creates an exception object that describes the bad thing that has just happened (in this case input string not in the correct format). 
@@ -424,7 +426,7 @@ catch (Exception e)
 
 The catch now looks like a method call, with the Exception e being a parameter to the method. This is exactly how it works. Within the catch clause the value of e is set to the exception that was thrown by Parse. The Exception type has a property called Message which contains a string describing the error. If a user types in an invalid string the program above will write the text in the exception, which contains the message:
 Input string was not in a correct format.
-This message is obtained from the exception that was thrown. This is useful if the code inside the try block could throw several different kinds of exception, since it means that the message reflects what has actually happened. The Exception object also contains other properties that can be useful.
+This message is obtained from the exception which was thrown. This is useful if the code inside the try block could throw several different kinds of exception, since it means that the message reflects what has actually happened. The Exception object also contains other properties which can be useful.
 
 Programs can have multiple levels of try – catch, and the program will use the catch which matches the level of the code in the try block.
 
