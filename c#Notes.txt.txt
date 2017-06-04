@@ -25,15 +25,16 @@ Terminology
 
 .net framework
 
-A framework is a collection of APIs and shared library of code. A framework is code which the programmer can use without writing it explicitly.
+A framework is a collection of APIs and shared library of code. A framework is code which the programmer can use without writing it explicitly in their code.
 .NET is both a library of code called the Framework class library (FCL) and a runtime environment (virtual machine). The framework creates a virtual machine, in which the programs run.
-The virtual machine handle things like memory management and security. The virtual machine also allows the user experience to be the same across supported languages, such as c++ and c#.
+The virtual machine handles things like memory management and security. The virtual machine also allows the user experience to be the same across supported languages, such as c++ and c#.
 Mono is a version of .NET for linux
+A library is equivalent to an exe file, but with the extension .dll; it has no entry point, but is referenced by other programs.
 
 ASP.NET
 
 ASP = Active Server Pages. ASP.NET is a virtual machine hosted on a server. It is a server side web technology. Allows you to develop dynamic websites and web apps.
-ASP supports and .NET supported language. ASP works on top of the HTML protocol, it is also a part of the .NET framework, providing you with access to its infrastructure.
+ASP supports any .NET supported language. ASP works on top of the HTML protocol, it is also a part of the .NET framework, providing you with access to its infrastructure.
 ASP has three frameworks for creating web applications: web forms, MVC and web pages.
 
 MVC
@@ -61,7 +62,7 @@ Generally, MVC is not the whole app. Other features will often be added.
 Test Driven Development (TDD)
 
 This is a software development process which relies on the repetition of extremely short development cycles. A user requirement is turned into a specific test case and then software is developed to pass that test only.
-Nothing additional is added to the software, a minimum of code should be written to pass the test. If the software is proven to pass the test, the cycle begins again. These cycles should repeat as quickly as possible.
+Nothing additional is added to the software, a minimum of code should be written in order to pass the test. If the software is proven to pass the test, the cycle begins again. These cycles should repeat as quickly as possible.
 TDD is different to unit testing, in which the code is tested after it is written. Writing the test before the code makes you focus on the user requirement before coding.
 TDD can reduce the debugging effort and makes documentation better. If used with version control software, reverting to the last successful code is often easier than debugging the current code.
 This system also allows one to focus on a small chunk, rather than being overwhelmed by the whole task. Also, because all the code in the final project has been through at least one test, you have more confidence in the final solution.
@@ -80,7 +81,7 @@ If you already have a database, the Entity Framework designer built into Visual 
 
 Web API
 
-An API is a set of clearly defined systems of communication between software components. This makes it easier to use the technology within a software component, without a knowing specifics about how the goal is achieved.
+An API is a set of clearly defined systems of communication between software components. This makes it easier to use the technology within the API, without a knowing specifics about how the goal is achieved.
 The implementation is hidden away and only exposes the parts required by the user to interface with the code. The API describes and prescribes the expected behaviour.
 
 Examples of web APIs are HTTP or JSON. The ASP.NET web API is a framework for building HTTP services. It is similar to ASP.NET MVC, but it is not part of the MVC framework.
@@ -126,9 +127,9 @@ Agile software development methods are focused on quick responses to change and 
 
 Iterative, incremental and evolutionary
 Most agile development methods break product development work into small increments that minimize the amount of up-front planning and design. 
-Iterations are short time frames (timeboxes) that typically last from one to four weeks. Each iteration involves a cross-functional team working in all functions: planning, analysis, design, coding, unit testing, and acceptance testing. 
+Iterations are short time frames (timeboxes) which typically last from one to four weeks. Each iteration involves a cross-functional team working in all functions: planning, analysis, design, coding, unit testing, and acceptance testing. 
 At the end of the iteration a working product is demonstrated to stakeholders. This minimizes overall risk and allows the product to adapt to changes quickly.
-An iteration might not add enough functionality to warrant a market release, but the goal is to have an available release (with minimal bugs) at the end of each iteration.[20] Multiple iterations might be required to release a product or new features.
+An iteration might not add enough functionality to warrant a market release, but the goal is to have an available release (with minimal bugs) at the end of each iteration. Multiple iterations might be required to release a product or new features.
 
 Efficient and face-to-face communication
 Very short feedback loop and adaptation cycle
@@ -164,7 +165,7 @@ c#
 c# code, when stored in plain text files, have the extension .cs added to the end of the fileName. eg HelloWorld.cs.
 It can be compiled in the terminal with the C# compiler which is downloaded with Visual Studio.
 Open up Developer Command Prompt (which is found under Start>Visual Studio>Visual Studio Tools) and cd into the directory where your saved file is located.
-eg C:\Users\8460p\Dropbox
+eg cd C:\Users\8460p\Dropbox
 Enter "csc HelloWorld.cs"
 This will produce a file in the same locale named HelloWorld.exe.
 In the same command line type: "HelloWorld.exe" to execute the file.
@@ -195,9 +196,7 @@ It is possible to put one namespace inside another (just like a librarian would 
 
 Classes
 A C# program is made up of one or more classes. A class is a container which holds data and program code to do a particular job. Every class must have an identifier name. There is a convention that the name of the file which contains a particular class should match the class itself, in other words the program above should be held in a file called GlazerCalc.cs.
-
-static
-This keyword makes sure that the method which follows is always present, i.e. the word static in this context means "is part of the enclosing class and is always here".
+A class groups methods and data into an object orientated building block. A class is a kind of type. The new operator creates instances of a custom type.
 
 A float is a less precise version of a double.
 
@@ -259,9 +258,15 @@ Note that this justification would work even if you were printing a string rathe
 You can specify the print width of any item, even a piece of text, which makes printing in columns very easy.
 
 A method is a group of statements which have been given a name which represents that code. You can then refer to that code by name, rather than typing out the code again.
+A Method performs an action in a series of statements. The Method Main() is the default starting point for a c# program.
 
 A parameter is the special kind of variable that is defined in the method header and used inside that method to represent the value that was fed into the method call.
-static int sillyReturnPlus ( int i) { i = i + 1; Console.WriteLine ( "i is : " + i ) ; return i; }
+static int sillyReturnPlus ( int i) 
+{ 
+    i = i + 1; 
+    Console.WriteLine ( "i is : " + i ); 
+    return i; 
+}
 The method sillyReturnPlus above has a single parameter, which is of type integer and has the identifier i.
 An argument is the value that is supplied to the method when it is called.
 sillyReturnPlus(99);
@@ -345,10 +350,24 @@ This is not something to worry about just now; we will investigate the precise m
 One common programming mistake is to confuse static with const. Marking a variable as const means “the value cannot be changed”. 
 Marking a variable with static means “the variable is part of the class and is always present”. 
 If it helps you can think of static as something which is always with us, like the background static noise on your radio when you tune it off station. 
-Alternatively you can think of it as stationary, and therefore not going anywhere.
+Alternatively you can think of it as stationary, and therefore not going anywhere. 
+This keyword makes sure that the method which follows is always present, i.e. the word static in this context means "is part of the enclosing class and is always here".
+Static methods can only access static variables.
 
 C# provides us with a thing called an array. An array allows us to declare a whole row of a particular kind of box. We can then use things called subscripts to indicate which box in the row that we want to use. Consider the following:
-using System; class ArrayDemo { public static void Main () { int [] scores = new int [11] ; for ( int i=0; i<11; i=i+1) { scores [i] = readInt ( "Score : ", 0,1000); } } }
+using System; 
+
+class ArrayDemo 
+{ 
+    public static void Main () 
+    { 
+        int [] scores = new int [11]; 
+        for ( int i=0; i<11; i=i+1) 
+        { 
+            scores [i] = readInt ( "Score : ", 0,1000); 
+        } 
+    } 
+}
 The int [] scores part tells the compiler that we want to create an array variable. You can think of this as a tag which can be made to refer to a given array.
 C# numbers the boxes starting at 0. This means that you specify the element at the start of the array by giving the subscript 0.
 
@@ -516,6 +535,9 @@ This method provides a quick way of printing out the contents of an account vari
 PrintAccount (RobsAccount);
 
 It is also possible to create methods that return results which are of a structure type, for example we could create a ReadAccount method that reads an account and returns it.
+Unlike classes, structures cannot inherit from other structures.
+
 MVC
 
 Controller Actions are the public methods of the controller classes.
+The public keyword exposes members of a class to other classes. If a member is declared private, another class cannot access it.
