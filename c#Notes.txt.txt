@@ -189,6 +189,333 @@ or wherever the path of your code is.
 
 https://www.codetuts.tech/compile-c-sharp-command-line/
 
+Namespace
+A namespace is a place where particular names have meaning. We have namespaces in our conversations too, if I am using the "Football" namespace and I say “That team is really on fire” I'm saying something good. If I am using the "Firefighter" namespace I'm saying something less good.
+It is possible to put one namespace inside another (just like a librarian would put a cabinet of Vases in the Roman room which he could refer to as Roman.Vases) and so the IO namespace is actually held within the System namespace. However, just because you use a namespace, this does not imply that you use all the namespaces defined within it
+
+Classes
+A C# program is made up of one or more classes. A class is a container which holds data and program code to do a particular job. Every class must have an identifier name. There is a convention that the name of the file which contains a particular class should match the class itself, in other words the program above should be held in a file called GlazerCalc.cs.
+
+static
+This keyword makes sure that the method which follows is always present, i.e. the word static in this context means "is part of the enclosing class and is always here".
+
+A float is a less precise version of a double.
+
+In C# an identifier is a name that the programmer chooses for something in the program. The name of a variable is more properly called an identifier.
+
+Casting
+We can force C# to regard a value as being of a certain type by the use of casting. A cast takes the form of an additional instruction to the compiler to force it to regard a value in a particular way. You cast a value by putting the type you want to see there in brackets before it. For example:
+double d = 1.5; float f = (float) d ;
+
+Or
+int i = 3, j = 2 ; 
+float fraction = (float) i / (float) j ;
+The (float) cast in the above tells the compiler to regard the values in the integer variables as floating point ones, so that we get 1.5 printed out rather than 1.
+
+There is a convention that you always give constant variables names which are expressed in CAPITAL LETTERS. This is so that when you read your program you can tell which things have been defined.
+eg const double MAX_WIDTH = 5.0;
+
+Some other shorthand operators are:
+a += b
+the value in a is replaced by a + b
+a -= b
+the value in a is replaced by a – b
+a /= b
+the value in a is replaced by a / b
+a *= b
+the value in a is replaced by a * b
+
+i++
+Means “Give me the value before the increment”
+++i
+Means “Give me the value after the increment”
+
+Adjusting real number precision
+Placeholders can have formatting information added to them:
+int i = 150 ; double f = 1234.56789 ; Console.WriteLine ( "i: {0:0} f: {1:0.00}", i, f ) ;
+This would print out:
+i: 150 f: 1234.57
+The 0 characters stand for one or more digits. When placed after a decimal point they can be used to control the number of decimal places which are used to express a value. Note that doing this means that if the number is an integer it is printed out as 12.00.
+Specifying the number of printed digits
+I can specify a particular number of digits by putting in a given number of zeroes:
+int i = 150 ; double f = 1234.56789 ; Console.WriteLine ( "i: {0:0000} f: {1:00000.00}", i, f );
+This would print out:
+i: 0150 f: 01234.57
+Note that if I do this I get leading zeroes printed out, which is useful if you are printing things like cheques.
+Really Fancy Formatting
+If you want really fancy levels of control you can use the # character. A # in the format string means “put a digit here if you have one”:
+int i = 150 ; double f = 1234.56789 ; Console.WriteLine ( "i: {0:#,##0} f: {1:##,##0.00}", i, f );
+
+Printing in columns
+Finally I can add a width value to the print layout information. This is very useful if you want to print material in columns:
+int i = 150 ; double f = 1234.56789 ; Console.WriteLine ( "i: {0,10:0} f: {1,15:0.00}", i, f ) ; Console.WriteLine ( "i: {0,10:0} f: {1,15:0.00}", 0, 0 ) ;
+This would produce the output:
+i: 150 f: 1234.57 i: 0 f: 0.00
+The integer value is printed in a column 10 characters wide, and the double is printed in a 15 character wide column. At the moment the output is right justified, if I want the numbers left justified I make the width negative:
+int i = 150 ; double f = 1234.56789 ; Console.WriteLine ( "i: {0,-10:0} f: {1,-15:0.00}", i, f ) ; Console.WriteLine ( "i: {0,-10:0} f: {1,-15:0.00}", 0, 0 ) ;
+This would produce the output:
+i: 150 f: 1234.57 i: 0 f: 0.00
+Note that this justification would work even if you were printing a string rather than a number, so if you want to print columns of words you can use this technique to do it.
+You can specify the print width of any item, even a piece of text, which makes printing in columns very easy.
+
+A method is a group of statements which have been given a name which represents that code. You can then refer to that code by name, rather than typing out the code again.
+
+A parameter is the special kind of variable that is defined in the method header and used inside that method to represent the value that was fed into the method call.
+static int sillyReturnPlus ( int i) { i = i + 1; Console.WriteLine ( "i is : " + i ) ; return i; }
+The method sillyReturnPlus above has a single parameter, which is of type integer and has the identifier i.
+An argument is the value that is supplied to the method when it is called.
+sillyReturnPlus(99);
+In the statement above the argument is the value 99.
+
+If you want to make method calls and not have to worry about the order of the arguments you can name each one: x = readValue(low:25, high:100, prompt: "Enter your age");
+Now the compiler is using the name of each argument, rather than its positon in the list. This has the useful side effect of making it much clearer to someone reading your code the exact meaning of each argument value.
+
+
+Call by reference of methods
+Consider the code:
+static void addOneToRefParam ( ref int i ) 
+{
+    i = i + 1; 
+    Console.WriteLine ( "i is : " + i ); 
+}
+Note that the keyword ref has been added to the information about the parameter.
+test = 20 ; 
+addOneToRefParam(ref test); 
+Console.WriteLine ( "test is : " + test );
+The code above makes a call to the new method, and also has the word ref in front of the parameter.
+Note that you have to put the word ref in the method heading and also in the call of the method.
+
+Passing Parameter values as "out" references
+When you pass a parameter as a reference you are giving the method complete control of it. Sometimes you don't want this. Instead you want to just allow the method to change the variable. This is the case when we want to read in the name and age of a user. The original value of the parameters is of no interest to the method. Instead it just wants to deliver results to them. In this case I can replace the ref with the keyword out:
+static void readPerson ( out string name, out int age ) 
+{ 
+    name = readString ( "Enter your name : " ); 
+    age = readInt ( "Enter your age : ", 0, 100 ); 
+}
+The method readPerson reads the name and the age of a person. Note that it uses two more methods that I have created, readString and readInt.
+I can call readPerson as follows:
+string name; 
+int age; 
+readPerson ( out name, out age ) ;
+Note that I must use the out keyword in the call of the method as well.
+The readPerson method will read the person and deliver the information into the two variables.
+
+
+Local variables are all very well, but they disappear when the program execution leaves the block where they are declared. We often need to have variables that exist outside the methods in a class.
+Variables Local to a Method, consider the following code:
+class LocalExample 
+{ 
+    static void OtherMethod () 
+    { 
+        local = 99; // this will not compile 
+    } 
+    static void Main () 
+    { 
+        int local = 0; 
+        Console.WriteLine ("local is :" + local); 
+    } 
+}
+
+The variable local is declared and used within the Main method, and can’t be used anywhere else. If a statement in OtherMethod tries to use local the program will fail to compile.
+
+
+If I want to allow two methods in a class to share a variable I will have to make the variable a member of the class. This means declaring it outside the methods in the class:
+class MemberExample
+{ 
+    // the variable member is part of the class 
+    static int member = 0;
+    
+    static void OtherMethod () 
+    { 
+        member = 99; 
+    } 
+    static void Main () 
+    { 
+        Console.WriteLine ("member is : " + member); 
+        OtherMethod(); Console.WriteLine ("member is now : " + member); 
+    } 
+}
+
+The variable member is now part of the class MemberExample, and so the Main method and OtherMethod can both use this variable.
+
+
+Static class members
+If you make the data member of the class above (OtherMethod) static, you are making sure it is part of the class and not an instance of the class. 
+This is not something to worry about just now; we will investigate the precise meaning of static later on. For now you just have to remember to put in the static keyword, otherwise your program will not compile.
+One common programming mistake is to confuse static with const. Marking a variable as const means “the value cannot be changed”. 
+Marking a variable with static means “the variable is part of the class and is always present”. 
+If it helps you can think of static as something which is always with us, like the background static noise on your radio when you tune it off station. 
+Alternatively you can think of it as stationary, and therefore not going anywhere.
+
+C# provides us with a thing called an array. An array allows us to declare a whole row of a particular kind of box. We can then use things called subscripts to indicate which box in the row that we want to use. Consider the following:
+using System; class ArrayDemo { public static void Main () { int [] scores = new int [11] ; for ( int i=0; i<11; i=i+1) { scores [i] = readInt ( "Score : ", 0,1000); } } }
+The int [] scores part tells the compiler that we want to create an array variable. You can think of this as a tag which can be made to refer to a given array.
+C# numbers the boxes starting at 0. This means that you specify the element at the start of the array by giving the subscript 0.
+
+However, sometimes we want to hold more than just a row. Sometimes we want a grid. We can do this by creating a two dimensional array. You can think of this as an "array of arrays" if you like (but only if this doesn't make your head hurt). For example, to hold the board for a game of noughts and crosses (tic tac toe) we could use:
+int [,] board = new int [3,3]; board [1,1] = 1;
+This looks very like our one dimensional array, but there are some important differences. The [,] now has a comma. The presence of a comma implies something each side of it. This means that the array now has two dimensions, rather than just one.
+The first subscript could be used to specify which row and the second which column.
+
+
+Initialising arrays
+string[] monthNames = new string[] 
+{ 
+    null, // null element for non existent month 0 
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" 
+};
+A program can contain a list of initialisation values which are then used to create an array with the required content. Note that the initialisation process will even work out
+the length of the array automatically if required. You can also initialise 2D arrays as well. 
+int [,] squareWeights = new int [3,3] 
+{ 
+{1,0,1}, 
+{0,2,0}, 
+{1,0,1} 
+};
+
+We can make our programs deal with invalid text input to Parse by adding code that will catch the exceptions that Parse throws and try to fix the problem. In programming terms this is called “dynamic error handling” in that our program is responding to an error when it occurs. To do this we have to use a new C# construction, the try – catch clause. The try keyword is followed by a block of code. After the block of code comes the catch clause. If any of the statements following the try throws an exception the program runs the code in the catch clause to handle this error.
+int age; 
+try 
+{ 
+    age = int.Parse(ageString); 
+    Console.WriteLine("Thank you"); 
+} 
+catch 
+{ 
+    Console.WriteLine("Invalid age value"); 
+}
+Code Sample 17 Simple Exception Catching
+The code above uses Parse to decode the age string. However, the parse action takes place inside the try block. If the call of Parse throws an exception the code in the catch block runs and will display a message to the user. Note that once the exception has been thrown there is no return to the code in the try block
+
+When Parse fails it creates an exception object that describes the bad thing that has just happened (in this case input string not in the correct format). 
+The program above ignores the exception object and just registers to the exception event but we can improve the diagnostics of our program by catching the exception if we wish:
+
+int age; 
+try 
+{ 
+    age = int.Parse(ageString); 
+    Console.WriteLine("Thank you"); 
+} 
+
+catch (Exception e) 
+{   // Get the error message out of the exception 
+    Console.WriteLine(e.Message); 
+}
+
+
+The catch now looks like a method call, with the Exception e being a parameter to the method. This is exactly how it works. Within the catch clause the value of e is set to the exception that was thrown by Parse. The Exception type has a property called Message which contains a string describing the error. If a user types in an invalid string the program above will write the text in the exception, which contains the message:
+Input string was not in a correct format.
+This message is obtained from the exception that was thrown. This is useful if the code inside the try block could throw several different kinds of exception, since it means that the message reflects what has actually happened. The Exception object also contains other properties that can be useful.
+
+Programs can have multiple levels of try – catch, and the program will use the catch which matches the level of the code in the try block.
+
+Sometimes there are things that your program must do irrespective of whether or not an exception is thrown. These actions include things like closing files, releasing resources and generally tidying up. However, we know that when an exception is thrown the statements in the catch clause are called, and the program never returns to the try part of the program. The code in the catch clause could return from the method it is running within or even throw an exception itself. In these situations any code following your try – catch construction would not get the chance to run.
+Fortunately C# provides a solution to this problem by allowing you to add a finally clause to your try-catch construction. Statements inside the finally clause will run irrespective of whether or not the program in the try block throws an exception.
+
+finally 
+{ 
+    // Code that is obeyed whether an exception 
+    // is thrown or not 
+}
+
+C# contains a special construction to allow you to select one option from a number of them based on a particular value.
+switch (selection) 
+{ 
+    case 1 : 
+        handleCasement (); 
+        break ; 
+    case 2 : handleStandard ();
+    break ;
+    default : Console.WriteLine ( "Invalid number" ); 
+    break; 
+}
+
+You can also fall through with c# switch statements. ie it continues to execute until it finds a break.
+switch (command)
+{
+    case "casement" : 
+    case "c" : 
+        handleCasement (); 
+        break ;
+}
+
+You can use switch commands with things like strings in c# too.
+
+
+Streams and Files
+Like lots of the objects that deal with input and output, this object is defined in the System.IO namespace.
+You create a stream object just like you would create any other one, by using new. When the stream is created it can be passed the name of the file that is to be opened.
+StreamWriter writer ; writer = new StreamWriter("test.txt");
+Note that StreamWriter will overwrite the file test.txt, if it already exists.
+Once the stream has been created it can be written to by calling the write methods it provides.
+writer.WriteLine("hello world");
+The above statement calls the WriteLine method on the stream to make it write the text “hello world” into the file test.txt.
+
+When your program has finished writing to a stream it is very important that the stream is explicitly closed using the Close method:
+writer.Close();
+When the Close method is called the stream will write out any text to the file that is waiting to be written and disconnect the program from the file. Any further attempts to write to the stream will fail with an exception.
+
+
+Reading from a file is very similar to writing, in that the program will create a stream to do the actual work. In this case the stream that is used is a StreamReader.
+StreamReader reader = new StreamReader("Test.txt"); 
+string line = reader.ReadLine(); 
+Console.WriteLine (line);
+reader.Close();
+
+The above program connects a stream to the file Test.txt, reads the first line from the file, displays it on the screen and then close the stream. If the file can’t be found then the attempt to open it will fail and the program will throw an exception.
+the StreamReader object provides a property called EndOfStream which a program can use to determine when the end of the file has been reached. When the property becomes true the end of the file has been reached.
+
+StreamReader reader = new StreamReader("Test.txt"); 
+while (reader.EndOfStream == false) 
+{ 
+    string line = reader.ReadLine(); 
+    Console.WriteLine(line); 
+} 
+reader.Close();
+
+If you want to use a file in a different folder (which is a good idea, as data files are hardly ever held in the same place as programs run from) you can add path information to a filename:
+string path; 
+path = @"c:\data\2009\November\sales.txt";
+
+The backslash (\) characters in the string serve to separate the folders along the path to the file. Note that I have specified a string literal that doesn’t contain control characters (that is what the @ at the beginning of the literal means)
+
+Enumeration and states
+Enumerated sounds posh. But if you think of "enumerated" as just meaning "numbered" things get a bit easier. To understand what we are doing here we need to consider the problem which these types are intended to solve.
+We know that if we want to hold an integer value we can use an int type. If we want to hold something which is either true or false we can use a bool. However, sometimes we want to hold a range of particular values or states.
+
+Enumerated types are very useful when storing state information. States are not quite the same as other items such as the name of a customer or the balance of their account.
+For example, if I am writing a program to play the game Battleships (where squares of the "sea" hold different types of craft which can be attacked) I may decide that a given square of the sea can have the following thing in it:
+Empty sea
+Attacked
+Battleship
+Cruiser
+Submarine
+Rowing boat
+
+C# has a way in which we can create a type which has just a particular set of possible values. These types are called "enumerated types":
+enum SeaState 
+{ 
+    EmptySea, Attacked, Battleship, Cruiser, Submarine, RowingBoat 
+} ;
+I have created a type called SeaState which can be used to hold the state of a particular part of the sea. It can only have the given values above, and must be managed solely in terms of these named enumerations. For example I must write:
+SeaState openSea ; 
+openSea = SeaState.EmptySea;
+My variable openSea is only able to hold values which represent the state of the sea contents. Of course C# itself will actually represent these states as particular numeric values, but how these are managed is not a problem for me.
+The new enum type can be created outside any class and creates a new type for use in any of my programs
+
+
+Using Structure Types in Method Calls
+A method can have parameters of structure type:
+public void PrintAccount ( Account a ) 
+{ 
+    Console.WriteLine ( "Name: " + a.Name ); 
+    Console.WriteLine ( "Address: " + a.Address ); 
+    Console.WriteLine ( "Balance: " + a.Balance ); 
+}
+This method provides a quick way of printing out the contents of an account variable:
+PrintAccount (RobsAccount);
+
+It is also possible to create methods that return results which are of a structure type, for example we could create a ReadAccount method that reads an account and returns it.
 MVC
 
 Controller Actions are the public methods of the controller classes.
