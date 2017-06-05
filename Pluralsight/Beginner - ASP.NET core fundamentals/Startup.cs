@@ -52,10 +52,12 @@ namespace OdeToFood
         {
             loggerFactory.AddConsole();
 
-            if (env.IsDevelopment())
+            if (env.IsDevelopment())//This is a piece of middleware which is active when the app is in development mode. Useful for debugging
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseWelcomePage("/welcome");//This middleware only responds to the path: localhost:sxxx/welcome
 
             app.Run(async (context) =>
             {
