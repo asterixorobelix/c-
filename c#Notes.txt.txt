@@ -543,3 +543,19 @@ MVC
 
 Controller Actions are the public methods of the controller classes.
 The public keyword exposes members of a class to other classes. If a member is declared private, another class cannot access it.
+
+ASP.NET core 
+This is a web framework
+
+Dependency injection
+
+Inversion of control container
+http://joelabrahamsson.com/inversion-of-control-an-introduction-with-examples-in-net/
+
+Inversion of control is often explained in comparison to procedural programming. In procedural programming, code x which uses other code y, knows exactly which method, belonging to which class, is being used. 
+
+c# lambda expressions
+
+https://www.codeproject.com/Tips/1033646/SOLID-Principle-with-Csharp-Example
+http://www.c-sharpcorner.com/UploadFile/damubetha/solid-principles-in-C-Sharp/
+https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals/discussion
