@@ -57,7 +57,7 @@ namespace OdeToFood
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseWelcomePage("/welcome");//This middleware only responds to the path: localhost:sxxx/welcome
+            app.UseWelcomePage("/welcome");//This middleware only responds to the path: localhost:xxx/welcome
 
             app.Run(async (context) =>
             {
