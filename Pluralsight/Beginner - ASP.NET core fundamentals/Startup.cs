@@ -17,6 +17,7 @@ namespace OdeToFood
     {
 
         public Startup(IHostingEnvironment env){//constructor. Exucutes a bit of code before ConfigureServices and Configure execute
+            
             //Need to tell asp.net about your appsettings.json file
             //Asp.NET can pass in an object which uses the IHostingEnvironoment.
             //One of the things which you can do with a class which implements the Ihosting Environment, is ask for the content root path. This allows the hosting environment to dynamically determine where the content is.
@@ -52,12 +53,15 @@ namespace OdeToFood
         {
             loggerFactory.AddConsole();
 
-            if (env.IsDevelopment())//This is a piece of middleware which is active when the app is in development mode. Useful for debugging
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseWelcomePage("/welcome");//This middleware only responds to the path: localhost:xxx/welcome
+            app.UseWelcomePage(new WelcomePageOptions
+            {
+                Path="/welcome"
+            });
 
             app.Run(async (context) =>
             {
