@@ -2,13 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OdeToFood.Controllers//If the route names match the controller names and/or the action names match the action names, you can use tokens instead of explicit attributes.
 {
-    [Route("[controller]")]//the controller token tells the mvc framework that what you need to see in this position of the url is the name of the controller. In this case it is about.
+    [Route("[controller]/[action]")]//action token included in the top level route attribute. So, now the name of the action will reach the particular method. 
+    //the controller token tells the mvc framework that what you need to see in this position of the url is the name of the controller. In this case it is about.
     //Attribute based routing
                     //in order to reach this controller, the first part of the URL has to be /about
                     //requires AspNetCore.Mvc namespace
     public class AboutController
     {
-        [Route ("[action]")]//This way, if the name of the Phone method is changed to Telephone, nothing has to be changed for this route attribute. the required url would then automatically change to /about/telephone
+        //This way, if the name of the Phone method is changed to Telephone, nothing has to be changed for this route attribute. the required url would then automatically change to /about/telephone
         //in order to reach the phone action, the next part of the URL can be blank
 
         public string Phone()//This method will allow you to see the phone number of the company
@@ -16,7 +17,7 @@ namespace OdeToFood.Controllers//If the route names match the controller names a
             return "021 794 5470";
         }
 
-        [Route ("address")]//The only way to reach this action is if the url is: /about/address
+        //The only way to reach this action is if the url is: /about/address
         public string Address()//Action called Address which returns the address.
         {
             return "Canal Walk";
