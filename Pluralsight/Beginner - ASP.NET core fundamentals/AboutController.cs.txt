@@ -1,18 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace OdeToFood.Controllers
 {
+    [Route("about")]//Attribute based routing
+                    //in order to reach this controller, the first part of the URL has to be /about
+                    //requires AspNetCore.Mvc namespace
     public class AboutController
     {
+        [Route ("")]//in order to reach the phone action, the next part of the URL can be blank
 
         public string Phone()//This method will allow you to see the phone number of the company
         {
             return "021 794 5470";
         }
 
+        [Route ("address")]//The only way to reach this action is if the url is: /about/address
         public string Address()//Action called Address which returns the address.
         {
             return "Canal Walk";
