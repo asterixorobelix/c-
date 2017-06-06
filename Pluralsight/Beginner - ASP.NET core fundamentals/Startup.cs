@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;//namespace for ConfigurationBuilder
+using Microsoft.AspNetCore.Routing;
 //also need to add the Microsoft.Extensions.Configuration.FileExtensions dependency
 //also need the Microsoft.Extensions.Configuration.Json dependency
 
@@ -43,6 +44,7 @@ namespace OdeToFood
             services.AddSingleton(Configuration);//ASP.NET knows the type of Configuration and so, any object which needs IConfiguration, it will use the object on this line.
             services.AddSingleton<IGreeter, Greeter>();//This allows the implentation of the interface for the Greeter method. This is saying that whenever you see something which needs the IGreeter parameter, instantiate the Greeter class and pass in the IGreeter
             //Once again, this allows you to use different types of IGreeter. One could connect to a database or a json or whatever. Only this line knows what this particular IGreeter is connecting to.
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,28 +55,28 @@ namespace OdeToFood
         {
             loggerFactory.AddConsole();
 
-            if (env.IsDevelopment())
+            if (env.IsDevelopment())//checks to see if app is in the development environment
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseWelcomePage(new WelcomePageOptions
-            {
-                Path="/welcome"
-            });
+            app.UseStaticFiles();//serves Index.html file when give following HTTP request http://localhost:52939/index.html
+            //by default, it looks for static files in the wwwroot folder.
 
-            app.Run(async (context) =>
-            {
-                //instead of the hardcoded string below:
-                //await context.Response.WriteAsync("Hello World!!!!!!!!!!! Hello");
-                //doesnt want the code on the inside of the Configuration method to access the configuration source directly.
-                //Instead, you want the method to go through some application service. So, an object will retrieve the information. Need to add a class called Greeter.cs
+            app.UseMvc(ConfigureRoutes);//will look at an incoming http request and map that request to a method in a class
 
-                //Now, instead of going to configuration source, will now get the greeting from this greeter. That message will then be written into every http request
-                var message =greeter.GetGreeting();//Going into the Configuration property (builder.Build()) and then find the message based on the index in the appsettings.json file 
-                //So, will look for value associated with key of "Greeting"
-                await context.Response.WriteAsync(message);
-            });
+            //app.Run comes after UseMvc, so it will run if none of the routes match those in ConfigureRoutes.
+            app.Run(ctx => ctx.Response.WriteAsync("Not Found"));//If URL doesnt match anything, it will print out: Not Found
+        }
+
+        private void ConfigureRoutes(IRouteBuilder routeBuilder)
+        {
+            // /Home/Index
+            //Asp.net automatically adds controller to the Home part, and goes looking for a controller called HomeController.
+            //It then goes and looks for a public method called Index (action), which is inside the HomeController.
+            routeBuilder.MapRoute("Default",
+                "{controller}/{action}/{id?}");//The curly brackets denote a parameter. The mvc framework won't look for the word controller in the URL. Its going to say controller =Home 
+                //The question mark means that the parameter is optional.
         }
     }
 }

@@ -548,14 +548,63 @@ ASP.NET core
 This is a web framework
 
 Dependency injection
+Dependency Injection (DI) means that IoC is done without the object intervention, usually by a framework component that passes constructor parameters and set properties.
+What is a dependency? When we use another object to perform a certain task, we are creating a dependency on that object. That object might use other objects, too, so you are implicitly depending on those other objects, and they too might depend on other objects to do their work, and so on.
 
 Inversion of control container
 http://joelabrahamsson.com/inversion-of-control-an-introduction-with-examples-in-net/
 
 Inversion of control is often explained in comparison to procedural programming. In procedural programming, code x which uses other code y, knows exactly which method, belonging to which class, is being used. 
+Inversion of Control (IoC) means that objects do not create other objects on which they rely to do their work. Instead, they get the objects that they need from an outside source.
+
+What Is the Difference Between an Entity and a Service?
+Entity-An object which has a unique identity in the domain model of the application
+Service -An object which performs a distinct part of the application functionality
 
 c# lambda expressions
 
-https://www.codeproject.com/Tips/1033646/SOLID-Principle-with-Csharp-Example
+SOLID Design principles
+http://www.c-sharpcorner.com/UploadFile/damubetha/solid-principles-in-C-Sharp/
+
+SOLID is basically 5 principles, which will help to create a good software architecture. SOLID is an acronym of the following:
+
+S is single responsibility principle (SRP)
+O stands for open closed principle (OCP)
+L Liskov substitution principle (LSP)
+I interface segregation principle (ISP)
+D Dependency injection principle (DIP)
+
+Single responsibility principle (SRP)
+According to SRP, one class should take responsibility for only one thing, so that changes in one class do not affect other classes. Every software module should have only one reason for a change to be made to it.
+It does not mean that your classes should only contain one method or property. There may be many members as long as they relate to the single responsibility.
+
+Open closed principle (OCP)
+This means that a Class should be open for extension but closed for modification. In order to do this, you use inheritance rather than things like if statements in classes.
+Here "Open for extension" means, we need to design our module/class in such a way that the new functionality can be added only when new requirements are generated. "Closed for modification" means we have already developed a class and it has gone through unit testing. 
+Generally we can do this by referring to abstractions for dependencies, such as interfaces or abstract classes, rather than using concrete classes. Such interfaces can be fixed once developed so the classes that depend upon them can rely upon unchanging abstractions.
+Functionality can be added by creating new classes that implement the interfaces.
+
+Liskov substitution principle (LSP)
+This principle states that a Child class should not break a Parent class’s type definition and behavior. The Liskov Substitution Principle (LSP) states that "you should be able to use any derived class instead of a parent class and have it behave in the same manner without modification".
+It ensures that a derived class does not affect the behavior of the parent class, in other words that a derived class must be substitutable for its base class.
+A father is a doctor whereas his son wants to become a cricketer. So here the son can't replace his father even though they both belong to the same family hierarchy.
+
+Interface segregation principle (ISP)
+This principle states that a class should not be forced to use an interface which is irrelevant to it. Instead of one fat interface many small interfaces are preferred based on groups of methods, each one serving one sub module.
+An interface should be more closely related to the code which uses it than code which implements it. So the methods on the interface are defined by which methods the client code needs than which methods the class implements. So clients should not be forced to depend upon interfaces that they don't use.
+The larger the interface, the more likely it includes methods that not all implementers can do.
+An interface is defined as a syntactical contract that all the classes inheriting the interface should follow. The interface defines the 'what' part of the syntactical contract and the deriving classes define the 'how' part of the syntactical contract.
+https://www.tutorialspoint.com/csharp/csharp_interfaces.htm
+Interfaces define properties, methods, and events, which are the members of the interface. Interfaces contain only the declaration of the members. It is the responsibility of the deriving class to define the members. It often helps in providing a standard structure which the deriving classes would follow.
+
+Dependency inversion principle (DIP)
+This principle tells you not to write any tightly coupled code because that is a nightmare to maintain when the application grows bigger. If a class depends on another class, then we need to change one class if something changes in that dependent class. We should always try to write loosely coupled classes which avoid this problem.
+There are 3 types to DI, Constructor injection, Property injection and method injection.
+The Dependency Inversion Principle (DIP) states that high-level modules/classes should not depend upon low-level modules/classes. Both should depend upon abstractions. Secondly, abstractions should not depend upon details. Details should depend upon abstractions.
+High-level modules/classes implement business rules or logic in a system (application). Low-level modules/classes deal with more detailed operations, in other words they may deal with writing information to databases or passing messages to the operating system or services.
+A high-level module/class which has dependency on low-level modules/classes and knows a lot about the other classes it interacts with is said to be tightly coupled. When a class knows explicitly about the design and implementation of another class, it raises the risk that changes to one class will break the other class.
+
+http://joelabrahamsson.com/inversion-of-control-an-introduction-with-examples-in-net/
+
 http://www.c-sharpcorner.com/UploadFile/damubetha/solid-principles-in-C-Sharp/
 https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals/discussion
