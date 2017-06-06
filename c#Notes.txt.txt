@@ -158,6 +158,15 @@ You will have a template file that's a mix of some literal text and some blocks 
 With Razor syntax you can begin a bit of C# code by using the ‘@’ sign and the Razor parse will automatically switch into parsing this statement, for each statement, as a bit of C# code.
 The @ character can start inline expressions, single statement blocks and multi-statement blocks.
 Basically, the @ is just where c# code has been written in a file which contains html and is a .cshtml extension.
+Rendering HTML is done with the Razor view engine. To use this system, the controller action produces a ViewResult object, which can also carry the name of the specific razor view which the controller action wants to use. It can also carry a model object which it will consume.
+So, it can take something like a restaurant name held in a database somewhere and place that into html. All Razor views have the extension .cshtml.
+You start writing c# in a Razor View with an @. Razor then evaluates the c# expression and puts the result into the HTML.
+MVC takes the view and compiles it into a Class, which will have properties and members available. 
+eg @Model.Name //This gives you access to the name of the Restuarant placed into the Model object.
+You can supply Razor views with directives, which sets the type of the Model property in the RazorView.
+eg @model OdeToFood.ViewModels.HomePageViewModel 
+
+@*multiline comment in Razor*@
 
 The ViewBag syntax allows you to transfer temporary data from the controller to the view.
 
@@ -542,8 +551,23 @@ Unlike classes, structures cannot inherit from other structures.
 
 MVC
 
-Controller Actions are the public methods of the controller classes.
-The public keyword exposes members of a class to other classes. If a member is declared private, another class cannot access it.
+Controller Actions are the public methods of the controller classes. The public keyword exposes members of a class to other classes. If a member is declared private, another class cannot access it.
+The Controller invokes classes based on the incoming http request which goes through the router middleware; converting the URL into arguments for the classes.
+The directory structure matches the namespace structure in ASP. So, if you move a file from the folder called models, to the folder called entities, the namespace will change from: namespace OdeToFood.Models to: namespace OdeToFood.Entities
+This means that some of the using statements will have to change as well. 
+
+Routing
+
+There are two types of routing, Convention based routing and Attribute based routing. Convetion based routing is defined in the startup.cs file by default. Attribute based routing is defined in the Controller files.
+
+Convention based routing - templates tell MVC how to look at at a URL and obtain an action name (public method in a class) and a controller name (which is a class).
+Attribute based routing - c# attributes which have been placed on the controller classes and methods of those classes provide metadata to ASP.NET which determines which class and method to call.
+Convetiona and attribute routing can be combined. Attribute based routing generally works best for special case routes or actions which need some extra parameters.
+
+IActionResult
+It is common to derive your classes from a base class provided by the MVC framework. This gives you access to inherited methods. These derived classes typically use the IActionResult interface. An IActionResult is a formal way to encapsulate the decision of the controller. eg> It ihas decided to return content, but it could also return HTML,JSON or XML.
+The controller decides what to do next and then the MVC framework works out how to render it. This higher level of abstraction is preferred over the controller deciding what to do and then doing the action as well. eg: when middleware or some other component pushes HTML out.
+
 
 ASP.NET core 
 This is a web framework
@@ -609,3 +633,21 @@ http://joelabrahamsson.com/inversion-of-control-an-introduction-with-examples-in
 
 http://www.c-sharpcorner.com/UploadFile/damubetha/solid-principles-in-C-Sharp/
 https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals/discussion
+
+Relational Database
+A relational database is a digital database whose organization is based on the relational model of data.
+
+Relational model
+The relational model organizes data into one or more tables (or "relations") of columns and rows, with a unique key identifying each row. The rows represent instances of that type of entity (such as "Lee" or "chair") and the columns representing values attributed to that instance (such as address or price).
+The standard user and application program interface to a relational database is the structured query language (SQL).
+A relational database is a set of tables containing data fitted into predefined categories. Each table (which is sometimes called a relation) contains one or more data categories in columns. Each row contains a unique instance of data for the categories defined by the columns. For example, a typical business order entry database would include a table that described a customer with columns for name, address, phone number, and so forth. Another table would describe an order: product, customer, date, sales price, and so forth. A user of the database could obtain a view of the database that fitted the user's needs. For example, a branch office manager might like a view or report on all customers that had bought products after a certain date. 
+
+Language-Integrated Query(LINQ)
+LINQ is set of extensions to the .Net Framework 3.5 which can be used for relational databases. LINQ applies the principles of object-oriented programming to relational data. It provides a unified programming model for querying data from different types of data sources, and extends data capabilities directly into the C# and Visual Basic languages. It defines a common syntax and a programming model to query different types of data using a common language.
+
+Entity model vs viewModel
+A database stores specific pieces of information eg Name, Address
+Somewhere else in the app, there may be a view which requires the information from the database and also additional information (such as all the possible names which the database can store).
+There are two ways of dealing with this:
+1. Entity model - an entity is an object which you use to persist (store) information in the database. The EF stores the information and only the information in the database.
+2. View model, also called a Data Transfer Object (DTO) - object which carries information from the controller into the view. It contains everything which a view will need to render the html. This might require more information than is in the database. The DTO can hand information to the EF in order to save it in the database.
