@@ -4,12 +4,13 @@ using OdeToFood.Models;//required to instantiate a new Restaurant.
 namespace OdeToFood.Controllers
 {
     public class HomeController: Controller //this controller inherits from a base class called Controller, provided by the MVC framework
-    {
-        public IActionResult Index()
+    {//when you render a view from a Controller called Home, mvc looks inside a folder called Views for a folder called home (which are the views associated with the controller called home).
+        public IActionResult Index()//It will then look for a view inside in this case /views/home/Index, because we returned the View from the Index action.
         {
             var model = new Restaurant{ ID = 1, Name = "The House of Kobe" };//instantiating your model, which is a restaurant. Also giving it some initial properties
-            return new ObjectResult(model);//returning a new object result. Which must be explicitly instantiated. Then, passing the model into the object result.
-            //The MVC framework looks at the ObjectResult and the model inside and decides how to represent it in the http response. eg(xml, json or some other format). Default is a json response
+            //return View();//A View result implements IActionResult. View is being invoked without any parameters.
+            //if we had return View("Home"); then the fact that we added the "Home" parameter would mean that it would look for the Home view, even though the View was returned from the Index action.
+            return View(model);
         }
     }
 }
