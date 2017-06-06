@@ -651,3 +651,8 @@ Somewhere else in the app, there may be a view which requires the information fr
 There are two ways of dealing with this:
 1. Entity model - an entity is an object which you use to persist (store) information in the database. The EF stores the information and only the information in the database.
 2. View model, also called a Data Transfer Object (DTO) - object which carries information from the controller into the view. It contains everything which a view will need to render the html. This might require more information than is in the database. The DTO can hand information to the EF in order to save it in the database.
+
+ConfigurationBuilder
+In ASP.NET Core, it is possible to read settings from different sources like XML, JSON and INI files.
+The configuration API provides a way of configuring an app based on a list of name-value pairs which can be read at runtime from multiple sources. The name-value pairs can be grouped into a multi-level hierarchy. 
+If you wish to leverage JSON files for your configuration, just add the Microsoft.Extensions.Configuration.Json NuGet package.

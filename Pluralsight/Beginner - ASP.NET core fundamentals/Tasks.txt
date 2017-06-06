@@ -1,0 +1,14 @@
+Building your First ASP.NET Core Application
+
+Create a new ASP.NET Core Web Application and give it a name. Choose the empty template.
+Run the app
+Note: ctrl+f5 runs the app without the debugger, so the window can stay open in the browser and you just click refresh to see effect of changes
+Make the app display "Helloooo world!!!!" instead of "Hello World!"
+Startup is now the one and only place to start up your web application. ASP.NET Core apps require a Startup class, and this class configures the request pipeline which handles all requests made to the application.
+You can define separate Startup classes for different environments, and the appropriate one will be selected at runtime. The Startup class constructor can accept dependencies which are provided through dependency injection. You can use IHostingEnvironment to set up configuration sources and ILoggerFactory to set up logging providers.
+The Startup class must include a Configure method and can optionally include a ConfigureServices method, both of which are called when the application starts.
+Move the hardcoded string Hello World into a configuration file, where you can change the greeting without changing the source code of startup.cs - pick asp.net configuration file and call it appsettings.json
+Add a constructor called Startup and use it to tell asp.net about your appsettings.json configuration file, using configurationBuilder. You will have to use NuGet too.
+In order to load the json file, asp needs to know where it is on the file system. You want to use injection for this, rather than hard coding it in.
+You also need to build your configuration.
+Create a Greeter class service. Use an interface. 
