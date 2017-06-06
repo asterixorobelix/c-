@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using OdeToFood.Entities;
+
+namespace OdeToFood.Services
+{
+    public interface IRestaurantData //both the inMemory restaurant data and the sql restaurant data will use the same interface.
+    {
+        IEnumerable<Restaurant> GetAll(); //defining a method called GetAll, will return an IEnumerable of Restaurant. Requires that you bring in the OdeToFood.Models namespace. 
+    
+    }
+    public class InMemoryRestaurantData : IRestaurantData //Going to hold the restaurant data in memory for now. Later, will connect to sql server and store restaurant data in sql.
+    {
+        public InMemoryRestaurantData()//The constructor for the InMemoryRestaurantData class
+        {
+            _restaurants = new List<Restaurant>//initializing restaurants to a new list of Restaurants
+            {
+                new Restaurant {ID = 1, Name="The House of Kobe" },//adding restaurants to the list
+                new Restaurant {ID = 2, Name = "LJ's and the Kat"},
+                new Restaurant {ID=3,Name = "Kings Contrivance"}
+            };
+        }
+        public IEnumerable<Restaurant> GetAll()
+        {
+            
+            {
+                return _restaurants;//will return the list of restaurants
+            }
+        }
+
+        List<Restaurant> _restaurants;//maintaining as a private field a list of Restaurant, which we are calling _restaurants.
+    }
+}

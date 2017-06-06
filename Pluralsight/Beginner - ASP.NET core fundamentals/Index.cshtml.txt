@@ -1,7 +1,7 @@
 @*model OdeToFood.Models.Restaurant*@ 
     @*above expects only one restaurant, not a list*@
 
-@model IEnumerable<OdeToFood.Models.Restaurant>
+@model OdeToFood.ViewModels.HomePageViewModel
 
 @*This is a comment: model type, should be an object of type Restaurant, from the Models object in OdeToFood lowercase sets the type of your model.*@
 
@@ -11,9 +11,9 @@
 </head>
 <body>
     <h1>Welcome</h1>
-
+    <h3>@Model.CurrentMessage</h3>
     <table>
-        @foreach (var restaurant in Model)//switches into c# here
+        @foreach (var restaurant in Model.Restaurants)//Restaurants of the model
         {
             <tr>@*switches back into html here*@
                 <td>@restaurant.ID</td>
