@@ -1,13 +1,15 @@
 using Microsoft.AspNetCore.Mvc;//this namespace is required for the inheritance from the Controller base class
+using OdeToFood.Models;//required to instantiate a new Restaurant.
 
 namespace OdeToFood.Controllers
 {
     public class HomeController: Controller //this controller inherits from a base class called Controller, provided by the MVC framework
     {
-        public IActionResult Index()//returns an IActionResult
+        public IActionResult Index()
         {
-            
-            return Content( "Hello from the HomeController");//Content is a type of IActionResult
+            var model = new Restaurant{ ID = 1, Name = "The House of Kobe" };//instantiating your model, which is a restaurant. Also giving it some initial properties
+            return new ObjectResult(model);//returning a new object result. Which must be explicitly instantiated. Then, passing the model into the object result.
+            //The MVC framework looks at the ObjectResult and the model inside and decides how to represent it in the http response. eg(xml, json or some other format). Default is a json response
         }
     }
 }
