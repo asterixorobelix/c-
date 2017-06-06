@@ -1,3 +1,7 @@
+@model OdeToFood.Models.Restaurant 
+
+@*This is a comment: model type, should be an object of type Restaurant, from the Models object in OdeToFood lowercase sets the type of your model.*@
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Ode To Food</title>

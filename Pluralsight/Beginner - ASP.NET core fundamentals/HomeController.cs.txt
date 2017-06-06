@@ -10,7 +10,7 @@ namespace OdeToFood.Controllers
             var model = new Restaurant{ ID = 1, Name = "The House of Kobe" };//instantiating your model, which is a restaurant. Also giving it some initial properties
             //return View();//A View result implements IActionResult. View is being invoked without any parameters.
             //if we had return View("Home"); then the fact that we added the "Home" parameter would mean that it would look for the Home view, even though the View was returned from the Index action.
-            return View(model);
+            return View(model);//the model is just an object which carries the information to the View.
         }
     }
 }
