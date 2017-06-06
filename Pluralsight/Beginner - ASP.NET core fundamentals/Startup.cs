@@ -74,9 +74,12 @@ namespace OdeToFood
             // /Home/Index
             //Asp.net automatically adds controller to the Home part, and goes looking for a controller called HomeController.
             //It then goes and looks for a public method called Index (action), which is inside the HomeController.
+            //This is called convention based routing
             routeBuilder.MapRoute("Default",
-                "{controller}/{action}/{id?}");//The curly brackets denote a parameter. The mvc framework won't look for the word controller in the URL. Its going to say controller =Home 
-                //The question mark means that the parameter is optional.
+                "{controller=Home}/{action=Index}/{id?}");//The curly brackets denote a parameter. The mvc framework won't look for the word controller in the URL. Its going to say controller =Home 
+                 //The question mark means that the parameter is optional.
+              //Its also saying, that if you do not find a controller in the URL, the default is Controller=Home. The same for Index
+              //So, now localhost:51791, localhost:51791/home and localhost:51791/home all reach the same page.
         }
     }
 }

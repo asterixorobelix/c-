@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace OdeToFood.Controllers
+{
+    public class AboutController
+    {
+
+        public string Phone()//This method will allow you to see the phone number of the company
+        {
+            return "021 794 5470";
+        }
+
+        public string Address()//Action called Address which returns the address.
+        {
+            return "Canal Walk";
+        }
+        
+    }
+}
