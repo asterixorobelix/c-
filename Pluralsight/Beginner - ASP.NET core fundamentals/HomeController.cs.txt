@@ -1,0 +1,13 @@
+using Microsoft.AspNetCore.Mvc;//this namespace is required for the inheritance from the Controller base class
+
+namespace OdeToFood.Controllers
+{
+    public class HomeController: Controller //this controller inherits from a base class called Controller, provided by the MVC framework
+    {
+        public IActionResult Index()//returns an IActionResult
+        {
+            
+            return Content( "Hello from the HomeController");//Content is a type of IActionResult
+        }
+    }
+}
