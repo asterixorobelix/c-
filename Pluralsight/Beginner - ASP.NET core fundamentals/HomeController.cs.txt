@@ -1,15 +1,21 @@
 using Microsoft.AspNetCore.Mvc;//this namespace is required for the inheritance from the Controller base class
 using OdeToFood.Models;//required to instantiate a new Restaurant.
+using OdeToFood.Services;
 
 namespace OdeToFood.Controllers
 {
     public class HomeController: Controller //this controller inherits from a base class called Controller, provided by the MVC framework
     {//when you render a view from a Controller called Home, mvc looks inside a folder called Views for a folder called home (which are the views associated with the controller called home).
+
+        private IRestaurantData _restaurantData;
+
+        public HomeController(IRestaurantData restaurantData)//constructor. Requires that you bring in the OdeToFood.Services namespace
+        {
+            _restaurantData = restaurantData;
+        }
         public IActionResult Index()//It will then look for a view inside in this case /views/home/Index, because we returned the View from the Index action.
         {
-            var model = new Restaurant{ ID = 1, Name = "The House of Kobe" };//instantiating your model, which is a restaurant. Also giving it some initial properties
-            //return View();//A View result implements IActionResult. View is being invoked without any parameters.
-            //if we had return View("Home"); then the fact that we added the "Home" parameter would mean that it would look for the Home view, even though the View was returned from the Index action.
+            var model = _restaurantData.GetAll();//please give me all the restaurants
             return View(model);//the model is just an object which carries the information to the View.
         }
     }
