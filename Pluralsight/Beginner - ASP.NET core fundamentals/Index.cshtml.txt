@@ -3,6 +3,6 @@
     <title>Ode To Food</title>
 </head>
 <body>
-    <h1>Hello from a view</h1>
+    <h1>@Model.Name</h1>
 </body>
 </html>
