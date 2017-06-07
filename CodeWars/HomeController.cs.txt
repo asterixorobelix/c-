@@ -1,0 +1,13 @@
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace VolumeOfCuboid.Controllers //the .Controllers part is due to the fact that the HomeController file has been placed into the Controllers folder.
+{
+    public class HomeController : Controller //Inherits from the MVC controller. Requires Microsoft.AspNetCore.Mvc NuGet package or "using Microsoft.AspNetCore.Mvc" statement.
+    {
+        //interface, which is the action result for the HomeController.
+    }
+}

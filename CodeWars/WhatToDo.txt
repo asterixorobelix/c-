@@ -1,3 +1,10 @@
-1. Add routing information - IRouteBuilder
-2. Add Razor view
-3. UseStaticFiles
+Startup.cs page
+Add routing information - IRouteBuilder
+UseStaticFiles
+
+Controller
+HomeController 
+
+view
+.cshtml file
+Use Razor in this file
