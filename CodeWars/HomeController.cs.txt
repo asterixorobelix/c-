@@ -8,6 +8,23 @@ namespace VolumeOfCuboid.Controllers //the .Controllers part is due to the fact 
 {
     public class HomeController : Controller //Inherits from the MVC controller. Requires Microsoft.AspNetCore.Mvc NuGet package or "using Microsoft.AspNetCore.Mvc" statement.
     {
-        //interface, which is the action result for the HomeController.
+        private IGreeter _greeter;
+
+        //constructor
+        public HomeController(IGreeter greeter)//constructor. Requires that you bring in the OdeToFood.Services namespace
+        {
+           _greeter = greeter;
+        }
+
+        //interface, which is the action result for the HomeController. The interface will return an IActionResult. Must be a public action because it is an interface.
+
+        public IActionResult Index()
+        {
+            var model = new HomePageViewModel();
+
+            model.CurrentMessage = _greeter.GetGreeting();
+
+            return View(model);
+        }
     }
 }
