@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace VolumeOfCuboid.Services
+{   
+    //Interface called IGreeter which gets a greeting
+    public interface IGreeter
+    {
+        string GetGreeting();
+    }
+
+    //class Greeter, which inherits from the interface IGreeter.
+    public class Greeter : IGreeter
+    {
+        //private variable called _greeting
+        private string _greeting;
+
+        //public method to get the greeting from somewhere
+
+        //Implementation of GetGreeting
+        public string GetGreeting()
+        {
+            return _greeting;//returns the string in contained in _greeting
+        }
+    }
+}
