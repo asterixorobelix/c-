@@ -587,6 +587,17 @@ Entity-An object which has a unique identity in the domain model of the applicat
 Service -An object which performs a distinct part of the application functionality
 
 c# lambda expressions
+A lambda expression describes a pattern. From mathematics, the lambda calculus describes the world in patterns. In C# a lambda is a function that uses clear and short syntax.
+x => x + 1
+To the left, we have arguments. The "x" is just a name—we can use any valid name. The result is on the right.
+We pass lambda expressions as arguments, for sorting or for searching.
+The => operator can be read as "goes to." It is always used when declaring a lambda expression.
+We can achieve the same thing with regular, non-lambda methods. But they make a language easier to use, more "expressive."
+Lambda expressions are particularly helpful for writing LINQ query expressions.
+To create a lambda expression, you specify input parameters (if any) on the left side of the lambda operator =>, and you put the expression or statement block on the other side. For example, the lambda expression x => x * x specifies a parameter that’s named x and returns the value of x squared.
+
+Anonymous functions
+These are functions which have no names.
 
 SOLID Design principles
 http://www.c-sharpcorner.com/UploadFile/damubetha/solid-principles-in-C-Sharp/
