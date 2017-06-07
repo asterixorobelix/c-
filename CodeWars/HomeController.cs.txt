@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using VolumeOfCuboid.Services;
+using VolumeOfCuboid.ViewModels;
 
 namespace VolumeOfCuboid.Controllers //the .Controllers part is due to the fact that the HomeController file has been placed into the Controllers folder.
 {
@@ -17,7 +18,7 @@ namespace VolumeOfCuboid.Controllers //the .Controllers part is due to the fact 
 
         public IActionResult Index()
         {
-            var model = new HomePageViewModel();//need to create a viewModel for this
+            var model = new HomePageViewModel();//need to create a viewModel for this. Requires "using VolumeOfCuboid.ViewModels;" statement
 
             model.CurrentMessage = _greeter.GetGreeting();
 
