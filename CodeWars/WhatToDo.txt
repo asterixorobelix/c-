@@ -6,5 +6,5 @@ Controller
 HomeController 
 
 view
-.cshtml file
-Use Razor in this file
+HomePageViewModel - takes info from HomepageView to HomeController
+View - .cshtml file.Use Razor in this file

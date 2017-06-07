@@ -1,0 +1,11 @@
+using OdeToFood.Entities;
+using System.Collections.Generic;
+
+namespace OdeToFood.ViewModels
+{
+    public class HomePageViewModel//properties which the ViewModel needs for the HomePage
+    {
+        public string CurrentMessage { get; set; }
+        public IEnumerable<Restaurant> Restaurants { get; set; }
+    }
+}
