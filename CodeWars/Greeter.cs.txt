@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace VolumeOfCuboid.Services
-{   
+{
     //Interface called IGreeter which gets a greeting
     public interface IGreeter
     {
@@ -18,6 +15,10 @@ namespace VolumeOfCuboid.Services
         private string _greeting;
 
         //public method to get the greeting from somewhere
+        public Greeter(IConfiguration configuration)//requires a statement of "using Microsoft.Extensions.Configuration;"
+        {
+            _greeting = configuration["Greeting"];//gets the greeting from the configuration object (which is the appsettings.json file), then finds the value corresponding to the key of "Greeting"
+        }
 
         //Implementation of GetGreeting
         public string GetGreeting()
