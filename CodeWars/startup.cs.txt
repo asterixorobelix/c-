@@ -35,7 +35,7 @@ namespace VolumeOfCuboid
             services.AddSingleton(Configuration);
 
             //add the mvc routing. Requires that you add the Microsoft.AspNetCore.Routing NuGet package 
-            services.AddMvc();
+            services.AddMvc();//requires microsoft.aspnetcore.mvc NuGet package
 
         }
 
@@ -52,7 +52,7 @@ namespace VolumeOfCuboid
             }
 
             //lets the app serve up static files
-            app.UseStaticFiles();
+            app.UseStaticFiles();//requires Microsoft.AspNetCore.StaticFiles NuGet package
 
             //let the app use mvc routing template
             app.UseMvc(ConfigureRoutes);
@@ -65,7 +65,8 @@ namespace VolumeOfCuboid
 
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
         {
-
+            routeBuilder.MapRoute("Default",
+                "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }
