@@ -34,6 +34,9 @@ namespace VolumeOfCuboid
             //add the mvc routing. Requires that you add the Microsoft.AspNetCore.Routing NuGet package 
             services.AddMvc();//requires microsoft.aspnetcore.mvc NuGet package
 
+            //add the Greeter service
+            services.AddSingleton<IGreeter, Greeter>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
