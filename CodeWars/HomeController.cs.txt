@@ -1,8 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using VolumeOfCuboid.Services;
 
 namespace VolumeOfCuboid.Controllers //the .Controllers part is due to the fact that the HomeController file has been placed into the Controllers folder.
 {
@@ -11,7 +8,7 @@ namespace VolumeOfCuboid.Controllers //the .Controllers part is due to the fact 
         private IGreeter _greeter;
 
         //constructor
-        public HomeController(IGreeter greeter)//constructor. Requires that you bring in the OdeToFood.Services namespace
+        public HomeController(IGreeter greeter)//constructor. Requires that you bring in the VolumeOfCuboid.Services namespace
         {
            _greeter = greeter;
         }
@@ -20,7 +17,7 @@ namespace VolumeOfCuboid.Controllers //the .Controllers part is due to the fact 
 
         public IActionResult Index()
         {
-            var model = new HomePageViewModel();
+            var model = new HomePageViewModel();//need to create a viewModel for this
 
             model.CurrentMessage = _greeter.GetGreeting();
 
