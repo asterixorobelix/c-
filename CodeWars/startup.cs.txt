@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Routing;
+
+namespace VolumeOfCuboid
+{
+    public class Startup
+    {
+        //constructor for the Startup class
+        public Startup(IHostingEnvironment env)//constructor utilizes the IHostingEnvironment interface, creates an instance called env
+        {
+            var builder = new ConfigurationBuilder()//using Microsoft.Extensions.Configuration;
+                .SetBasePath(env.ContentRootPath)//you are telling mvc where the contentRoot path is, without hardcoding it
+                .AddJsonFile("appsettings.json");//telling it the name of the file from which to get the configuration settings.
+
+            Configuration = builder.Build();//needs to know the type of Configuration
+
+        }
+
+        //public property which sets the type of Configuration
+        public IConfiguration Configuration { get; set; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //add the Configuration service
+            services.AddSingleton(Configuration);
+
+            //add the mvc routing. Requires that you add the Microsoft.AspNetCore.Routing NuGet package 
+            services.AddMvc();
+
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, 
+            IHostingEnvironment env, 
+            ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddConsole();
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            //lets the app serve up static files
+            app.UseStaticFiles();
+
+            //let the app use mvc routing template
+            app.UseMvc(ConfigureRoutes);
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Hello World!");
+            });
+        }
+
+        private void ConfigureRoutes(IRouteBuilder routeBuilder)
+        {
+
+        }
+    }
+}
