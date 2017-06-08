@@ -13,7 +13,7 @@
     <h1>Welcome</h1>
     <h3>@Model.CurrentMessage</h3>
     <table>
-        @foreach (var restaurant in Model.Restaurants)//Restaurants of the model
+        @foreach (var restaurant in Model.Restaurants)//Restaurants of the model, which are coming from the HomePageViewModel
         {
             <tr>@*switches back into html here*@
                 <td>@restaurant.ID</td>

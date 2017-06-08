@@ -1,3 +1,5 @@
+//An entity is a class which is used to save data in a database. There are times when your entity is your viewmodel, but this normally only happens in simple applications.
+
 namespace OdeToFood.Entities
 {
     public class Restaurant

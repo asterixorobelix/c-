@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;//namespace for ConfigurationBuilder
 using Microsoft.AspNetCore.Routing;
+using OdeToFood.Services;
 //also need to add the Microsoft.Extensions.Configuration.FileExtensions dependency
 //also need the Microsoft.Extensions.Configuration.Json dependency
 
@@ -45,6 +46,10 @@ namespace OdeToFood
             services.AddSingleton<IGreeter, Greeter>();//This allows the implentation of the interface for the Greeter method. This is saying that whenever you see something which needs the IGreeter parameter, instantiate the Greeter class and pass in the IGreeter
             //Once again, this allows you to use different types of IGreeter. One could connect to a database or a json or whatever. Only this line knows what this particular IGreeter is connecting to.
             services.AddMvc();
+            //The HomeController should only program to the interface of RestaurantData.cs. In order to achieve this, we need to register a service. We can follow the IGreeter pattern which we used to register that service.
+            services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
+            //AddSingleton tells the framework that there should be one instance of the service for the entire application - every method and every component which needs an IGreeter will have the same method injected.
+            //The AddScoped tells the framework that there should be one instance of the service for each http request - a new IRestaurantData will be instantiated for each http request. ie: multiple users of the app
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

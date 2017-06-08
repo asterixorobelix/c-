@@ -7,9 +7,11 @@ namespace OdeToFood.Controllers
     public class HomeController: Controller //this controller inherits from a base class called Controller, provided by the MVC framework
     {//when you render a view from a Controller called Home, mvc looks inside a folder called Views for a folder called home (which are the views associated with the controller called home).
 
+        //These private variables allow for the data which they carry to be accessible within the HomeController class, but not outside of it.
         private IRestaurantData _restaurantData;
         private IGreeter _greeter;
 
+        //injecting IRestaurantData and IGreeter
         public HomeController(IRestaurantData restaurantData, IGreeter greeter)//constructor. Requires that you bring in the OdeToFood.Services namespace
         {
             _restaurantData = restaurantData;

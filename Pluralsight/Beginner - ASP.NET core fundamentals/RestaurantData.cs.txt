@@ -1,3 +1,5 @@
+//We are creating this Restaurant data service so that a controller can use it to access restaurant information. So then the controller doesn't have to have the restaurant data inside itself. 
+
 using System.Collections.Generic;
 using OdeToFood.Entities;
 
@@ -8,7 +10,8 @@ namespace OdeToFood.Services
         IEnumerable<Restaurant> GetAll(); //defining a method called GetAll, will return an IEnumerable of Restaurant. Requires that you bring in the OdeToFood.Models namespace. 
     
     }
-    public class InMemoryRestaurantData : IRestaurantData //Going to hold the restaurant data in memory for now. Later, will connect to sql server and store restaurant data in sql.
+    public class InMemoryRestaurantData : IRestaurantData //Going to hold the restaurant data in memory for now. Later, will connect to sql server and store restaurant data in sql. Implements the IRestaurantData interface
+	//The IEnumerable infterface facilitates the use of the foreach statement to iterate through a set of Data in a collection. So, we can implement the IEnumerable interface with our own custom collection classes.
     {
         public InMemoryRestaurantData()//The constructor for the InMemoryRestaurantData class
         {

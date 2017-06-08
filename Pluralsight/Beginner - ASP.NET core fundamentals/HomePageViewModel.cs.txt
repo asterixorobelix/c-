@@ -1,3 +1,7 @@
+//A view might require more data than the database provides.
+//For example, all possible cuisine types which the Restaurants can have. This is even if there aren't Restaurants with that cuisine type in the Database yet. 
+//This might be because you want the user to choose from a dropdown list when adding a new restaurant to the database. The Homecontroller should just provide to the view the data (a model) which the view 
+
 using OdeToFood.Entities;
 using System.Collections.Generic;
 
@@ -5,7 +9,7 @@ namespace OdeToFood.ViewModels
 {
     public class HomePageViewModel//properties which the ViewModel needs for the HomePage
     {
-        public string CurrentMessage { get; set; }
-        public IEnumerable<Restaurant> Restaurants { get; set; }
+        public string CurrentMessage { get; set; }//This string will carry the current message to the view
+        public IEnumerable<Restaurant> Restaurants { get; set; }//this will carry the list of restaurants to the view
     }
 }
