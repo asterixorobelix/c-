@@ -4,8 +4,8 @@ Services - Greeter.cs
 ViewModels - HomePageViewModel.cs
 Views - Home - Index.cshtml
 appsettings.json
-Program.cs - added by default
-Startup.cs - added by default
+Program.cs - added by default in .netCore app
+Startup.cs - added by default .netCore app
 
 Startup.cs page
 Add routing information - IRouteBuilder
