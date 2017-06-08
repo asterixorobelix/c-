@@ -1,0 +1,15 @@
+Answers
+
+What is the .Net framework?
+The .NET framework is a shared library of code and a virtual machine runtime environment. A framework is basically code which you can use without explicitly defining the code's meaning.
+For example, other classes can inherit from the IEnumerables interface, but this interface has been defined by others and I don't have to explicitly make this definition available.
+What is a namespace?
+A namespace is where the meaning of a term has been defined.
+What is a class?
+What does the new operator do?
+How do you cast in c#?
+How is i++ different to ++i?
+What is the definition of a method?
+What is the definition of a parameter?
+What is the definition of an argument?
+What does enumerated mean in c#?
