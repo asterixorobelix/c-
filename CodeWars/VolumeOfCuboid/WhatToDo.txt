@@ -17,3 +17,6 @@ HomeController
 view
 HomePageViewModel - takes info from HomepageView to HomeController
 View - .cshtml file.Use Razor in this file
+
+This is up to Rendering Views, in Section 4 of the Controllers in MVC Framework of the PluralSight asp.net core fundamentals with scott allen (probably about half way).
+Although, the volume of cuboid code does not have a model. So, at the moment, it is getting the data for the string from the appsettings.json
