@@ -27,5 +27,14 @@ namespace OdeToFood.Controllers
 
             return View(model);//the model is just an object which carries the information to the View.
         }
+			//View models can be used as inputs or outputs to a controller action
+			//in this method, we want to show the details of a specific restaurant, so that they may be changed by the user. 
+        public string Details(int ID)//This action will show the details of a specific restaurant, rather than all the restaurants, like the Index view shows.
+            //Since this will require an input parameter (which restaurant's details do you want to see?). The ID parameter will be used to uniquely identify the restaurant.
+            //An input model will be required for this. 
+        {
+            return ID.ToString();//for right now, its just returning a string which it has gotten from the ID parameter of the URL
+            //http://localhost:52939/home/details/2 returns a string of 2
+        }
     }
 }
