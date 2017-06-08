@@ -8,10 +8,11 @@ namespace OdeToFood.Services
     public interface IRestaurantData //both the inMemory restaurant data and the sql restaurant data will use the same interface.
     {
         IEnumerable<Restaurant> GetAll(); //defining a method called GetAll, will return an IEnumerable of Restaurant. Requires that you bring in the OdeToFood.Models namespace. 
-    
+                                          //The IEnumerable infterface facilitates the use of the foreach statement to iterate through a set of Data in a collection. So, we can implement the IEnumerable interface with our own custom collection classes.
+        Restaurant Get(int ID);//There is a method Get, which takes an integer ID and returns a Restaurant 
+
     }
     public class InMemoryRestaurantData : IRestaurantData //Going to hold the restaurant data in memory for now. Later, will connect to sql server and store restaurant data in sql. Implements the IRestaurantData interface
-	//The IEnumerable infterface facilitates the use of the foreach statement to iterate through a set of Data in a collection. So, we can implement the IEnumerable interface with our own custom collection classes.
     {
         public InMemoryRestaurantData()//The constructor for the InMemoryRestaurantData class
         {
@@ -21,6 +22,11 @@ namespace OdeToFood.Services
                 new Restaurant {ID = 2, Name = "LJ's and the Kat"},
                 new Restaurant {ID=3,Name = "Kings Contrivance"}
             };
+        }
+
+        public Restaurant Get(int ID)//implmentation of the method called Restaurant.
+        {
+            //he is going to use a LINQ query for this, so you need the "using System.Linq" statement.
         }
         public IEnumerable<Restaurant> GetAll()
         {
