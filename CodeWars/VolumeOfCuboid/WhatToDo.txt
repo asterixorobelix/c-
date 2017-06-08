@@ -1,4 +1,5 @@
 Visual Studio directory structure
+
 Controllers - HomeController.cs
 Services - Greeter.cs
 ViewModels - HomePageViewModel.cs
@@ -8,8 +9,12 @@ Program.cs - added by default in .netCore app
 Startup.cs - added by default .netCore app
 
 Startup.cs page
-Add routing information - IRouteBuilder
-UseStaticFiles
+Specific configuration of your app.
+public property containing your configuration which you can inject into other methods.
+ServicesCollection which makes framework aware of services which exist.
+Middleware - set up in the Configure method.
+Private object, with a routing template, which can be injected into the MVC routing middleware.
+UseStaticFiles middleware
 
 Controller
 HomeController 

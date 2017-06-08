@@ -1,3 +1,57 @@
+Very NB concepts
+
+Interfaces
+Constructors
+Classes 
+Dependency Injection
+Controllers
+Entities
+Services
+Views
+ViewModels
+Objects vs properties
+
+https://docs.microsoft.com/en-us/dotnet/index
+https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/index
+https://docs.microsoft.com/en-us/dotnet/csharp/index
+https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/index
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
+
+c#
+
+C# is an object-oriented language, but C# further includes support for component-oriented programming. Contemporary software design increasingly relies on software components in the form of self-contained and self-describing packages of functionality. Key to such components is that they present a programming model with properties, methods, and events; they have attributes which provide declarative information about the component; and they incorporate their own documentation. C# provides language constructs to support directly these concepts, making C# a very natural language in which to create and use software components.
+Several C# features aid in the construction of robust and durable applications: Garbage collection automatically reclaims memory occupied by unreachable unused objects; exception handling provides a structured and extensible approach to error detection and recovery; and the type-safe design of the language makes it impossible to read from uninitialized variables, to index arrays beyond their bounds, or to perform unchecked type casts.
+C# has a unified type system. All C# types, including primitive types such as int and double, inherit from a single root object type. Thus, all types share a set of common operations, and values of any type can be stored, transported, and operated upon in a consistent manner. Furthermore, C# supports both user-defined reference types and value types, allowing dynamic allocation of objects as well as in-line storage of lightweight structures.
+
+The key organizational concepts in C# are programs, namespaces, types, members, and assemblies. C# programs consist of one or more source files. Programs declare types, which contain members and can be organized into namespaces. Classes and interfaces are examples of types. Fields, methods, properties, and events are examples of members.
+There are two kinds of types in C#: value types and reference types. Variables of value types directly contain their data whereas variables of reference types store references to their data, the latter being known as objects. With reference types, it is possible for two variables to reference the same object and thus possible for operations on one variable to affect the object referenced by the other variable. With value types, the variables each have their own copy of the data, and it is not possible for operations on one to affect the other (except in the case of ref and out parameter variables).
+C# programs use type declarations to create new types. A type declaration specifies the name and the members of the new type. Five of C#’s categories of types are user-definable: class types, struct types, interface types, enum types, and delegate types.
+A class type defines a data structure that contains data members (fields) and function members (methods, properties, and others). Class types support single inheritance and polymorphism, mechanisms whereby derived classes can extend and specialize base classes.
+A struct type is similar to a class type in that it represents a structure with data members and function members. However, unlike classes, structs are value types and do not typically require heap allocation. Struct types do not support user-specified inheritance, and all struct types implicitly inherit from type object.
+An interface type defines a contract as a named set of public function members. A class or struct that implements an interface must provide implementations of the interface’s function members. An interface may inherit from multiple base interfaces, and a class or struct may implement multiple interfaces.
+A delegate type represents references to methods with a particular parameter list and return type. Delegates make it possible to treat methods as entities that can be assigned to variables and passed as parameters. Delegates are analogous to function types provided by functional languages. They are also similar to the concept of function pointers found in some other languages, but unlike function pointers, delegates are object-oriented and type-safe.
+The class, struct, interface and delegate types all support generics, whereby they can be parameterized with other types.
+An enum type is a distinct type with named constants. Every enum type has an underlying type, which must be one of the eight integral types. The set of values of an enum type is the same as the set of values of the underlying type.
+C# supports single- and multi-dimensional arrays of any type. Unlike the types listed above, array types do not have to be declared before they can be used. Instead, array types are constructed by following a type name with square brackets. For example, int[] is a single-dimensional array of int, int[,] is a two-dimensional array of int, and int[][] is a single-dimensional array of single-dimensional array of int.
+C#’s type system is unified such that a value of any type can be treated as an object. Every type in C# directly or indirectly derives from the object class type, and object is the ultimate base class of all types. Values of reference types are treated as objects simply by viewing the values as type object. Values of value types are treated as objects by performing boxing and unboxing operations. In the following example, an int value is converted to object and back again to int.+
+
+Expressions are constructed from operands and operators. The operators of an expression indicate which operations to apply to the operands. Examples of operators include +, -, *, /, and new.
+new T(...): Object and delegate creation
+new T(...){...}: Object creation with initializer
+new {...}: Anonymous object initializer
+new T[...]: Array creation
+
+The using statement is used to obtain a resource, execute a statement, and then dispose of that resource.
+static void UsingStatement(string[] args) 
+{
+    using (TextWriter w = File.CreateText("test.txt")) 
+    {
+        w.WriteLine("Line one");
+        w.WriteLine("Line two");
+        w.WriteLine("Line three");
+    }
+}
 c# learning websites
 
 https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169?l=Lvld4EQIC_2706218949
@@ -667,3 +721,12 @@ ConfigurationBuilder
 In ASP.NET Core, it is possible to read settings from different sources like XML, JSON and INI files.
 The configuration API provides a way of configuring an app based on a list of name-value pairs which can be read at runtime from multiple sources. The name-value pairs can be grouped into a multi-level hierarchy. 
 If you wish to leverage JSON files for your configuration, just add the Microsoft.Extensions.Configuration.Json NuGet package.
+
+c# properties
+
+A property is a member that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and flexibility of methods.
+Properties overview
+Properties enable a class to expose a public way of getting and setting values, while hiding implementation or verification code.
+A get property accessor is used to return the property value, and a set property accessor is used to assign a new value. These accessors can have different access levels. For more information, see Restricting Accessor Accessibility.
+The value keyword is used to define the value being assigned by the set accessor.
+Properties can be read-write (they have both a get and a set accessor), read-only (they have a get accessor but no set accessor), or write-only (they have a set accessor, but no get accessor). Write-only properties are rare and are most commonly used to restrict access to sensitive data.
