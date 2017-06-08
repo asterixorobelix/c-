@@ -1,0 +1,19 @@
+Visual Studio directory structure
+Controllers - HomeController.cs
+Services - Greeter.cs
+ViewModels - HomePageViewModel.cs
+Views - Home - Index.cshtml
+appsettings.json
+Program.cs - added by default
+Startup.cs - added by default
+
+Startup.cs page
+Add routing information - IRouteBuilder
+UseStaticFiles
+
+Controller
+HomeController 
+
+view
+HomePageViewModel - takes info from HomepageView to HomeController
+View - .cshtml file.Use Razor in this file
