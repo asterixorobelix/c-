@@ -1,0 +1,12 @@
+Questions
+
+What is the .Net framework?
+What is a namespace?
+What is a class?
+What does the new operator do?
+How do you cast in c#?
+How is i++ different to ++i?
+What is the definition of a method?
+What is the definition of a parameter?
+What is the definition of an argument?
+What does enumerated mean in c#?
