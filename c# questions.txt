@@ -10,3 +10,44 @@ What is the definition of a method?
 What is the definition of a parameter?
 What is the definition of an argument?
 What does enumerated mean in c#?
+What are examples of types?
+What are examples of members?
+What is a field?
+What is a property?
+What is a variable?
+What are the two kinds of types? Give all the examples of the two types.
+What is the definition of a class?
+What is the definition of a struct?
+What is the definition of an interface?
+What is the definition of a delegate?
+What is the difference between a value type and a reference type?
+What is the definition of an object?
+What is the difference between a static member and an instance member?
+What is a definition of inheritance?
+What is the definition of a method?
+What is the difference between an argument and a parameter?
+Is a struct a reference type or a value type?
+Is a class a reference type or a value type?
+What is the definition of a static field?
+What is the definition of the this keyword?
+What is an event?
+What is an anonymous type?
+What is polymorphism?
+What are examples of members?
+What is the definition of a delegate?
+What is the definition of the using statement?
+What is the definition of a namespace?
+What is the definition of a method?
+What is an action?
+What is a controller?
+What is the difference between attribute based routing and convention based routing.
+What is Inversion of Control?
+What is Dependency Injection?
+What is the difference between an entity and a service?
+What is a lambda expression?
+What are anonymous functions?
+What are the solid design principles?
+What is a relational database?
+What is a relational model?
+What is LINQ?
+What is the difference between an entity model and a viewModel?
