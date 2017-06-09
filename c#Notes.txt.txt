@@ -20,6 +20,133 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
 
 c#
 
+c# programs declare types, which contain members and can be organized into namespaces. Classes and interfaces are examples of types. Fields, methods, properties and events are examples of members. 
+
+A field is a variable which is associated with a class or with an instance of a class. A field is a variable of any type which is declared directly in a class or struct. Fields are members of their containing type (class). 
+Generally, fields are used for variables which have private or protected accessibility. A private field which stores data from a public property is called a backing store/field. This allows for indirect access, which guards against invalid input values. 
+Fields typically store data which must be accessible to more than one class method and must be stored for longer than the lifetime of any single method. 
+eg private DateTime date; //private field
+Fields can be marked as private, public, protected or internal.
+A field declared with the static modifier defines a static field. A static field identifies exactly one storage location. No matter how many instances of a class are created, there is only ever one copy of a static field.
+A field declared without the static modifier defines an instance field. Every instance of a class contains a separate copy of all the instance fields of that class.
+
+Variables represent storage locations. Every variable has a type that determines what values can be stored in the variable. A field is a variable of any type that is declared directly in a class or struct. Fields are members of their containing type. 
+Properties expose fields. Fields should (almost always) be kept private to a class and accessed via get and set properties. Properties provide a level of abstraction allowing you to change the fields while not affecting the external way they are accessed by the things that use your class.
+Object orientated programming principles say that, the internal workings of a class should be hidden from the outside world. If you expose a field you're in essence exposing the internal implementation of the class. Therefore we wrap fields with Properties to give us the ability to change the implementation without breaking code. Seeing as we can put logic in the Property also allows us to perform validation logic etc if we need it.
+An important difference is that interfaces can have properties but not fields. This, to me, underlines that properties should be used to define a class's public interface while fields are meant to be used in the private, internal workings of a class. As a rule I rarely create public fields and similarly I rarely create non-public properties.
+
+A field is a variable that is declared directly in a class or struct. A class or struct may have instance fields or static fields or both. Generally, you should use fields only for variables that have private or protected accessibility. Data that your class exposes to client code should be provided through methods, properties and indexers. By using these constructs for indirect access to internal fields, you can guard against invalid input values.
+A property is a member that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and flexibility of methods. Properties enable a class to expose a public way of getting and setting values, while hiding implementation or verification code. A get property accessor is used to return the property value, and a set accessor is used to assign a new value.
+Properties have the primary advantage of allowing you to change the way data on an object is accessed without breaking it's public interface. For example, if you need to add extra validation, or to change a stored field into a calculated you can do so easily if you initially exposed the field as a property. If you just exposed a field directly, then you would have to change the public interface of your class to add the new functionality. That change would break existing clients, requiring them to be recompiled before they could use the new version of your code.
+
+If you write a class library designed for wide consumption (like the .NET Framework, which is used by millions of people), that can be a problem. However, if you are writing a class used internally inside a small code base (say <= 50 K lines), it's really not a big deal, because no one would be adversely affected by your changes. In that case it really just comes down to personal preference.
+Properties support asymmetric access, i.e. you can have either a getter and a setter or just one of the two. Similarly properties support individual accessibility for getter/setter. Fields are always symmetric, i.e. you can always both get and set the value. Exception to this is readonly fields which obviously cannot be set after initialization.
+Properties may run for a very long time, have side effects, and may even throw exceptions. Fields are fast, with no side effects, and will never throw exceptions. Due to side effects a property may return a different value for each call (as may be the case for DateTime.Now, i.e. DateTime.Now is not always equal to DateTime.Now). Fields always return the same value.
+Fields may be used for out / ref parameters, properties may not. Properties support additional logic – this could be used to implement lazy loading among other things.
+Properties support a level of abstraction by encapsulating whatever it means to get/set the value.
+Use properties in most / all cases, but try to avoid side effects.
+
+In general, all the other answers are spot-on about good design: prefer exposing properties over exposing fields. While you probably won't regularly find yourself saying "wow, imagine how much worse things would be if I had made this a field instead of a property", it's so much more rare to think of a situation where you would say "wow, thank God I used a field here instead of a property."
+Fields are normal variable members of a class. Generally, you should declare your fields as private, then use Properties to get and set their values.
+Properties are actually special methods called “accessors”. Properties are called accessors because they offer a way to get and set a field if you have a private field. They have two codes inside; set{}; and get{}; called “property accessors”.
+
+A method is a code block that contains a series of statements. A program causes the statements to be executed by calling the method and specifying any required method arguments. In C#, every executed instruction is performed in the context of a method. 
+Methods are declared in a class or struct by specifying the access level such as public or private, optional modifiers such as abstract or sealed, the return value, the name of the method, and any method parameters. 
+The method definition specifies the names and types of any parameters that are required. When calling code calls the method, it provides concrete values called arguments for each parameter. The arguments must be compatible with the parameter type but the argument name (if any) used in the calling code does not have to be the same as the parameter named defined in the method.
+
+Iterators
+An iterator performs a custom iteration over a collection, such as a list or an array. An iterator uses the yield return statement to return each element one at a time. When a yield return statement is reached, the current location in code is remembered. Execution is restarted from that location when the iterator is called the next time.
+You call an iterator from client code by using a foreach statement.
+The return type of an iterator can be IEnumerable, IEnumerable<T>, IEnumerator, or IEnumerator<T>.
+
+Structs share most of the same syntax as classes, although structs are more limited than classes:
+Within a struct declaration, fields cannot be initialized unless they are declared as const or static.
+A struct cannot declare a default constructor (a constructor without parameters) or a finalizer.
+Structs are copied on assignment. When a struct is assigned to a new variable, all the data is copied, and any modification to the new copy does not change the data for the original copy. This is important to remember when working with collections of value types such as Dictionary<string, myStruct>.
+Structs are value types and classes are reference types.
+Unlike classes, structs can be instantiated without using a new operator.
+Structs can declare constructors that have parameters.
+A struct cannot inherit from another struct or class, and it cannot be the base of a class. All structs inherit directly from System.ValueType, which inherits from System.Object.
+A struct can implement interfaces.
+
+The struct type is suitable for representing lightweight objects such as Point, Rectangle, and Color. Although it is just as convenient to represent a point as a class with Auto-Implemented Properties, a struct might be more efficient in some scenarios. For example, if you declare an array of 1000 Point objects, you will allocate additional memory for referencing each object; in this case, a struct would be less expensive. 
+In C#, classes and structs are semantically different. A struct is a value type, while a class is a reference type.
+
+The value types consist of two main categories:
+Structs
+Enumerations
+Variables that are based on value types directly contain values. Assigning one value type variable to another copies the contained value. This differs from the assignment of reference type variables, which copies a reference to the object but not the object itself.
+
+Variables of reference types store references to their data (objects), while variables of value types directly contain their data. With reference types, two variables can reference the same object; therefore, operations on one variable can affect the object referenced by the other variable. With value types, each variable has its own copy of the data, and it is not possible for operations on one variable to affect the other (except in the case of ref and out parameter variables).
+The following keywords are used to declare reference types:
+class
+interface
+delegate
+C# also provides the following built-in reference types:
+dynamic
+object
+string
+
+Whenever a class or struct is created, its constructor is called. A class or struct may have multiple constructors that take different arguments. Constructors enable the programmer to set default values, limit instantiation, and write code that is flexible and easy to read.
+When a class or struct is created, its constructor is called. Constructors have the same name as the class or struct, and they usually initialize the data members of the new object.
+In the following example, a class named Taxi is defined by using a simple constructor. This class is then instantiated with the new operator. The Taxi constructor is invoked by the new operator immediately after memory is allocated for the new object.
+A constructor that takes no parameters is called a default constructor. Default constructors are invoked whenever an object is instantiated by using the new operator and no arguments are provided to new. 
+Unless the class is static, classes without constructors are given a public default constructor by the C# compiler in order to enable class instantiation.
+
+Use the static modifier to declare a static member, which belongs to the type itself rather than to a specific object. The static modifier can be used with classes, fields, methods, properties, operators, events, and constructors, but it cannot be used with indexers, finalizers, or types other than classes.
+
+A static member cannot be referenced through an instance. Instead, it is referenced through the type name. For example, consider the following class:
+public class MyBaseC
+{
+    public struct MyStruct
+    {
+        public static int x = 100;
+    }
+}
+To refer to the static member x, use the fully qualified name, MyBaseC.MyStruct.x, unless the member is accessible from the same scope:
+Console.WriteLine(MyBaseC.MyStruct.x);  
+While an instance of a class contains a separate copy of all instance fields of the class, there is only one copy of each static field.
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static
+
+A static class is basically the same as a non-static class, but there is one difference: a static class cannot be instantiated. In other words, you cannot use the new keyword to create a variable of the class type. Because there is no instance variable, you access the members of a static class by using the class name itself. For example, if you have a static class that is named UtilityClass that has a public method named MethodA, you call the method as shown in the following example: +
+UtilityClass.MethodA();
+
+A static class can be used as a convenient container for sets of methods that just operate on input parameters and do not have to get or set any internal instance fields. For example, in the .NET Framework Class Library, the static System.Math class contains methods that perform mathematical operations, without any requirement to store or retrieve data that is unique to a particular instance of the Math class. 
+A static constructor is only called one time, and a static class remains in memory for the lifetime of the application domain in which your program resides.
+Creating a static class is therefore basically the same as creating a class that contains only static members and a private constructor. A private constructor prevents the class from being instantiated. The advantage of using a static class is that the compiler can check to make sure that no instance members are accidentally added. The compiler will guarantee that instances of this class cannot be created.
+Although a field cannot be declared as static const, a const field is essentially static in its behavior. It belongs to the type, not to instances of the type. Therefore, const fields can be accessed by using the same ClassName.MemberName notation that is used for static fields. No object instance is required.
+
+The this keyword refers to the current instance of the class and is also used as a modifier of the first parameter of an extension method. Static member functions, because they exist at the class level and not as part of an object, do not have a this pointer. It is an error to refer to this in a static method.
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/this
+
+Events enable a class or object to notify other classes or objects when something of interest occurs. The class that sends (or raises) the event is called the publisher and the classes that receive (or handle) the event are called subscribers.
+In a typical C# Windows Forms or Web application, you subscribe to events raised by controls such as buttons and list boxes. The publisher determines when an event is raised; the subscribers determine what action is taken in response to the event.
+An event can have multiple subscribers. A subscriber can handle multiple events from multiple publishers.
+
+Anonymous types provide a convenient way to encapsulate a set of read-only properties into a single object without having to explicitly define a type first. The type name is generated by the compiler and is not available at the source code level (the code which you write). The type of each property is inferred by the compiler.
+You create anonymous types by using the new operator together with an object initializer. For more information about object initializers, see Object and Collection Initializers.
+The following example shows an anonymous type that is initialized with two properties named Amount and Message.
+var v = new { Amount = 108, Message = "Hello" };  
+
+// Rest the mouse pointer over v.Amount and v.Message in the following  
+// statement to verify that their inferred types are int and string.  
+Console.WriteLine(v.Amount + v.Message); 
+
+Polymorphism is often referred to as the third pillar of object-oriented programming, after encapsulation and inheritance. Polymorphism is a Greek word that means "many-shaped" and it has two distinct aspects: 1
+At run time, objects of a derived class may be treated as objects of a base class in places such as method parameters and collections or arrays. When this occurs, the object's declared type is no longer identical to its run-time type.
+Base classes may define and implement virtualmethods, and derived classes can override them, which means they provide their own definition and implementation. At run-time, when client code calls the method, the CLR looks up the run-time type of the object, and invokes that override of the virtual method. Thus in your source code you can call a method on a base class, and cause a derived class's version of the method to be executed.
+Virtual methods enable you to work with groups of related objects in a uniform way. For example, suppose you have a drawing application that enables a user to create various kinds of shapes on a drawing surface. You do not know at compile time which specific types of shapes the user will create. However, the application has to keep track of all the various types of shapes that are created, and it has to update them in response to user mouse actions. You can use polymorphism to solve this problem in two basic steps:
+Create a class hierarchy in which each specific shape class derives from a common base class.
+Use a virtual method to invoke the appropriate method on any derived class through a single call to the base class method.
+First, create a base class called Shape, and derived classes such as Rectangle, Circle, and Triangle. Give the Shape class a virtual method called Draw, and override it in each derived class to draw the particular shape that the class represents. Create a List<Shape> object and add a Circle, Triangle and Rectangle to it. To update the drawing surface, use a foreach loop to iterate through the list and call the Draw method on each Shape object in the list. Even though each object in the list has a declared type of Shape, it is the run-time type (the overridden version of the method in each derived class) that will be invoked.
+Virtual Members
+
+When a derived class inherits from a base class, it gains all the methods, fields, properties and events of the base class. The designer of the derived class can choose whether to
+override virtual members in the base class,
+inherit the closest base class method without overriding it
+define new non-virtual implementation of those members that hide the base class implementations
+A derived class can override a base class member only if the base class member is declared as virtual or abstract. The derived member must use the override keyword to explicitly indicate that the method is intended to participate in virtual invocation.
+
 C# is an object-oriented language, but C# further includes support for component-oriented programming. Contemporary software design increasingly relies on software components in the form of self-contained and self-describing packages of functionality. Key to such components is that they present a programming model with properties, methods, and events; they have attributes which provide declarative information about the component; and they incorporate their own documentation. C# provides language constructs to support directly these concepts, making C# a very natural language in which to create and use software components.
 Several C# features aid in the construction of robust and durable applications: Garbage collection automatically reclaims memory occupied by unreachable unused objects; exception handling provides a structured and extensible approach to error detection and recovery; and the type-safe design of the language makes it impossible to read from uninitialized variables, to index arrays beyond their bounds, or to perform unchecked type casts.
 C# has a unified type system. All C# types, including primitive types such as int and double, inherit from a single root object type. Thus, all types share a set of common operations, and values of any type can be stored, transported, and operated upon in a consistent manner. Furthermore, C# supports both user-defined reference types and value types, allowing dynamic allocation of objects as well as in-line storage of lightweight structures.
