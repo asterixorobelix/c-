@@ -50,6 +50,58 @@ In general, all the other answers are spot-on about good design: prefer exposing
 Fields are normal variable members of a class. Generally, you should declare your fields as private, then use Properties to get and set their values.
 Properties are actually special methods called “accessors”. Properties are called accessors because they offer a way to get and set a field if you have a private field. They have two codes inside; set{}; and get{}; called “property accessors”.
 
+A property is a member which provides a mechanism to read, write or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. Properties enable a class to have a public way of getting and setting values. A get property accessor is used to return the property value. A set property accessor is used to assign a new value. This also allows for a property to be a read write (both a get and a set is available), read only (only a get is available) or write only (only a set is available).
+Properties often have private backing fields for setting or retrieving a property value. The get returns the value of the private field. The set assigns a value to a private field. The get and set accessors may perform some sort of conversion, computation or data validation. The get keyword defines an accessor method in a property which returns the property value.
+
+eg: class TimePeriod
+{
+	private double _seconds;
+	
+	public double Seconds
+	{
+		get {return _seconds;}
+		set {_seconds = value;}
+	}
+}
+
+For simple cases of get and set, the c# compiler can automatically just return or assign the value from a private field.
+
+eg: class TimePeriod
+{
+	public double Seconds 
+	{	
+		{get;set;}
+	}
+}
+
+float = 32 bit precision
+double = 64 bit precision
+
+c# uses type declarations to create new types. A type declaration specifies the name and members of the type. There are two kinds of types: user specified types and non-user specified types. 
+User defined types are as follows:
+classes - data structure containing data members (fields) and function members (methods, properties and more). They do support user specified inheritance.
+structs - similar to classes, but they are value types. They do not support user specified inheritance.
+interfaces - a defined contract as a named set of public function members. Implementation details for those function members are elsewhere. They do support user specified inheritance.
+delegates - allows one to treat methods as values which can be assigned to a variable and passed as a parameter for a method.
+
+Non-user defined types are as follows:
+enum - type with named constants
+arrays -
+nullable value types - 
+
+There are two kinds of types in c#, value types and reference types.
+Value types contain the data directly. Reference types store references to their data. Reference types are known as objects. 
+
+A class is a data structure which combines state (fields) and actions (methods and other functions) in a single unit. A class provides a definition for dynamically creating instances of a class, which are known as objects. 
+Instances of a class are created using the new operator, which allocates memory for a new instance, invokes a constructor to initialize the instance and returns a reference to the instance.
+A class or struct is a blueprint which specifies what the type can do. An object is a block of memory which has been allocated and configured according to the blueprint. A program may create many objects of the same class. Objects are also called instances.
+Instances of a class are created using the new operator. Basically, instance of a type = object.
+
+Members of a class are either static members or instance members. Static members belong to classes. Instance members belong to objects (instances of classes). Each member of a class can have different levels of accessibility.
+This controls the regions of program text which are able to access a member. eg public (access not limited), protected (access limited to this class or derived class), internal, protected internal, private (access limited to this class).
+
+Inheritance means that a class implicitly contains all members of its base class. A derived class can add new members to those which it inherits, but cannot remove the definition of an inherited member. 
+
 A method is a code block that contains a series of statements. A program causes the statements to be executed by calling the method and specifying any required method arguments. In C#, every executed instruction is performed in the context of a method. 
 Methods are declared in a class or struct by specifying the access level such as public or private, optional modifiers such as abstract or sealed, the return value, the name of the method, and any method parameters. 
 The method definition specifies the names and types of any parameters that are required. When calling code calls the method, it provides concrete values called arguments for each parameter. The arguments must be compatible with the parameter type but the argument name (if any) used in the calling code does not have to be the same as the parameter named defined in the method.
