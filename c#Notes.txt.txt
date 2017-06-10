@@ -177,7 +177,27 @@ MVC
 Controller Actions are the public methods of the controller classes. The public keyword exposes members of a class to other classes. If a member is declared private, another class cannot access it.
 The Controller invokes classes based on the incoming http request which goes through the router middleware; converting the URL into arguments for the classes.
 The directory structure matches the namespace structure in ASP. So, if you move a file from the folder called models, to the folder called entities, the namespace will change from: namespace OdeToFood.Models to: namespace OdeToFood.Entities
-This means that some of the using statements will have to change as well. 
+This means that some of the using statements will have to change as well.
+
+Middleware
+Middleware is basically a piece of code which may be used to process an http request. Middleware functions are usually chained together and it’s up to them to decide whether to invoke the next one in the chain.
+When a request comes into the application, the first middleware function is executed. Let’s say it contains some logging logic. It logs request properties and invokes the next middleware in the chain. The next one deal with authentication. It may check if a particular cookie is present in the request and either pass the control to the next middleware or set a 401 HTTP code and return the response. Before the response is actually returned, it is passed through all the functions that are earlier in the chain (the logger in our case).
+In ASP.NET Core middleware functions are defined in the Configure method of the Startup class. This method is executed automatically by the framework when your application starts.
+In this method the framework provides the IApplicationBuilder instance containing several useful properties and methods:
+
+IApplicationBuilder Use(Func<RequestDelegate, RequestDelegate> middleware)
+This is the most important method for us at the moment. It registers a new middleware function adding it to the end of the chain.
+IServiceProvider ApplicationServices { get; set; }
+Inversion of control container. We’ll use this object to create instances of classes required by the middleware.
+IDictionary<string, object> Properties { get; set; }
+Initially this dictionary contains just the IServerInformation and IServiceProvider instances (which are the same objects returned by the properties described above). It can be used to store additional application-wide settings.
+IApplicationBuilder New()
+Creates a new instance of IApplicationBuilder. Currently I can’t think of a use case for it.
+RequestDelegate Build()
+Chains the registered middlewares and returns them as a single RequestDelegate.
+http://blog.dudak.me/2014/custom-middleware-with-dependency-injection-in-asp-net-core/
+
+The ConfigureServices method is where classes are registered for IoC. The ConfigureServices method is executed by the framework before Configure, so that all the dependencies are ready to be used in middleware.
 
 Routing
 There are two types of routing, Convention based routing and Attribute based routing. Convention based routing is defined in the startup.cs file by default. Attribute based routing is defined in the Controller files.
@@ -193,14 +213,19 @@ The controller decides what to do next and then the MVC framework works out how 
 ASP.NET core 
 This is a web framework
 
+When a system is designed to use DI, with many classes requesting their dependencies via their constructor (or properties), it's helpful to have a class dedicated to creating these classes with their associated dependencies. These classes are referred to as containers, or more specifically, Inversion of Control (IoC) containers or Dependency Injection (DI) containers. A container is essentially a factory which is responsible for providing instances of types that are requested from it.
+ASP.NET Core includes a simple built-in container (represented by the IServiceProvider interface) which supports constructor injection by default, and ASP.NET makes certain services available through DI. ASP.NET's container refers to the types it manages as services.  
+
 Inversion of control
 Inversion of Control (IoC) is often explained in comparison to procedural programming. In procedural programming, code x which uses other code y, knows exactly which method, belonging to which class, is being used. 
 IoC means that objects do not create other objects on which they rely to do their work. Instead, they get the objects which they need from an outside source, in the case of .NET, this is the services class.
 Inversion of control container: http://joelabrahamsson.com/inversion-of-control-an-introduction-with-examples-in-net/
+The Dependency Inversion Principle, states that "high level modules should not depend on low level modules; both should depend on abstractions." Instead of referencing specific implementations, classes request abstractions (typically interfaces) which are provided to them when the class is constructed. 
 
 Dependency injection
 Dependency Injection (DI) means that IoC is done without the objects' intervention, usually by a .NET Framework component which passes constructor parameters and sets properties.
 What is a dependency? When we use another object to perform a certain task, we are creating a dependency on that object. That object might use other objects, too, so you are implicitly depending on those other objects, and they too might depend on other objects to do their work, and so on.
+Most often, classes will declare their dependencies via their constructor, this approach is known as "constructor injection".
 
 What Is the Difference Between an Entity and a Service?
 Entity - An object which has a unique identity in the domain model of the application
@@ -337,6 +362,12 @@ In general, you should aim to expose properties rather than exposing fields. Whi
 Fields are normal variable members of a class. Generally, you should declare your fields as private, then use Properties to get and set their values.
 Properties are actually special methods called “accessors”. Properties are called accessors because they offer a way to get and set a field if you have a private field. They have two codes inside; set{}; and get{}; called “property accessors”.
 
+public Methods
+You may have noticed that I made the WithdrawFunds method public. This means that code running outside the class can make calls to that method. This has got to be the case, since we want people to interact with our objects by calling methods in them. In general the rules are:
+? if it is a data member (i.e. it holds data) of the class, make it private
+? if it is a method member (i.e. it does something) make it public
+Of course, the rules can be broken on special occasions. If you don’t care about possible corruption of the member and you want your program to run as quickly as possible you can make a data member public. If you want to write a method which is only used inside a class and performs some special, secret, task you can make it private.
+
 A property is a member which provides a mechanism to read, write or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. Properties enable a class to have a public way of getting and setting values. A get property accessor is used to return the property value. A set property accessor is used to assign a new value. This also allows for a property to be a read write (both a get and a set is available), read only (only a get is available) or write only (only a set is available).
 Properties often have private backing fields for setting or retrieving a property value. The get returns the value of the private field. The set assigns a value to a private field. The get and set accessors may perform some sort of conversion, computation or data validation. The get keyword defines an accessor method in a property which returns the property value.
 
@@ -378,6 +409,10 @@ nullable value types -
 
 There are two kinds of types in c#, value types and reference types.
 Value types contain the data directly. Reference types store references to their data. Reference types are known as objects. 
+Structures are managed in terms of value whereas objects are managed in terms of reference.
+A class provides the instructions to C# as to what is to be made, and what it can do. The new keyword causes C# to use the class information to actually make an instance.
+Structures are kind of useful, but for real object oriented satisfaction you have to have an object, and that means that we must manage our access to a particular object by making use of references to it. Actually this is not that painful in reality, in that you can treat a reference as if it really was the object just about all of the time, but you must remember that when you hold a reference you do not hold an instance, you hold a tag which is tied onto an instance…
+
 
 A class is a data structure which combines state (fields) and actions (methods and other functions) in a single unit. A class provides a definition for dynamically creating instances of a class, which are known as objects. 
 Instances of a class are created using the new operator, which allocates memory for a new instance, invokes a constructor to initialize the instance and returns a reference to the instance.
@@ -386,6 +421,16 @@ Instances of a class are created using the new operator. Basically, instance of 
 
 Members of a class are either static members or instance members. Static members belong to classes. Instance members belong to objects (instances of classes). Each member of a class can have different levels of accessibility.
 This controls the regions of program text which are able to access a member. eg public (access not limited), protected (access limited to this class or derived class), internal, protected internal, private (access limited to this class).
+The static keyword lets us create members which are not held in an instance, but in the class itself.
+The AccountTest class has a static member method called Main. We know that this is the method which is called to run the program. It is part of the class AccountTest. If I made fifty AccountTest instances, they would all share the same Main method. In terms of C# the keyword static flags a member as being part of the class, not part of an instance of the class.
+I don't have to make an instance of the AccountTest class to be able to use the Main method.
+Say, for example, that I've been told that the interest rate is held for all the accounts. If the interest rate changes it must change for all accounts. This means that to implement the change I'd have to go through all the accounts and update the rate. This would be tedious, and if I missed one account, possibly expensive.
+I solve the problem by making the interest rate member static. The interest rate is now part of the class, not part of any instance. This means that I have to change the way that I get hold of it:
+Account RobsAccount = new Account(); 
+RobsAccount.Balance = 100; 
+Account.InterestRateCharged = 10;//call to a static member
+Since it is a member of the class I now have to use the class name to get hold of it instead of the name of the instance reference.
+You should be careful about how you provide access to static data items. A change to a single static value will affect your entire system. So they should always be made private and updated by means of method calls.
 
 Inheritance means that a class implicitly contains all members of its base class. A derived class can add new members to those which it inherits, but cannot remove the definition of an inherited member. 
 
@@ -517,6 +562,41 @@ static void UsingStatement(string[] args)
     }
 }
 
+Namespace
+A namespace is a place where particular names have meaning (it provides context). We have namespaces in our conversations too, if I am using the "Football" namespace and I say “That team is really on fire” I'm saying something good. If I am using the "Firefighter" namespace I'm saying something less good.
+It is possible to put one namespace inside another (just like a librarian would put a cabinet of Vases in the Roman room which he could refer to as Roman.Vases) and so the IO namespace is actually held within the System namespace. However, just because you use a namespace, this does not imply that you use all the namespaces defined within it
+
+Classes
+A C# program is made up of one or more classes. A class is a container which holds data and program code in order to do a particular job. Every class must have an identifier name. There is a convention that the name of the file which contains a particular class should match the class itself, in other words the program above should be held in a file called GlazerCalc.cs.
+A class groups methods and data into an object orientated building block. A class is a kind of type. The new operator creates instances of a custom type.
+
+A method is a group of statements which have been given a name which represents that code. You can then refer to that code by name, rather than typing out the code again.
+A Method performs an action in a series of statements. The Method Main() is the default starting point for a c# program.
+
+A parameter is the special kind of variable which is defined in the method header and used inside that method to represent the value which was fed into the method call.
+static int sillyReturnPlus ( int i) 
+{ 
+    i = i + 1; 
+    Console.WriteLine ( "i is : " + i ); 
+    return i; 
+}
+The method sillyReturnPlus above has a single parameter, which is of type integer and has the identifier i.
+An argument is the value that is supplied to the method when it is called. eg: sillyReturnPlus(99);
+In the statement above the argument is the value 99.
+
+If you want to make method calls and not have to worry about the order of the arguments you can name each one: x = readValue(low:25, high:100, prompt: "Enter your age");
+Now the compiler is using the name of each argument, rather than its positon in the list. This has the useful side effect of making it much clearer to someone reading your code the exact meaning of each argument value.
+
+Static class members
+If you make the data member of the class above (OtherMethod) static, you are making sure it is part of the class and not an instance of the class. 
+One common programming mistake is to confuse static with const. Marking a variable as const means “the value cannot be changed”. Marking a variable with static means “the variable is part of the class and is always present”. 
+If it helps you can think of static as something which is always with us, like the background static noise on your radio when you tune it off station. Alternatively you can think of it as stationary, and therefore not going anywhere. 
+This keyword makes sure that the method which follows is always present, i.e. the word static in this context means "is part of the enclosing class and is always here".
+Static methods can only access static variables.
+
+A float is a less precise version of a double.
+
+In C# an identifier is a name that the programmer chooses for something in the program. The name of a variable is more properly called an identifier.
 c# code, when stored in plain text files, have the extension .cs added to the end of the fileName. eg HelloWorld.cs. Your code can be compiled in the terminal with the C# compiler which is downloaded with Visual Studio.
 Open up Developer Command Prompt (which is found under Start>Visual Studio>Visual Studio Tools, this is different to the normal Command Prompt) and cd into the directory where your saved file is located. eg cd C:\Users\8460p\Dropbox
 Then, type in "csc HelloWorld.cs" in order to compile your HelloWorld.cs file. This will produce a file in the same folder, named HelloWorld.exe.
@@ -540,18 +620,6 @@ or something similar, depending upon which .NET version your PC has. This means 
 or something similar, depending on the folder path of your code.
 
 https://www.codetuts.tech/compile-c-sharp-command-line/
-
-Namespace
-A namespace is a place where particular names have meaning (it provides context). We have namespaces in our conversations too, if I am using the "Football" namespace and I say “That team is really on fire” I'm saying something good. If I am using the "Firefighter" namespace I'm saying something less good.
-It is possible to put one namespace inside another (just like a librarian would put a cabinet of Vases in the Roman room which he could refer to as Roman.Vases) and so the IO namespace is actually held within the System namespace. However, just because you use a namespace, this does not imply that you use all the namespaces defined within it
-
-Classes
-A C# program is made up of one or more classes. A class is a container which holds data and program code in order to do a particular job. Every class must have an identifier name. There is a convention that the name of the file which contains a particular class should match the class itself, in other words the program above should be held in a file called GlazerCalc.cs.
-A class groups methods and data into an object orientated building block. A class is a kind of type. The new operator creates instances of a custom type.
-
-A float is a less precise version of a double.
-
-In C# an identifier is a name that the programmer chooses for something in the program. The name of a variable is more properly called an identifier.
 
 Casting
 We can force C# to regard a value as being of a certain type by the use of casting. A cast takes the form of an additional instruction to the compiler to force it to regard a value in a particular way. You cast a value by putting the type you want to see there in brackets before it. For example:
@@ -606,23 +674,6 @@ This would produce the output:
 i: 150 f: 1234.57 i: 0 f: 0.00
 Note that this justification would work even if you were printing a string rather than a number, so if you want to print columns of words you can use this technique to do it.
 You can specify the print width of any item, even a piece of text, which makes printing in columns very easy.
-
-A method is a group of statements which have been given a name which represents that code. You can then refer to that code by name, rather than typing out the code again.
-A Method performs an action in a series of statements. The Method Main() is the default starting point for a c# program.
-
-A parameter is the special kind of variable which is defined in the method header and used inside that method to represent the value which was fed into the method call.
-static int sillyReturnPlus ( int i) 
-{ 
-    i = i + 1; 
-    Console.WriteLine ( "i is : " + i ); 
-    return i; 
-}
-The method sillyReturnPlus above has a single parameter, which is of type integer and has the identifier i.
-An argument is the value that is supplied to the method when it is called. eg: sillyReturnPlus(99);
-In the statement above the argument is the value 99.
-
-If you want to make method calls and not have to worry about the order of the arguments you can name each one: x = readValue(low:25, high:100, prompt: "Enter your age");
-Now the compiler is using the name of each argument, rather than its positon in the list. This has the useful side effect of making it much clearer to someone reading your code the exact meaning of each argument value.
 
 Call by reference of methods
 Consider the code:
@@ -688,13 +739,6 @@ class MemberExample
 }
 
 The variable member is now part of the class MemberExample, and so the Main method and OtherMethod can both use this variable.
-
-Static class members
-If you make the data member of the class above (OtherMethod) static, you are making sure it is part of the class and not an instance of the class. 
-One common programming mistake is to confuse static with const. Marking a variable as const means “the value cannot be changed”. Marking a variable with static means “the variable is part of the class and is always present”. 
-If it helps you can think of static as something which is always with us, like the background static noise on your radio when you tune it off station. Alternatively you can think of it as stationary, and therefore not going anywhere. 
-This keyword makes sure that the method which follows is always present, i.e. the word static in this context means "is part of the enclosing class and is always here".
-Static methods can only access static variables.
 
 C# provides us with a thing called an array. We then access entries in the array using subscripts. Consider the following:
 using System; 

@@ -51,3 +51,6 @@ What is a relational database?
 What is a relational model?
 What is LINQ?
 What is the difference between an entity model and a viewModel?
+What is middleware?
+Where is middleware defined in MVC?
+
