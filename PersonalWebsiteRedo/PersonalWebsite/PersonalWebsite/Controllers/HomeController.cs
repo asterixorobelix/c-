@@ -13,5 +13,11 @@ namespace PersonalWebsite.Controllers
         {
             return View();
         }
+
+        public ActionResult MachineLanding()
+        {
+            return View("MachineLanding");
+        }
+        
     }
 }
