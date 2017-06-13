@@ -304,6 +304,15 @@ ConfigurationBuilder
 In ASP.NET Core, it is possible to read settings from different sources like XML, JSON and INI files. The configuration API provides a way of configuring an app based on a list of name-value pairs which can be read at runtime from multiple sources. The name-value pairs can be grouped into a multi-level hierarchy. 
 If you wish to leverage JSON files for your configuration, just add the Microsoft.Extensions.Configuration.Json NuGet package.
 
+ActionResult is an abstract calss which can have several subtypes, such as:
+ViewResult
+RedirectResult
+etc
+Although all the subtypes derive from the base class, it is better for unit testing if you dont return an ActionResult when, for example, a ViewResult would have sufficed.
+
+Get,Set
+This allows you to set and receive values from a private variable, which would not otherwise be accessible. It also allows you to add events, which will notify another class when get/set occurs. Additionally, it allows for data validation at the get/set, which can prevent invalid entries from being sent to the private field. Finally, get/set allows for access control. So, you can make a field read-only or write-only. 
+
 c# properties
 
 A property is a member that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and flexibility of methods.
