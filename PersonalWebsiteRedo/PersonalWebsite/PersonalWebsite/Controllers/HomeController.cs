@@ -18,6 +18,11 @@ namespace PersonalWebsite.Controllers
         {
             return View("MachineLanding");
         }
+
+        public ViewResult QualityControlRig()
+        {
+            return View("QualityControlRig");
+        }
         
     }
 }
