@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
 </head>
 
@@ -14,8 +15,8 @@
                 <p class="navbar-brand">Nathan's Website </p>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active">@Html.ActionLink("Take me Home!","Index")</li>
-                <li>@Html.ActionLink("My Machines", "MachineLanding")</li>
+                <li class="active">@Html.ActionLink("Take me Home!","Index","Home")</li>
+                <li>@Html.ActionLink("My Machines", "MachineLanding","Machine")</li>@*@Html.ActionLink("RSVP Now!", "Rsvp", "HomeController", new { @class = "btn btn-success" })*@
                 <li>@Html.ActionLink("My Objects", "ObjectsLanding")</li>
            </ul>
         </div>

@@ -1,0 +1,26 @@
+@*model OdeToFood.Models.Restaurant*@ 
+    @*above expects only one restaurant, not a list*@
+
+@model OdeToFood.ViewModels.HomePageViewModel
+
+@*This is a comment: model type, should be an object of type Restaurant, from the Models object in OdeToFood lowercase sets the type of your model.*@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ode To Food</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <h3>@Model.CurrentMessage</h3>
+    <table>
+        @foreach (var restaurant in Model.Restaurants)//Restaurants of the model, which are coming from the HomePageViewModel
+        {
+            <tr>@*switches back into html here*@
+                <td>@restaurant.ID</td>
+                <td>@restaurant.Name</td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

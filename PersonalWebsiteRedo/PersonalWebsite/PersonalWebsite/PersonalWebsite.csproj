@@ -104,6 +104,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MachineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -120,10 +121,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_LayoutLandingPage.cshtml" />
-    <Content Include="Views\Home\MachineLanding.cshtml" />
+    <Content Include="Views\Machine\MachineLanding.cshtml" />
     <Content Include="Views\Shared\_LayoutSelectionPage.cshtml" />
     <Content Include="Views\Shared\_LayoutContent.cshtml" />
-    <Content Include="Views\Home\QualityControlRig.cshtml" />
+    <Content Include="Views\Machine\QualityControlRig.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

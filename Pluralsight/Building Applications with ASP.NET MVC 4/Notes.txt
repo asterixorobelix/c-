@@ -1,0 +1,7 @@
+Router
+The router examines incoming URLs and determines which controllers and actions to call. It also generates the outgoing URLs.
+
+Model, Controller, View
+Controller - provides action methods and builds the model
+Model - carries data and logic
+View - transforms model into HTML

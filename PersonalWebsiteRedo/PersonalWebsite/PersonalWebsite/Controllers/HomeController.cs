@@ -12,17 +12,6 @@ namespace PersonalWebsite.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-
-        public ActionResult MachineLanding()
-        {
-            return View("MachineLanding");
-        }
-
-        public ViewResult QualityControlRig()
-        {
-            return View("QualityControlRig");
-        }
-        
+        }            
     }
 }

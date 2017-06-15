@@ -1,0 +1,89 @@
+Building your First ASP.NET Core Application
+
+Create a new ASP.NET Core Web Application and give it a name. Choose the empty template.
+Run the app
+Note: ctrl+f5 runs the app without the debugger, so the window can stay open in the browser and you just click refresh to see effect of changes
+Make the app display "Helloooo world!!!!" instead of "Hello World!"
+
+Move the hardcoded string Hello World into a configuration file, where you can change the greeting without changing the source code of startup.cs - pick asp.net configuration file and call it appsettings.json
+Add a constructor called Startup, in Startup.cs, and use it to tell asp.net about your appsettings.json configuration file, using configurationBuilder. The appsettings.json file contains any settings which might need to be configured at runtime. You will have to use NuGet too.
+In order to load the json file, asp needs to know where it is on the file system. You want to use injection for this, rather than hard coding it in.
+You also need to build your configuration.
+Create a variable called greeting. The json stores information as key:value pairs. So, you have to give the key for the greeting. This system could be used for things like a database password, which needs to be given to the app before it starts running.
+Instead of having the Configuration method accessing the Configuration method directly, make the Configuration method go through some service to get the greeting. This seems to be done for creating loosely coupled systems.
+Add a new folder called "Services". Create a Greeter class service, which is a class with an interface, in order to seperate out the concerns. Write an interface which describes the capabilities of a Greeter. Call the interface IGreeter. In order to keep things simple, keep the interface and the service in the same file. Typically, these are kept in seperate files.
+Every Greeter should have a public method called GetGreeting, which returns a string. This string will contain the greeting. 
+Your Greeter class then implements IGreeter. The reason that you are using an Interface is because you want other software components to connect to the Interface and not the specifics of the Class. You don't want the other software components to know whether the Greeter Class gets the string from a database or a json file or an XML. This way concerns are seperated and it allows for modifications to be made within the class, without having to make any changes outside of the Class. 
+In your configure method, you should be able to get an instance of an object which implements IGreeter. Inside this class, the greeter should implement the GetGreeting method and then send it to the Response.WriteAsync, which writes it to the browser. The method asks for a parameter (some object which does what is required. Specified in a seperate folder), rather than doing what is required directly. This is the basis of dependency injection.
+You also need to configure a greeter. You do this in the ConfigureServices class. Otherwise, the framework sees that you need an IGreeter, but it doesn't know where to find one. IApplicationBuilder is a service which does not have to be explicitly Configured because this is done for you and hidden by the system. 
+If you are defining your own services, you need to register them in the ConfigureServices collection. If you want to make your services available to the Configure class and your controllers, it needs to be registered in the ConfigureServices container.
+Services can have different types: Transient (create a new instance of a service every time one is needed in your code), Singleton (create a single instance of the service and use it everywhere that it is needed, for the lifetime of the app) or Scoped.
+You say to the Framework: Whenever I need an implementation of IGreeter, please give it an instance of the Greeter class. The system just asks for something which implements the interface for Greeter (which is named IGreeter). Everytime the system asks for something which implements the IGreeter interface, it is given an instance of Greeting, but it doesn't know what Greeting does because it is actually only interacting with IGreeter. Whether the instance is the same everywhere or different etc is determined by AddSingleton or AddScoped etc modifier.
+This is the basis of dependency injection and instances of the service Greeter can be injected into methods like Configure, but also into views, models and controllers. 
+You also do not want the Greeter to use a hardcoded string. You would rather that the string is pulled from a configurationSource. Adding a constructor, which needs an IConfiguration source, means that the class will get the string from the IConfiguration source whenever it is instantiated.
+So, use an interface called IConfiguration, an instance of which is called configuration.
+The services container needs to be told about the service which implements IConfiguration. So, you need to add another Singleton Service to the services container. You already have an instance of the service, which is stored in the Configuration property, so you use a different overload on the AddSingleton, one which uses a lambda expression.
+The lambda needs to say, take a services provider and return the service which I want you to use. Given a services provider, use the Configuration service.
+So, what happens is that when the Framework sees that it needs something which implements IGreeter, it will then look at IGreeter and see (because the service has been registered), that it needs the Greeter class. This Greeter class requires something which implements IConfiguration. We have provided, in Startup.cs, something which implements IConfiguration. 
+The framework builds up a chain of definitions until it can resolve the expression to the lowest level required.
+
+Startup is the one and only place to start up your web application. ASP.NET Core apps require a Startup class, and this class configures the request pipeline which handles all requests made to the application.
+You can define separate Startup classes for different environments, and the appropriate one will be selected at runtime. The Startup class constructor can accept dependencies which are provided through dependency injection. 
+You can use IHostingEnvironment to set up configuration sources and ILoggerFactory to set up logging providers.
+The Startup class must include a Configure method and can optionally include a ConfigureServices method, both of which are called when the application starts.
+The purpose of the ConfigurationBuilder is to define the configuration sources for your application.
+An easy way to access the Configuration is to store the final configuration inside of a property.
+ASP.NET application services are built-in Web services that provide access to features such as forms authentication, roles, and profile properties. These services are part of a service-oriented architecture (SOA), in which an application consists of one or more services provided on the server, and one or more clients.
+I think that the definition of a service is: A set of components which can be invoked, and whose interface descriptions can be published and discovered.
+Writing an application using Decentralized Software Services (DSS) is a simple matter of orchestrating the input and output between a set of services. Services represent the interface to software or hardware and allow you to communicate between processes that perform specific functions.
+
+A lambda expression describes a pattern. From mathematics, the lambda calculus describes the world in patterns. In C# a lambda is a function that uses clear and short syntax.
+For example, the lambda expression x => x * x specifies a parameter that’s named x and returns the value of x squared.
+
+The decision the ASP.NET team made was to provide the dependency injection functionality through abstracting the most common features of the most popular IoC containers out there, and then allowing the different Middlewares to interact with these interfaces to achieve dependency injection.
+ASPNET5 supplies a basic IoC container that implements these interfaces, but also allows the developer to swap this default implementation with their own implementation, through which they can use the IoC container of choice. 
+IServiceProvider
+This is the main interface, through which the developer will be able to retrieve the implementation of a service he/she previously registered with the container (we will come to registration later). 
+
+What is DI Container
+A DI Container is a framework to create dependencies and inject them automatically when required. It automatically creates objects based on request and injects them when required. DI Container helps us to manage dependencies within the application in a simple and easy way.
+The Container class is the default implementation for the IContainer interface.
+Containers are objects that encapsulate and track zero or more components. In this context, containment refers to logical containment, not visual containment. 
+Your container would then generally contain interfaces. The container contains the registered services which can then be injected into other methods and other components which are inside the application.
+https://stackoverflow.com/questions/770039/examples-of-ioc-containers
+
+You set up middleware using the Configure method of the Startup class. 
+
+End of section 2, Building your First ASP.NET core application.
+
+Middleware controls how the app responds to http requests. It can also control how our app looks when there is an error. It is also used to authenticate and authorise a user to perform certain actions.
+It is inside Configure that we will invoke extensions on the IApplicationBuilder to add middleware.
+
+The UseIISPlatformHandler deals with authentication.
+In order to use additional middleware packages, we need to install additional NuGet packages, because we are building a .NET core app.
+The ASPNet.Diagnostics middleware package handles exceptions, exception display pages and diagnostics information.
+
+app.Use now has many more extensions for the IApplication builder.
+
+The typical workflow for registering middleware:
+1. Install necessary NuGet package
+2. Invoke installed methods on IApplicationBuilder, which places them in the http request pipeline
+3. Optionally, configure your installed methods.
+
+In startup.cs
+The configure method is injectible. Asp.net looks at the parameters which we require for the method, it then analyses them and going through the services container to figure out which objects to pass to the method, which can implement the interfaces specified in the parameter list.
+Custom services need to be explicitly registered with ConfigureServices.
+
+Nearly every app needs to serve up files from the file system, such as javascript files, css or images. Currently, our app can't do that.
+By default, files can only be served up from the wwwroot folder. 
+
+Add the aspnet.staticFiles package.
+You can then use the UseStaticFiles extension. 
+
+The UseDefaultFiles middleware, lets you setup the default file to serve up to the client.
+The UseFileServer middleware allows for you to setup to serve default files and all other static files which are required as well.
+
+In order to use the ASP.NET MVC from a .NET core app, you need to do three things:
+1. Install the ASP.NET MVC package - Microsoft.AspNet.Mvc
+2. Then, you need to add the MVC services - services.AddMvc
+3. Finally, you need to add the MVC middleware
