@@ -1,19 +1,26 @@
-c# learning websites
+c# Books
+Rob Miles
+Andrew Troelsen
+Jamie Chan
+John Sharp
 
-https://mva.microsoft.com/en-us/training-courses/c-fundamentals-for-absolute-beginners-16169?l=Lvld4EQIC_2706218949
-https://www.sololearn.com/Course/CSharp/
-https://code.tutsplus.com/courses/30-days-to-learn-c
-
-done 
-https://www.tutorialspoint.com/csharp/
-
-Practicing websites
+c# practicing websites
 https://www.codewars.com/
 http://www.programmr.com/
 https://www.codingame.com/start
 https://codefights.com/
 
-ASP.NET
+c# learning websites
+
+https://www.sololearn.com/Course/CSharp/
+https://code.tutsplus.com/courses/30-days-to-learn-c
+https://www.tutorialspoint.com/csharp/
+
+ASP.NET MVC websites
+Pluralsight
+Lynda
+DevUniversity
+https://www.youtube.com/user/bobtabor
 http://www.tutorialsteacher.com/mvc/asp.net-mvc-tutorials
 https://www.tutorialspoint.com/asp.net_mvc/
 
@@ -23,7 +30,6 @@ http://www.wpf-tutorial.com/xaml/basic-xaml/
 https://www.pluralsight.com/courses/enterprise-wpf-xaml-csharp-from-scratch
 
 c#
-https://www.youtube.com/user/bobtabor
 
 Terminology
 

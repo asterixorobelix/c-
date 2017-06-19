@@ -13,3 +13,15 @@ What is the definition of a method?
 What is the definition of a parameter?
 What is the definition of an argument?
 What does enumerated mean in c#?
+
+What does “var” mean in C#?
+Local variables can be declared without giving an explicit type. The var keyword instructs the compiler to infer the type of the variable from the expression on the right side of the initialization statement. The inferred type may be a built-in type, an anonymous type, a user-defined type, or a type defined in the .NET Framework class library.
+An implicitly typed local variable is strongly typed just as if you had declared the type yourself, but the compiler determines the type. The following two declarations of i are functionally equivalent:
+var i = 10; // implicitly typed  
+int i = 10; //explicitly typed  
+
+var has only two uses:
+
+It can be a minor convenience with complicated types. It requires less typing to declare variables, especially when declaring a variable as a nested generic type.
+It is more important with anonymous types. It must be used when storing a reference to an object of an anonymous type, because the type name cannot be known in advance.  
+

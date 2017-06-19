@@ -53,4 +53,5 @@ What is LINQ?
 What is the difference between an entity model and a viewModel?
 What is middleware?
 Where is middleware defined in MVC?
+What does “var” mean in C#?
 
