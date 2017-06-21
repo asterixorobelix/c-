@@ -25,18 +25,19 @@ class GlazerCalc
         Console.WriteLine("Enter width in metres:");
 
         widthString = Console.ReadLine();
-        width = double.Parse(widthString);//If the string is not in a valid format, Parse throws an exception whereas TryParse returns false.
+        width=double.Parse(widthString);//If the string is not in a valid format, Parse throws an exception whereas TryParse returns false.
         
         Console.WriteLine("Enter height in metres:");
 
         heightString = Console.ReadLine();
-        height = double.Parse(heightString);
+        height=double.Parse(heightString);
 
         woodLength = 2 * (width + height);//width+height
 
-        glassArea = 2 * (width * height);//width*height
+        glassArea = 2 * (width * height);//width*height. Doubling the area because its double glazing.
 
         Console.WriteLine("The length of the wood for the frame is: {0} metres ", woodLength);
         Console.WriteLine("The area of glass required for double glazing is {0} square metres",glassArea);
+		
     }
 }
