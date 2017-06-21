@@ -1,18 +1,77 @@
 Answers
 
 What is the .Net framework?
+
 The .NET framework is a shared library of code and a virtual machine runtime environment. A framework is basically code which you can use without explicitly defining the code's meaning.
 For example, other classes can inherit from the IEnumerables interface, but this interface has been defined by others and I don't have to explicitly make this definition available.
+
 What is a namespace?
+
 A namespace is where the meaning of a term has been defined.
+
 What is a class?
 What does the new operator do?
 How do you cast in c#?
 How is i++ different to ++i?
+int x = 3;
+int y = ++x;
+// x is 4, y is 4
+but:
+int x = 3;
+int y = x++;
+// x is 4, y is 3
+Prefix increments the value, and then proceeds with the expression. Postfix evaluates the expression and then performs the incrementing.
 What is the definition of a method?
 What is the definition of a parameter?
 What is the definition of an argument?
 What does enumerated mean in c#?
+What are examples of types?
+What are examples of members?
+What is a field?
+What is a property?
+What is a variable?
+What are the two kinds of types? Give all the examples of the two types.
+What is the definition of a class?
+What is the definition of a struct?
+What is the definition of an interface?
+What is the definition of a delegate?
+What is the difference between a value type and a reference type?
+What is the definition of an object?
+What is the difference between a static member and an instance member?
+What is a definition of inheritance?
+What is the definition of a method?
+
+What is the difference between an argument and a parameter?
+
+A parameter is defined in the method header. An argument is what is supplied when a method is called. It takes the place of the parameter in the method body when a call to the method is made.
+
+Is a struct a reference type or a value type?
+Is a class a reference type or a value type?
+What is the definition of a static field?
+What is the definition of the this keyword?
+What is an event?
+What is an anonymous type?
+What is polymorphism?
+What are examples of members?
+What is the definition of a delegate?
+What is the definition of the using statement?
+What is the definition of a namespace?
+What is the definition of a method?
+What is an action?
+What is a controller?
+What is the difference between attribute based routing and convention based routing.
+What is Inversion of Control?
+What is Dependency Injection?
+What is the difference between an entity and a service?
+What is a lambda expression?
+What are anonymous functions?
+What are the solid design principles?
+What is a relational database?
+What is a relational model?
+What is LINQ?
+What is the difference between an entity model and a viewModel?
+What is middleware?
+Where is middleware defined in MVC?
 
 What does “var” mean in C#?
 Local variables can be declared without giving an explicit type. The var keyword instructs the compiler to infer the type of the variable from the expression on the right side of the initialization statement. The inferred type may be a built-in type, an anonymous type, a user-defined type, or a type defined in the .NET Framework class library.
@@ -20,8 +79,49 @@ An implicitly typed local variable is strongly typed just as if you had declared
 var i = 10; // implicitly typed  
 int i = 10; //explicitly typed  
 
+Variables declared using the var keyword are called implicitly typed variables. Implicitly typed variables must be initialized with a value.
+
 var has only two uses:
 
 It can be a minor convenience with complicated types. It requires less typing to declare variables, especially when declaring a variable as a nested generic type.
 It is more important with anonymous types. It must be used when storing a reference to an object of an anonymous type, because the type name cannot be known in advance.  
+
+What is the difference between Console.Write and Console.WriteLine?
+The difference between these two is that Console.WriteLine is followed by a line terminator, which moves the cursor to the next line after the text output. 
+
+How do you declare an array containing ints in c#?
+
+int[] arrayName = new int [arraySize];
+
+How do you declare a 3x3 array of type int in c#?
+
+int [,] arrayName = new int [3,3];
+
+How do you catch exceptions in c#?
+
+try {}
+catch (Exception e) {}
+
+How do you use a call by reference parameter?
+
+static void methodName (ref int i){}
+
+methodName(ref test);
+You must have ref in the method heading and the method call.
+
+How do you use an "out" reference and why would you use "out"?
+
+Same as above. You need to have out in both the method heading and the method call. You use out if you only want the value of the variable to be changed, but do not want to be able to use the value in the method.
+
+What is an identifier?
+
+An identifier is a name which the programmer has chosen for something.
+
+What is the output of this code?
+int a = 4;
+int b = 6;
+b = a++;
+Console.WriteLine(++b);
+
+5
 

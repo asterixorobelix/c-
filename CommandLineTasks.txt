@@ -12,6 +12,11 @@ The length of the wood for the frame is: 6.8 metres
 The area of glass required for double glazing is 5.06 square metres
 */
 
+/*Given a set of player scores from a game, list of those scores in ascending order.
+No player can score less than 0 or more than 1000 runs in a game.
+*/
+
+
 /*
 We are given 5 integer numbers. Write a program which checks if the sum of them is 0. and return true if any subset founded has sum=0 else false
 
