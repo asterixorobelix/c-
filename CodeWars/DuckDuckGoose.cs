@@ -61,7 +61,7 @@ class PlayGame
 {
 	static void Main()
 	{
-		string[] PlayerNames = new string[] {"Nathan", "James", "Fred", "Sarah", "Francois"};
+		string[] PlayerNames = new string[] {"Nathan", "James", "Fred", "Sarah", "Francois"};//Don't need to specify the size of the array because it has been initialised at declaration.
 
 		Console.WriteLine("Enter the player to be the goose:");
 		int UserChoice;
