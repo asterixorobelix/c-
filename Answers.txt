@@ -7,11 +7,24 @@ For example, other classes can inherit from the IEnumerables interface, but this
 
 What is a namespace?
 
-A namespace is where the meaning of a term has been defined.
+A namespace is where the meaning of a term has been defined. A namespace is a place where particular names have meaning (it provides context). We have namespaces in our conversations too, if I am using the "Football" namespace and I say “That team is really on fire”, I'm saying something good. If I am using the "Firefighter" namespace I'm saying something less good.
+It is possible to put one namespace inside another and so the IO namespace is actually held within the System namespace. For instance, a librarian would put a cabinet of Vases in the Roman room which he could refer to as Roman.Vases. However, just because you use a namespace, this does not imply that you use all the namespaces defined within it.
 
 What is a class?
+
+A class defines the set of variables and methods for an object. It is the blueprint for the object. It is a custom (user-defined) type. The class blueprint can be used to create multiple instances of an object. For example, the same Architect's blueprint can be used to create multiple buildings.
+
 What does the new operator do?
+
+The new operator creates an instance of an object (instantiation). The new operator creates instances of a custom type.
+
 How do you cast in c#?
+
+We can force C# to regard a value as being of a certain type by the use of casting. A cast takes the form of an additional instruction to the compiler to force it to regard a value in a particular way. You cast a value by putting the type you want to see there in brackets before it. For example:
+int i = 3, j = 2 ; 
+float fraction = (float) i / (float) j ;
+The (float) cast in the above tells the compiler to regard the values in the integer variables as floating point ones, so that we get 1.5 printed out rather than 1.
+
 How is i++ different to ++i?
 int x = 3;
 int y = ++x;
@@ -22,58 +35,223 @@ int y = x++;
 // x is 4, y is 3
 Prefix increments the value, and then proceeds with the expression. Postfix evaluates the expression and then performs the incrementing.
 What is the definition of a method?
+
+Default values are specified in the method header. Eg: static int Power(int x, int y =2){..}. Named arguments allow one to call a method with arguments in a different order to the parameters. eg: static int Area (int h, int w){..}
+int result = Area (w:5,h:6);
+
 What is the definition of a parameter?
 What is the definition of an argument?
+
 What does enumerated mean in c#?
-What are examples of types?
-What are examples of members?
+
+It means that some states have been numbered. eg: enum days {Monday, Tuesday, Wednesday};
+So, a range of particular states have been declared and a type can then only hold a value declared in the enum. Days of the week can only hold one of those day names. We know that if we want to hold an integer value we can use an int type. If we want to hold something which is either true or false we can use a bool. However, sometimes we want to hold a range of particular values or states.
+Enumerated types are very useful when storing state information. States are not quite the same as other items such as the name of a customer or the balance of their account.
+
 What is a field?
+
+A field is a variable which is associated with a class or with an instance of a class. A field is a variable of any type which is declared directly in a class or struct. Fields are members of their containing type (class). Generally, fields are used for variables which have private or protected accessibility. A private field which stores data from a public property is called a backing store/field. This allows for indirect access, which guards against invalid input values. 
+Fields typically store data which must be accessible to more than one class method (ie method within that class) and must be stored for longer than the lifetime of any single method. Fields are members of their containing type. 
+eg private DateTime date; //private field
+Fields can be marked as private, public, protected or internal.
+A field declared with the static modifier defines a static field. A static field identifies exactly one storage location. No matter how many instances of a class are created, there is only ever one copy of a static field. A field declared without the static modifier defines an instance field. Every instance of a class contains a separate copy of all the instance fields of that class.
+
+Object orientated programming principles say that the internal workings of a class should be hidden from the outside world. If you expose a field you're in essence exposing the internal implementation of the class. Therefore we wrap fields with Properties to give us the ability to change the implementation without breaking code. You can also put logic in the Property, which allows us to perform validation logic etc if necessary.
+Another way of thinking about it is that interfaces can have properties but not fields. This, to me, underlines that properties should be used to define a class's public interface while fields are meant to be used in the private, internal workings of a class. As a rule I rarely create public fields and similarly I rarely create non-public properties.
+
 What is a property?
+
+The characteristics of an object are called properties. The values of these properties describe the current state of an object. eg: an object of the class Human may have an age property of 30 and a name property of Antonio.
+The properties of a class allow you to read or write the value of a private class field. Properties are often public themselves, but can be private as well. eg: public string Name {get;set;} ; Properties expose fields.
+Properties can be read-only (only a get), write only or read write (both a get and a set). Properties can also have logic which determines if a value can be get or set. For instance, you chould check if a value is greater than zero before assigning this value to the variable.
+Properties enable a class to expose a public way of getting and setting values, while hiding implementation or verification code.
+
+Auto-Implemented properties
+
+If you do not need any custom logic, you can use auto-implemented properties. You then do not need to declare the private fields, the compiler will do it for you.
+
 What is a variable?
-What are the two kinds of types? Give all the examples of the two types.
-What is the definition of a class?
+
+A variable is a memory location with an associated type.
+
 What is the definition of a struct?
-What is the definition of an interface?
-What is the definition of a delegate?
+
+Structures are a way to organize a group of values into a cohesive group. You can then treat this grouping as a single entity. Structs are a value type.
+eg struct AccountHolder{
+	public string Name;
+	public string Address;
+}
+
+We can then say: AccountHolder Nathan;
+Nathan.Address="8 Dale Avenue";
+
+Structs share most of the same syntax as classes, although structs are more limited than classes:
+Within a struct declaration, fields cannot be initialized unless they are declared as const or static.
+A struct cannot declare a default constructor (a constructor without parameters) or a finalizer.
+Structs are copied on assignment. When a struct is assigned to a new variable, all the data is copied, and any modification to the new copy does not change the data for the original copy. This is important to remember when working with collections of value types such as Dictionary<string, myStruct>.
+Structs are value types and classes are reference types.
+Unlike classes, structs can be instantiated without using a new operator.
+Structs can declare constructors that have parameters.
+A struct cannot inherit from another struct or class, and it cannot be the base of a class. All structs inherit directly from System.ValueType, which inherits from System.Object.
+A struct can implement interfaces.
+
+The struct type is suitable for representing lightweight objects such as Point, Rectangle, and Color. Although it is just as convenient to represent a point as a class with Auto-Implemented Properties, a struct might be more efficient in some scenarios. For example, if you declare an array of 1000 Point objects, you will allocate additional memory for referencing each object; in this case, a struct would be less expensive.
+
 What is the difference between a value type and a reference type?
+
+Some of the built in types, such as int or double are value types. They are stored in the stack memory.
+Reference types are used for storing objects. When you instantiate an object, the data for that object is stored in the heap. The memory address of this data is stored in the stack memory. This is why they are called reference types. The new operator returns a memory address of an object on the heap. The address is then stored in the stack.
+Variables of value types directly contain their data whereas variables of reference types store references to their data, the latter being known as objects. With reference types, it is possible for two variables to reference the same object and thus possible for operations on one variable to affect the object referenced by the other variable. With value types, the variables each have their own copy of the data, and it is not possible for operations on one to affect the other (except in the case of ref and out parameter variables).
+
 What is the definition of an object?
+
+Objects don't add any new behaviour to our program. Objects allow us to design programs in a better manner. An object is an instance of a class. A class provides the instructions to make an object. It is a blueprint. The new keyword actually makes the object. Objects are a reference type. This means that the line: Account RobsAccount; creates a reference tag called RobsAccount. The line: RobsAccount = new Account(); creates an Account object and sets the reference RobsAccount to the memory address of the Account object. An object can contain references to other objects, as well as data. 
+
 What is the difference between a static member and an instance member?
+
+Static members belong to classes. Instance members belong to objects (instances of classes). Each member of a class can have different levels of accessibility. The static keyword lets us create members which are not held in an instance, but in the class itself. The AccountTest class has a static member method called Main. We know that this is the method which is called to run the program. It is part of the class AccountTest. If I made fifty AccountTest instances, they would all share the same Main method. In terms of C# the keyword static flags a member as being part of the class, not part of an instance of the class.
+I don't have to make an instance of the AccountTest class to be able to use the Main method.
+Say, for example, that I've been told that the interest rate is held for all the accounts. If the interest rate changes it must change for all accounts. This means that to implement the change I'd have to go through all the accounts and update the rate. This would be tedious, and if I missed one account, possibly expensive.
+I solve the problem by making the interest rate member static. The interest rate is now part of the class, not part of any instance. This means that I have to change the way that I get hold of it:
+Account RobsAccount = new Account(); 
+RobsAccount.Balance = 100; 
+Account.InterestRateCharged = 10;//call to a static member
+Since it is a member of the class I now have to use the class name to get hold of it instead of the name of the instance reference.
+You should be careful about how you provide access to static data items. A change to a single static value will affect your entire system. So they should always be made private and updated by means of method calls.
+
+ static class is basically the same as a non-static class, but there is one difference: a static class cannot be instantiated. In other words, you cannot use the new keyword to create a variable of the class type. Because there is no instance variable, you access the members of a static class by using the class name itself. For example, in the .NET Framework Class Library, the static System.Math class contains methods which perform mathematical operations, without any requirement to store or retrieve data which is unique to a particular instance of the Math class. 
+A static constructor is only called once, and a static class remains in memory for the lifetime of the application domain in which your program resides.
+Creating a static class is therefore basically the same as creating a class which contains only static members and a private constructor. A private constructor prevents the class from being instantiated. The advantage of using a static class is that the compiler can check to make sure that no instance members are accidentally added. The compiler will guarantee that instances of this class cannot be created.
+
 What is a definition of inheritance?
+
+Inheritance means that a class implicitly contains all members of its base class. A derived class can add new members to those which it inherits, but cannot remove the definition of an inherited member. 
+
 What is the definition of a method?
+
+A method is a code block that contains a series of statements. A program causes the statements to be executed by calling the method and specifying any required method arguments. In C#, every executed instruction is performed in the context of a method. Methods are declared in a class or struct by specifying the access level such as public or private, optional modifiers such as abstract or sealed, the return value, the name of the method, and any method parameters. The method definition specifies the names and types of any parameters that are required. When calling code calls the method, it provides concrete values called arguments for each parameter. The arguments must be compatible with the parameter type but the argument name (if any) used in the calling code does not have to be the same as the parameter named defined in the method.
 
 What is the difference between an argument and a parameter?
 
 A parameter is defined in the method header. An argument is what is supplied when a method is called. It takes the place of the parameter in the method body when a call to the method is made.
 
 Is a struct a reference type or a value type?
+
+Value type.
+
 Is a class a reference type or a value type?
-What is the definition of a static field?
-What is the definition of the this keyword?
-What is an event?
-What is an anonymous type?
-What is polymorphism?
-What are examples of members?
+
+Reference type.
+
+What is the definition of an interface?
+
+An interface type defines a contract as a named set of public function members. A class or struct which implements an interface must provide implementations of the interface’s function members. An interface may inherit from multiple base interfaces, and a class or struct may implement multiple interfaces.
+
 What is the definition of a delegate?
+
+A delegate type represents references to methods with a particular parameter list and return type. Delegates make it possible to treat methods as entities which can be assigned to variables and passed as parameters. Delegates are analogous to function types provided by functional languages. 
+
+What is the definition of the this keyword?
+
+The this keyword refers to the current instance of the class and is also used as a modifier of the first parameter of an extension method. Static member functions, because they exist at the class level and not as part of an object, do not have a this pointer. It is an error to refer to this in a static method.
+
+What is an event?
+
+Events enable a class or object to notify other classes or objects when something of interest occurs. The class which sends (or raises) the event is called the publisher and the classes which receive (or handle) the event are called subscribers.
+In a typical C# application, you subscribe to events raised by controls such as buttons and list boxes. The publisher determines when an event is raised; the subscribers determine what action is taken in response to the event.
+An event can have multiple subscribers. A subscriber can handle multiple events from multiple publishers.
+
+What is an anonymous type?
+
+Anonymous types provide a convenient way to encapsulate a set of read-only properties into a single object without having to explicitly define a type first. The type name is generated by the compiler and is not available at the source code level (the code which you write). The type of each property is inferred by the compiler. You create anonymous types by using the new operator together with an object initializer. For more information about object initializers, see Object and Collection Initializers.
+The following example shows an anonymous type which is initialized with two properties named Amount and Message.
+var v = new { Amount = 108, Message = "Hello" };  
+
+What is polymorphism?
+
+Polymorphism is a Greek word which means "many-shaped". At run time, objects of a derived class may be treated as objects of a base class in places such as method parameters and collections or arrays. When this occurs, the object's declared type is no longer identical to its run-time type.
+Base classes may define and implement virtualmethods, and derived classes can override them, which means they provide their own definition and implementation. At run-time, when client code calls the method, the CLR looks up the run-time type of the object, and invokes that override of the virtual method. Thus in your source code you can call a method on a base class, and cause a derived class's version of the method to be executed.
+
+What are examples of members?
+
 What is the definition of the using statement?
-What is the definition of a namespace?
+
+The using statement is used to obtain a resource, execute a statement, and then dispose of that resource.
+
 What is the definition of a method?
-What is an action?
-What is a controller?
-What is the difference between attribute based routing and convention based routing.
-What is Inversion of Control?
-What is Dependency Injection?
-What is the difference between an entity and a service?
+
+A method is a group of statements which have been given a name which represents that code. You can then refer to that code by name, rather than typing out the code again. A Method performs an action in a series of statements. The Method Main() is the default starting point for a c# program.
+
 What is a lambda expression?
+
+A lambda expression describes a pattern. From mathematics, the lambda calculus describes the world in patterns. In C# a lambda is a function which uses clear and short syntax, for example: x => x + 1
+To the left, are the arguments. The "x" is just a name—we can use any valid name. The result is on the right (x+1). You can pass lambda expressions as arguments, for sorting or for searching.
+The => operator can be read as "goes to." It is always used when declaring a lambda expression. We can achieve the same thing with regular, non-lambda methods. But they make a language easier to use, more "expressive."
+Lambda expressions are particularly helpful for writing LINQ query expressions. In order to create a lambda expression, you specify input parameters (if any) on the left side of the lambda operator =>, and you put the expression or statement block on the other side. For example, the lambda expression x => x * x specifies a parameter that’s named x and returns the value of x squared.
+
 What are anonymous functions?
+
+These are functions which have no names.
+
 What are the solid design principles?
+
+S is single responsibility principle (SRP)
+O stands for open closed principle (OCP)
+L Liskov substitution principle (LSP)
+I interface segregation principle (ISP)
+D Dependency injection principle (DIP)
+
+Single responsibility principle (SRP)
+According to SRP, one class should take responsibility for only one thing, so that changes in one class do not affect other classes. Every software module should have only one reason for a change to be made to it.
+It does not mean that your classes should only contain one method or property. There may be many members as long as they relate to the single responsibility.
+
+Open closed principle (OCP)
+This means that a Class should be open for extension but closed for modification. In order to do this, you use inheritance rather than things like if statements in classes.
+Here "Open for extension" means, we need to design our module/class in such a way that the new functionality can be added only when new requirements are generated. "Closed for modification" means we have already developed a class and it has gone through unit testing. 
+Generally, we can do this by referring to abstractions for dependencies, such as interfaces or abstract classes, rather than using concrete classes. Such interfaces can be fixed once developed so that the classes which depend upon them can rely upon unchanging abstractions.
+Functionality can be added by creating new classes which implement the interfaces.
+
+Liskov substitution principle (LSP)
+This principle states that a Child class should not break a Parent class’s type definition and behavior. The Liskov Substitution Principle (LSP) states that "you should be able to use any derived class instead of a parent class and have it behave in the same manner without modification".
+It ensures that a derived class does not affect the behavior of the parent class, in other words that a derived class must be substitutable for its base class. For example: A father who is a doctor whereas his son wants to become a cricketer. In this case, the son can't replace his father even though they both belong to the same family hierarchy.
+
+Interface segregation principle (ISP)
+This principle states that a class should not be forced to use an interface which is irrelevant to it. Instead of one fat interface many small interfaces are preferred based on groups of methods, each one serving one sub module.
+An interface should be more closely related to the code which uses it than code which implements it. So the methods on the interface are defined by the methods which the client code needs, rather than the methods which the class implements. So, clients should not be forced to depend upon interfaces which they don't use.
+The larger the interface, the more likely it includes methods which not all implementers can do. An interface is defined as a syntactical contract which all the classes inheriting the interface should follow. The interface defines the 'what' part of the syntactical contract and the deriving classes define the 'how' part of the syntactical contract.
+https://www.tutorialspoint.com/csharp/csharp_interfaces.htm
+Interfaces define properties, methods, and events, which are the members of the interface. Interfaces contain only the declaration of the members. It is the responsibility of the deriving class to define the members. It often helps in providing a standard structure which the deriving classes would follow.
+
+Dependency inversion principle (DIP)
+This principle tells you not to write any tightly coupled code because that is a nightmare to maintain when the application grows bigger. If a class depends on another class, then we need to change one class if something changes in that other dependent class. We should always try to write loosely coupled classes which avoid this problem.
+There are 3 types to DI, Constructor injection, Property injection and method injection. The Dependency Inversion Principle (DIP) states that high-level modules/classes should not depend upon low-level modules/classes. Both should depend upon abstractions. Secondly, abstractions should not depend upon details. Details should depend upon abstractions.
+High-level modules/classes implement business rules or logic in a system (application). Low-level modules/classes deal with more detailed operations, in other words, they may deal with writing information to databases or passing messages to the operating system or services.
+A high-level module/class which has dependency on low-level modules/classes and which knows a lot about the other classes it interacts with, is said to be tightly coupled. When a class knows explicitly about the design and implementation of another class, it raises the risk that changes to one class will break the other class.
+
 What is a relational database?
+
+A relational database is a digital database whose organization is based on the relational model of data.
+
 What is a relational model?
+
+The relational model organizes data into one or more tables (or "relations") of columns and rows, with a unique key identifying each row. The rows represent instances of that type of entity (such as "Lee" or "chair") and the columns representing values attributed to that instance (such as address or price).
+The standard user and application program interface to a relational database is the structured query language (SQL). A relational database is a set of tables containing data fitted into predefined categories. Each table (which is sometimes called a relation) contains one or more data categories in columns. Each row contains a unique instance of data for the categories defined by the columns. 
+For example, a typical business order entry database would include a table which described a customer with columns for name, address, phone number, and so forth. Another table would describe an order: product, customer, date, sales price, and so forth. A user of the database could obtain a view of the database which fitted the user's needs. For example, a branch office manager might like a view or report on all customers which had bought products after a certain date. 
+
 What is LINQ?
+
+Language-Integrated Query(LINQ) is set of extensions to the .Net Framework 3.5 which can be used for relational databases. LINQ applies the principles of object-oriented programming to relational data. It provides a unified programming model for querying data from different types of data sources, and extends data capabilities directly into the C# and Visual Basic languages. It defines a common syntax and a programming model to query different types of data using a common language.
+
 What is the difference between an entity model and a viewModel?
-What is middleware?
-Where is middleware defined in MVC?
+
+A database stores specific pieces of information eg: Name, Address
+Somewhere else in the app, there may be a view which requires the information from the database and also additional information (such as all the possible names which the database can store).
+There are therefore two different concept, one for each of the use cases:
+1. Entity model - an entity is an object which you use to persist (store) information in the database. The EF stores the information and only the information in the database.
+2. View model, also called a Data Transfer Object (DTO) - object which carries information from the controller into the view. It contains everything which a view will need to render the html. This might require more information than is in the database. The DTO can hand information to the EF in order to save it in the database.
 
 What does “var” mean in C#?
+
 Local variables can be declared without giving an explicit type. The var keyword instructs the compiler to infer the type of the variable from the expression on the right side of the initialization statement. The inferred type may be a built-in type, an anonymous type, a user-defined type, or a type defined in the .NET Framework class library.
 An implicitly typed local variable is strongly typed just as if you had declared the type yourself, but the compiler determines the type. The following two declarations of i are functionally equivalent:
 var i = 10; // implicitly typed  
@@ -87,7 +265,18 @@ It can be a minor convenience with complicated types. It requires less typing to
 It is more important with anonymous types. It must be used when storing a reference to an object of an anonymous type, because the type name cannot be known in advance.  
 
 What is the difference between Console.Write and Console.WriteLine?
+
 The difference between these two is that Console.WriteLine is followed by a line terminator, which moves the cursor to the next line after the text output. 
+
+What is the definition of an array?
+
+An array is a collection of variables of the same type. Arrays are objects, so they need to be instantiated with the new keyword. Initial values can be assigned to an array by using curly brackets. eg: string[] names = new string[3] {"John","Harry", "Jessica"};
+
+You can use the foreach statement in order to iterate through the array. The type of the foreach iterator should be of the same type as the array elements. Arrays have a number of member methods, which can be accessed with the dot notation. eg: Length returns the number of elements in the array. Rank returns the number of dimensions in the array. Max, Min and Sum are self explanatory.
+
+What is a jagged array?
+
+It an an array whose elements are arrays. So, an array of arrays.
 
 How do you declare an array containing ints in c#?
 
@@ -111,7 +300,7 @@ You must have ref in the method heading and the method call.
 
 How do you use an "out" reference and why would you use "out"?
 
-Same as above. You need to have out in both the method heading and the method call. You use out if you only want the value of the variable to be changed, but do not want to be able to use the value in the method.
+Same as above. You need to have out in both the method heading and the method call. You use out if you only want the value of the variable to be changed, but do not want to be able to use the value in the method. Passing by output can transfer data out of the method, but cannot accept data.
 
 What is an identifier?
 
@@ -123,5 +312,37 @@ int b = 6;
 b = a++;
 Console.WriteLine(++b);
 
-5
+How do you specify a do-while loop?
+
+do{...}
+while(a<5);
+
+A do-while loop is guaranteed to execute at least once.
+
+What is the conditional operator?
+
+Exp1?Exp2:Exp3;
+
+Exp1 is evaluated. If Exp1 is true, Exp2 is evaluated and becomes the value of the expression. If Exp1 is false, Exp3 becomes the value of the expression. Basically, just a neat if-else statement.
+
+eg: msg=(age>18)?"Welcome":"Sorry";
+
+What is overloading?
+
+Overloading is when multiple methods have the same name, but different parameters. The method definitions must differ by the types and/or number of parameters.
+
+What is recursion?
+
+Recursion is when a method calls itself. An exit condition is required in order to prevent an infinite loop.
+
+What is a constructor?
+
+Constructors are executed automatically, whenever a new object of that class is created. Constructors are public access and have the same name as the class, but it does not have a return type. The advantage of a constructor is that it is called automatically, so you don't have to remember to do whatever the constructor does. Constructors can either take no parameters, constructors of this type are called default constructors. However, constructors can also take parameters or be overloaded like methods. 
+
+Whenever a class or struct is created, its constructor is called. Unless the class is static, classes without constructors are given a public default constructor by the C# compiler in order to enable class instantiation. A class or struct may have multiple constructors which take different arguments. Constructors enable the programmer to set default values, limit instantiation, and write code which is flexible and easy to read.
+
+What is an action?
+What is a controller?
+What is the difference between attribute based routing and convention based routing.
+What is the difference between an entity and a service?
 
