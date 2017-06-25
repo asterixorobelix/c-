@@ -3,6 +3,7 @@ Code Sample 12.
 Page 52 of the Rob Miles c# programming pdf
 
 Create a Method called ReadValue, which can prompt the user to enter a value between a max and a min, with a configurable message.
+ReadValue should keep on prompting the user until valid input is entered.
 
 Sample Output:
 Enter width of window:  between 0.5 an
@@ -17,9 +18,7 @@ using System;
 
 class UsefulMethod
 {
-    // prompt for the user 
-    // lowest allowed value
-    // highest allowed value
+    // prompt for the user, low = lowest allowed value, high = highest allowed value
     static double readValue(string prompt, double low, double high)
     {
         double result = 0;
