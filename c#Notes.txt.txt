@@ -6,9 +6,17 @@ John Sharp
 
 c# practicing websites
 https://www.codewars.com/
-http://www.programmr.com/
-https://www.codingame.com/start
+https://leetcode.com/problemset/all/?difficulty=Easy
+https://caveofprogramming.com/c-sharp-tutorial/basic-c-programming-test-your-knowledge-2.html
 https://codefights.com/
+https://www.codingame.com/start
+https://www.codeeval.com/how_it_works/#anchor-for-hacker-deals
+https://www.topcoder.com/
+https://www.udemy.com/c-sharp-college-programming-exercises-projects/
+https://practiceexercisescsharp.blogspot.co.za/2017/05/c-sharp-exercises-and-solutions.html
+http://www.worldbestlearningcenter.com/index_files/csharp-variables-exercises.htm
+http://www.programmr.com/
+http://www.spoj.com/problems/classical/sort=10
 
 c# learning websites
 

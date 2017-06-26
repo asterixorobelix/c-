@@ -1,4 +1,4 @@
-Answers
+﻿Answers
 
 What is the .Net framework?
 
@@ -33,14 +33,11 @@ but:
 int x = 3;
 int y = x++;
 // x is 4, y is 3
-Prefix increments the value, and then proceeds with the expression. Postfix evaluates the expression and then performs the incrementing.
+The prefix increments the value, and then proceeds with the expression. The postfix evaluates the expression and then performs the incrementing.
 What is the definition of a method?
 
 Default values are specified in the method header. Eg: static int Power(int x, int y =2){..}. Named arguments allow one to call a method with arguments in a different order to the parameters. eg: static int Area (int h, int w){..}
 int result = Area (w:5,h:6);
-
-What is the definition of a parameter?
-What is the definition of an argument?
 
 What does enumerated mean in c#?
 
@@ -119,9 +116,12 @@ Account.InterestRateCharged = 10;//call to a static member
 Since it is a member of the class I now have to use the class name to get hold of it instead of the name of the instance reference.
 You should be careful about how you provide access to static data items. A change to a single static value will affect your entire system. So they should always be made private and updated by means of method calls.
 
- static class is basically the same as a non-static class, but there is one difference: a static class cannot be instantiated. In other words, you cannot use the new keyword to create a variable of the class type. Because there is no instance variable, you access the members of a static class by using the class name itself. For example, in the .NET Framework Class Library, the static System.Math class contains methods which perform mathematical operations, without any requirement to store or retrieve data which is unique to a particular instance of the Math class. 
+A static class is basically the same as a non-static class, but there is one difference: a static class cannot be instantiated. In other words, you cannot use the new keyword to create a variable of the class type. Because there is no instance variable, you access the members of a static class by using the class name itself. For example, in the .NET Framework Class Library, the static System.Math class contains methods which perform mathematical operations, without any requirement to store or retrieve data which is unique to a particular instance of the Math class. 
 A static constructor is only called once, and a static class remains in memory for the lifetime of the application domain in which your program resides.
 Creating a static class is therefore basically the same as creating a class which contains only static members and a private constructor. A private constructor prevents the class from being instantiated. The advantage of using a static class is that the compiler can check to make sure that no instance members are accidentally added. The compiler will guarantee that instances of this class cannot be created.
+Because of their global nature, static members can be accessed directly using the class name without an object. Static members are also shared by all objects of that class. So, for instance, if the count variable has been declared as static it is shared between all Cat objects.
+We access constant properties using the name of the class, just like a static member. This is because all const members are static by default.
+Constructors can be declared static to initialize static members of the class. The static constructor is automatically called once when we access a static member of the class.
 
 What is a definition of inheritance?
 
@@ -341,8 +341,20 @@ Constructors are executed automatically, whenever a new object of that class is 
 
 Whenever a class or struct is created, its constructor is called. Unless the class is static, classes without constructors are given a public default constructor by the C# compiler in order to enable class instantiation. A class or struct may have multiple constructors which take different arguments. Constructors enable the programmer to set default values, limit instantiation, and write code which is flexible and easy to read.
 
+What is a Destructor?
+
+Destructors are automatically invoked when an object is destroyed or deleted. 
+Destructors have the following attributes:
+- A class can only have one destructor.
+- Destructors cannot be called. They are invoked automatically.
+- A destructor does not take modifiers or have parameters. 
+- The name of a destructor is exactly the same as the class prefixed with a tilde (~).
+Destructors can be very useful for releasing resources before coming out of the program. This could include closing files, releasing memory, and so on.
+This can be useful, for example, if your class is working with storage or files. The constructor would initialize and open the files. Then, when the program ends, the destructor would close the files.
+
 What is an action?
 What is a controller?
 What is the difference between attribute based routing and convention based routing.
 What is the difference between an entity and a service?
-
+What is the definition of a parameter?
+What is the definition of an argument?
