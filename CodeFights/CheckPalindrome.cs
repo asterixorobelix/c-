@@ -1,19 +1,14 @@
-/*Given the string, check if it is a palindrome.
+/*Given the string, check if it is a palindrome. Don't worry about error handling or validating input.
 
 Examples
 For inputString = "aabaa", the output should be
 checkPalindrome(inputString) = true;
-For inputString = "abac", the output should be
-checkPalindrome(inputString) = false;
-For inputString = "a", the output should be
-checkPalindrome(inputString) = true.
 
 Input/Output
 [input] string inputString: A non-empty string consisting of lowercase characters.
+[output] boolean: true if inputString is a palindrome, false otherwise.
 
 Guaranteed constraints: 1 ≤ inputString.length ≤ 105.
-
-[output] boolean: true if inputString is a palindrome, false otherwise.
 
 Sample Output:
 Enter a name to test for palindrome:
@@ -54,10 +49,7 @@ class CheckPalindrome{
 		Console.WriteLine("Enter a name to test for palindrome:");
 		
 		string UserString=Console.ReadLine();
-		
 		bool Palindrome = checkPalindrome(UserString);
-		
-		Console.WriteLine("Is {0} a palindrome?",UserString);
-		Console.WriteLine(Palindrome);
+		Console.WriteLine("Is {0} a palindrome? {1}",UserString, Palindrome);			
 	}
 }
