@@ -10,13 +10,17 @@ Bank Accounts can also be "Frozen", "New", "Active", "Closed".
 Create an Account class, which has a method WithdrawFunds, which allows for an amount to be withdrawn from the account balance.
 Create an account called RobsAccount and withdraw an amount from the account.
 
-Sample Output:
 Balance: 1000
-Withdrawal: 22
-Balance: 978
+How much do you want to withdraw?
+691
+Withdrawal: 691
+Balance: 309
 
-C:\Users\nathan.stasin\Desktop\practice>new1.exe
-Insufficient funds. Your balance: 1000 and you wish to withdraw: 220000
+C:\Users\nathan.stasin\Desktop\cSharp\Rob Miles Book>Page96.exe
+Balance: 1000
+How much do you want to withdraw?
+2500
+Insufficient funds. Your balance: R1000 and you wish to withdraw: R2500
 */
 
 using System;
@@ -34,7 +38,7 @@ class BankProgram{
 		
 		public void WithdrawFunds(int Withdrawal){
 			if(Withdrawal<Balance&&Balance>0){
-				Console.WriteLine("Balance: "+Balance);
+				
 				Console.WriteLine("Withdrawal: "+Withdrawal);
 				Balance-=Withdrawal;
 				Console.WriteLine("Balance: "+Balance);				
@@ -52,6 +56,17 @@ class BankProgram{
 		RobsAccount.Balance=1000;
 		RobsAccount.AccountState=State.Active;
 		
-		RobsAccount.WithdrawFunds(220000);
+		Console.WriteLine("Balance: "+RobsAccount.Balance);
+		int WithdrawalRequest;
+		Console.WriteLine("How much do you want to withdraw?");
+		
+		try{
+			WithdrawalRequest=int.Parse(Console.ReadLine());
+			RobsAccount.WithdrawFunds(WithdrawalRequest);
+		}
+		
+		catch{
+			Console.WriteLine("Invalid input");
+		}		
 	}
 }
