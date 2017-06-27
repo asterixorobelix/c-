@@ -25,10 +25,10 @@ Create a Method called ReadValue, which can prompt the user to enter a value bet
 ReadValue should keep on prompting the user until valid input is entered.
 
 Sample Output:
-Enter width of window:  between 0.5 an
+Enter width of window:  between 0.5 and 5 m
 4
 Width: 4
-Enter your age:  between 0 and 70
+Enter your age:  between 0 and 70 years
 34
 Age: 34
 */
