@@ -1,5 +1,6 @@
 /*
 Given a year, return the century it is in. The first century spans from the year 1 up to and including the year 100, the second - from the year 101 up to and including the year 200, etc.
+Include a way to test your code with random years.
 
 Examples
 For year = 1905, the output should be
@@ -9,8 +10,6 @@ centuryFromYear(year) = 17.
 
 input: A positive integer, designating the year where: 1 ≤ year ≤ 2005.
 output: An integer representing the number of the century the year is in.
-
-include a way to test your code with random years.
 
 Sample Output:
 Enter a year to calculate the century from:
@@ -34,7 +33,7 @@ using System;
 
 class CenturyFromYear{
 	
-	static int CalculateCentury(int year){
+	static void CalculateCentury(int year){
 		int Century;
 		Console.WriteLine("Year: "+year);
 		
@@ -45,25 +44,23 @@ class CenturyFromYear{
 		else{
 			Century=(year/100)+1;
 		}
-		return Century;
+		Console.WriteLine("The year {0} is in the century: {1}",year,Century);
 	}
 	
 	static void Main(){
-		int RandomYear;
-		
+		int Year;		
 		Console.WriteLine("Enter a year to calculate the century from:");
 		
 		try{
-			RandomYear=int.Parse(Console.ReadLine());
+			Year=int.Parse(Console.ReadLine());
 		}
 		
 		catch{
 			Console.WriteLine("Invalid input, generating random year..");
-			Random RandomYr = new Random();
-			RandomYear = RandomYr.Next(1,2005);
+			Random Rndm = new Random();
+			Year = Rndm.Next(1,2005);
 		}
-		
-		Console.WriteLine("The year {0} is in the century:{1}",RandomYear,CalculateCentury(RandomYear));
+		CalculateCentury(Year);		
 	}
 }
 
