@@ -2,12 +2,11 @@
 Given an array of integers, find the pair of adjacent elements which has the largest absolute value product and return that product. Include a way to use your code with different arrays.
 
 [input] array.integer inputArray: An array of integers containing at least two elements.
+[output] integer : The largest product of adjacent elements.
 
 Guaranteed constraints:
 2 ≤ inputArray.length ≤ 10,
 -1000 ≤ inputArray[i] ≤ 1000.
-
-[output] integer : The largest product of adjacent elements.
 
 Sample Output:
 Random array:
@@ -56,7 +55,7 @@ class AdjacentElements{
 		Console.WriteLine("Random array:");
 		
 		for(int i=0;i<ArrayLength;i++){
-			int ArrayEntry = Rand.Next(ArrayMin,ArrayMax);//Generate a random number between -1000 and 1000.
+			int ArrayEntry = Rand.Next(ArrayMin,ArrayMax);//Generate a random number between ArrayMin and ArrayMax.
 			Console.Write(" "+ArrayEntry);
 			RandomArray[i]=ArrayEntry;
 		}

@@ -34,19 +34,6 @@ Age: 34
 */
 
 /*
-Page 58 of Rob Miles c# book.
-Code Sample 13.
-
-Make a library which contain a method for reading a string and a method for reading an int and checking that it is between a min and max value.
-
-Sample output:
-Enter your name : Nathan
-Name: Nathan
-Enter your age : 45
-Age: 45
-*/
-
-/*
 Code Sample 16.
 Page 63 of the Rob Miles c# programming pdf
 
@@ -82,7 +69,7 @@ Score: 11
 Page 83 of Rob Miles c# book.
 Code Sample 23
 
-Create a simple BankProgram. The BankProgram contains various accounts, which contain the following information for each customer:
+Create a simple BankProgram using a struct. The BankProgram contains various accounts, which contain the following information for each customer:
 customer name - string
 customer address - string
 account number - integer value
