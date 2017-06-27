@@ -77,9 +77,26 @@ Rob, who has an active account and whose balance is R100000 and Jim who has R0 i
 /*
 Page 96 of Rob Miles c# book.
 Code Sample 31
+Create a simple BankProgram. The BankProgram contains various accounts, which contain the following information for each customer:
+customer name - string
+customer address - string
+account balance - integer value
+Bank Accounts can also be "Frozen", "New", "Active", "Closed".
 
 Create an Account class, which has a method WithdrawFunds, which allows for an amount to be withdrawn from the account balance.
 Create an account called RobsAccount and withdraw an amount from the account.
+
+Balance: 1000
+How much do you want to withdraw?
+691
+Withdrawal: 691
+Balance: 309
+
+C:\Users\nathan.stasin\Desktop\cSharp\Rob Miles Book>Page96.exe
+Balance: 1000
+How much do you want to withdraw?
+2500
+Insufficient funds. Your balance: R1000 and you wish to withdraw: R2500
 */
 
 /*

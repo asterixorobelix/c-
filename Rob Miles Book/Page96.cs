@@ -38,7 +38,6 @@ class BankProgram{
 		
 		public void WithdrawFunds(int Withdrawal){
 			if(Withdrawal<Balance&&Balance>0){
-				
 				Console.WriteLine("Withdrawal: "+Withdrawal);
 				Balance-=Withdrawal;
 				Console.WriteLine("Balance: "+Balance);				
