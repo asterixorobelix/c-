@@ -34,38 +34,6 @@ Age: 34
 */
 
 /*
-Code Sample 16.
-Page 63 of the Rob Miles c# programming pdf
-
-Given a set of player scores from a game, list of those scores in ascending order.
-No player can score less than 0 or more than 1000 runs in a game.
-*/
-
-/*
-Page 64 of Rob Miles pdf. Code Sample 16.
-
-Create a program which allows the user to enter 5 scores into an array. The program should check that the numbers are positive and less than 300. 
-If not, do not add them to the array.
-Display the valid entries after the user has entered 5 scores.
-
-Sample Output:
-You will be able to enter 5 scores
-Score : -1
-Score : 11
-Score : 2
-Score : 400
-Score : 34
-Score : 2
-Score : 11
-You entered:
-Score: 11
-Score: 2
-Score: 34
-Score: 2
-Score: 11
-*/
-
-/*
 Page 83 of Rob Miles c# book.
 Code Sample 23
 
@@ -87,23 +55,6 @@ What is your opening balance?
 Your account details
 Name: Bob
 Balance: 1000
-*/
-
-/*
-Page 84 of Rob Miles c# book.
-Code Sample 24
-
-Create a simple BankProgram. The BankProgram contains various accounts, which contain the following information for each customer:
-customer name - string
-customer address - string
-account number - integer value
-account balance - integer value
-overdraft limit - integer value
-Bank Accounts can also be "Frozen", "New", "Active", "Closed" and "Under Audit".
-Create an entire array of customers, called Bank which can hold all the bank's customers. 
-The maximum number of customers that our bank can hold is 100.
-There are two customers in the database:
-Rob, who has an active account and whose balance is R100000 and Jim who has R0 in his bank account so it has been frozen.
 */
 
 /*
