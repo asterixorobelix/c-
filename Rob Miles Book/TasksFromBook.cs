@@ -106,14 +106,6 @@ Code Sample 32
 Create an Account class, with the methods WithdrawFunds, PayInFunds and GetBalance. Create some tests for the Account class which you made
 */
 
-
-/*
-Page 97 of Rob Miles c# book.
-Code Sample 32
-
-Create an Account class, with the methods WithdrawFunds, PayInFunds and GetBalance. Create some tests for the Account class which you made
-*/
-
 /*
 Page 104 of Rob Miles c# book.
 Code Sample 34

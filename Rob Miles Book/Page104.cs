@@ -25,8 +25,10 @@ class Account
 }
 
 /*
-When an object is created (an instance of a class, created by using the new keyword), the default constructor is always called. If one is not supplied by the programmer, the compiler creates and calls its own default constructor.
-A default constructor is a constructor which takes no arguments. Once the user has created a constructor. The compiler no longer calls its own default constructor. Therefore, if we wish to create objects without supplying any parameters, we must define our own default constructor.
+When an object is created (an instance of a class, created by using the new keyword), the default constructor is always called. 
+If one is not supplied by the programmer, the compiler creates and calls its own default constructor.
+A default constructor is a constructor which takes no arguments. Once the user has created a constructor. The compiler no longer calls its own default constructor. 
+Therefore, if we wish to create objects without supplying any parameters, we must define our own default constructor.
 */
 
 class Bank
