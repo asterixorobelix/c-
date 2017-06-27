@@ -2,16 +2,24 @@
 Page 83 of Rob Miles c# book.
 Code Sample 23
 
-Create a simple BankProgram, using a struct. The BankProgram contains various accounts, which contain the following information for each customer:
+Create a simple BankProgram, using a struct. The BankProgram allows the user enter their details for opening accounts, the bank requires the following information from each new customer:
 customer name - string
 customer address - string
 account balance - integer value
-Bank Accounts can also be "Frozen", "New", "Active", "Closed" and "Under Audit".
+Bank Accounts can also be "Frozen", "New", "Active", "Closed". New accounts are obviously in a state of New.
+The program should prompt the user to enter their name, address and opening balance.
 
-Create an Account called RobsAccount, set the account state to Active and give it a balance of a million Rand.
+Enter your details in order to create an account
+Enter your name:
+Bob
+Enter your address:
+8 Dale Avenue
+What is your opening balance?
+1000
 
-Sample Output:
-Robs balance is: 1000000 Rand
+Your account details
+Name: Bob
+Balance: 1000
 */
 
 using System;
