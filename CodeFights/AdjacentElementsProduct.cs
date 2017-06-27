@@ -22,11 +22,12 @@ Random array:
  -200 194 429 647 404
 The largest product of adjacent elements is: 277563 which is 429*647
 */
-
 using System;
 
 class AdjacentElements{
-	static int adjacentElementsProduct(int[] inputArray, out int a1, out int a2) {
+	
+	//Finds the largest absolute value product of adjacent elements in an array
+	static int CalculateAdjacentElementsProduct(int[] inputArray, out int a1, out int a2) {
 		int BiggestProduct=0;
 		int Product;
 		a1=a2=0;
@@ -40,28 +41,35 @@ class AdjacentElements{
 				a2=inputArray[i+1];
 			}
 		}
-			return BiggestProduct;
+		return BiggestProduct;
 	}
 	
-	static void Main(){
-		Random ArrL = new Random();
-		int ArrayLength = ArrL.Next(2,10);
-		int adjacent1, adjacent2;
-		
+	//Generates an array of random numbers between a specified min and max. The array is of a random size between a specified min and max. Has default parameters.
+	static int[] CreateRandomArray(int MinValue=2, int MaxValue=10, int ArrayMin = -1000, int ArrayMax=1000){
+			
+		Random Rand = new Random();//Make an object of type Random
+		int ArrayLength = Rand.Next(MinValue,MaxValue); //Use the Rand object from above in order to generate a random number between 2 (inclusive) and 10 (exclusive)
+		//Next(minValue, MaxValue) minValue(inclusive); maxValue (exclusive).
+				
 		int[] RandomArray=new int[ArrayLength];
 		
-		Random ArrEnt = new Random ();
 		Console.WriteLine("Random array:");
 		
 		for(int i=0;i<ArrayLength;i++){
-			int ArrayEntry = ArrEnt.Next(-1000,1000);
+			int ArrayEntry = Rand.Next(ArrayMin,ArrayMax);//Generate a random number between -1000 and 1000.
 			Console.Write(" "+ArrayEntry);
 			RandomArray[i]=ArrayEntry;
 		}
+		return RandomArray;
+	}
+	
+	static void Main(){
+		int adjacent1, adjacent2;
 		
-		int BiggestResult = adjacentElementsProduct(RandomArray, out adjacent1, out adjacent2);
+		int[] Array=CreateRandomArray();
+		
+		int BiggestResult = CalculateAdjacentElementsProduct(Array, out adjacent1, out adjacent2);
 		
 		Console.WriteLine("\nThe largest product of adjacent elements is: {0} which is {1}*{2}",BiggestResult, adjacent1,adjacent2);			
 	}
-
 }
