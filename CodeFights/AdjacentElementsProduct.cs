@@ -27,10 +27,10 @@ using System;
 class AdjacentElements{
 	
 	//Finds the largest absolute value product of adjacent elements in an array
-	static int CalculateAdjacentElementsProduct(int[] inputArray, out int a1, out int a2) {
+	static void CalculateAdjacentElementsProduct(int[] inputArray) {
 		int BiggestProduct=0;
 		int Product;
-		a1=a2=0;
+		int a1=0,a2=0;
 		
 		for(int i=0;i<inputArray.Length-1;i++){
 			Product=Math.Abs(inputArray[i]*inputArray[i+1]);
@@ -41,7 +41,7 @@ class AdjacentElements{
 				a2=inputArray[i+1];
 			}
 		}
-		return BiggestProduct;
+		Console.WriteLine("\nThe largest product of adjacent elements is: {0} which is {1}*{2}",BiggestProduct, a1,a2);
 	}
 	
 	//Generates an array of random numbers between a specified min and max. The array is of a random size between a specified min and max. Has default parameters.
@@ -64,12 +64,9 @@ class AdjacentElements{
 	}
 	
 	static void Main(){
-		int adjacent1, adjacent2;
-		
+				
 		int[] Array=CreateRandomArray();
 		
-		int BiggestResult = CalculateAdjacentElementsProduct(Array, out adjacent1, out adjacent2);
-		
-		Console.WriteLine("\nThe largest product of adjacent elements is: {0} which is {1}*{2}",BiggestResult, adjacent1,adjacent2);			
+		CalculateAdjacentElementsProduct(Array);					
 	}
 }
