@@ -63,7 +63,7 @@ class CenturyFromYear{
 			RandomYear = RandomYr.Next(1,2005);
 		}
 		
-		Console.WriteLine("The century of year {0} is {1}",RandomYear,CalculateCentury(RandomYear));
+		Console.WriteLine("The year {0} is in the century:{1}",RandomYear,CalculateCentury(RandomYear));
 	}
 }
 
