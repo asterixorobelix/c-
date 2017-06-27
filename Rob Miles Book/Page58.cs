@@ -2,7 +2,7 @@
 Page 58 of Rob Miles c# book.
 Code Sample 13.
 
-Make a library which contain a method for reading a string and a method for reading an int and checking that it is between a min and max value.
+Make a program which contain a method for reading a string and a method for reading an int and checking that it is between a min and max value.
 
 Sample output:
 Enter your name : Nathan

@@ -1,4 +1,7 @@
 ﻿/*
+Code Sample 1.
+Page 14 of the Rob Miles c# programming pdf
+
 Write a program which reads in the width and height (as doubles) of a  hole in the wall for a window.
 The program should then print out the amount of wood required for the frame (in metres) and glass required to double glaze a window of that size.
 

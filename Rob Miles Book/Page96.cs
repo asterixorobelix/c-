@@ -2,7 +2,6 @@
 Page 96 of Rob Miles c# book.
 Code Sample 31
 
-
 Create an Account class, which has a method WithdrawFunds, which allows for an amount to be withdrawn from the account balance.
 Create an account called RobsAccount and withdraw an amount from the account.
 */
