@@ -7,6 +7,18 @@ Create two objects based upon the Rectangle class, Rect and square.
 Ask the user to input width and height for these two objects and print out the widths and heights for the two.
 Add read-only properties for the area and perimeter of the rectangle.
 Print out the area and perimeter of the two shapes. 
+
+Sample Output:
+Enter rectangle width:
+13
+Enter rectangle height:
+43
+Enter square height:
+66
+Rectangle Height: 43
+Square Width: 66
+Rectangle Area: 559
+Rectangle perimeter: 112
 */
 using System;
 
