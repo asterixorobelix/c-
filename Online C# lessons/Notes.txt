@@ -1,0 +1,31 @@
+Microsoft
+https://msdn.microsoft.com/en-us/library/cs8hbt1w(v=vs.90).aspx
+https://code.msdn.microsoft.com/Visual-Studio-2010-SDK-ddfe1372
+
+c# Tutorial
+http://csharp.net-tutorials.com/classes/introduction/
+
+A variable can be compared to a storage room, and is essential for the programmer. In C#, a variable is declared like this: 
+<data type> <name>; 
+
+An example could look like this: 
+string name; 
+
+That's the most basic version. Usually, you wish to assign a visibility to the variable, and perhaps assign a value to it at the same time. It can be done like this: 
+<visibility> <data type> <name> = <value>; 
+
+And with an example:
+private string name = "John Doe";
+
+A function allows you to encapsulate a piece of code and call it from other parts of your code. You may very soon run into a situation where you need to repeat a piece of code, from multiple places, and this is where functions come in. In C#, they are basically declared like this:
+<visibility> <return type> <name>(<parameters>)
+{
+	<function code>
+}
+
+The out modifier
+The out modifier works pretty much like the ref modifier. They both ensure that the parameter is passed by reference instead of by value, but they do come with two important differences: A value passed to a ref modifier has to be initialized before calling the method - this is not true for the out modifier, where you can use un-initialized values. On the other hand, you can't leave a function call with an out parameter, without assigning a value to it. Since you can pass in un-initialized values as an out parameter, you are not able to actually use an out parameter inside a function - you can only assign a new value to it. 
+
+The params modifier
+So far, all of our functions have accepted a fixed amount of parameters. However, in some cases, you might need a function which takes an arbitrary number of parameters. By using the params keyword, you can specify a method parameter which takes a variable number of arguments.
+You can send a comma-separated list of arguments of the type specified in the parameter declaration or an array of arguments of the specified type. You also can send no arguments. If you send no arguments, the length of the params list is zero.
