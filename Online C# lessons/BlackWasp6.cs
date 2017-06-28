@@ -20,7 +20,7 @@ namespace CSharpStaticBehaviour
 {
     class MassCalculator
     {
-        private static int _callCount;
+        private static int _callCount; //private variables may not be accessed by static methods, and this also applies in the case of static properties. Instead, we must create a static private variable if the property value is to be held rather than calculated.
               
         static void Main()
         {
@@ -43,15 +43,15 @@ namespace CSharpStaticBehaviour
             return density * volume;
         }
 
-        public static int CallCount
+        public static int CallCount //adding a static property to a class requires only that the declaration includes the 'static' keyword to modify the property's behaviour
         {
-            get
+            get// Read-only because only a get is provided
             {
                 return _callCount;
             }
         }
 
-        static MassCalculator()
+        static MassCalculator()//Default Constructor
         {
             _callCount = 0;
         }
