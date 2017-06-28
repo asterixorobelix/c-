@@ -6,43 +6,34 @@ Also create the Describe() method, which prints out the colour of a Car.
 Create several Car objects and assign different colours to them.
 
 Sample Output:
-This car is Red
-This car is Green
+The colour of this car is: Yellow
+The colour of this car is: Red
 */
 using System;
 
-namespace ConsoleApplication1
-{
-    class Program
-    {
-        static void Main()
-        {
-            Car car = new Car("Red");
-            Console.WriteLine(car.Describe());
-
-            car = new Car("Green");
-            Console.WriteLine(car.Describe());
-        }
-    }
-
-    class Car
-    {
-        private string color;
-
-        public Car(string color)
-        {
-            this.color = color;
-        }
-
-        public string Describe()
-        {
-            return "This car is " + Color;
-        }
-
-        public string Color
-        {
-            get { return color; }
-            set { color = value; }
-        }
+class Car{
+	
+	private string _colour;
+	
+	public Car(string _c){//constructor
+		this._colour=_c;
+	}
+	
+	//properties
+	public string colour{
+		get{return _colour;}
+		set{value =_colour;}
+	}
+	
+	public void Describe(){
+		Console.WriteLine("The colour of this car is: "+colour);
+	}
+	
+	static void Main(){
+		Car Beetle = new Car ("Yellow");
+		Car Porsche = new Car ("Red");
+		
+		Beetle.Describe();
+		Porsche.Describe();
 	}
 }
