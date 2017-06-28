@@ -11,10 +11,7 @@ Mass1: 5000
 Mass2: 9000
 Calls: 2
 */
-
-
 using System;
-
 
 namespace CSharpStaticBehaviour
 {

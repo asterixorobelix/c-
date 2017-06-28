@@ -71,3 +71,32 @@ Height: 1
 Base:   1
 Area:   0,5
 */
+
+/* 
+http://www.blackwasp.co.uk/CSharpStaticBehaviour.aspx
+
+create a new class named 'MassCalculator', which multiplies density*volume. 
+This class provides a method which accepts the density and the volume of an item and calculates its mass. 
+The class will also maintain a property which counts the number of times that the calculation has been performed. 
+
+
+Sample Output:
+Mass1: 5000
+Mass2: 9000
+Calls: 2
+*/
+
+/* 
+http://www.blackwasp.co.uk/CSharpMethodOverloading.aspx 
+Create a new class file named "Calculate"
+Add a method called Square, which calculates the square of an integer value.
+In order to support the double data type we can add a second variation of the method to the Calculate class. This overloaded method will accept and return doubles rather than integers. 
+
+Sample Output:
+Double Square calculated
+25
+Integer Square calculated
+25
+Double Square calculated
+25
+ */

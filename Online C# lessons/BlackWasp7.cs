@@ -12,8 +12,6 @@ Integer Square calculated
 Double Square calculated
 25
  */
-
-
 using System;
 
 namespace CSharpMethodOverloading
