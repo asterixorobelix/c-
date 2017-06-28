@@ -16,7 +16,8 @@ class Car{
 	private string _colour;
 	
 	public Car(string _c){//constructor
-		this._colour=_c;
+		//The "this" keyword can be used within a class's code to refer to the current instantiated object. 
+		this._colour=_c;   //setting the underlying private variables in the constructor.
 	}
 	
 	//properties
