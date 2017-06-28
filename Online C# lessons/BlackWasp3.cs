@@ -6,7 +6,7 @@ For both the width and height properties, if the value is negative or is greater
 Create two objects based upon the Rectangle class, Rect and square.
 Ask the user to input width and height for these two objects and print out the widths and heights for the two.
 Add read-only properties for the area and perimeter of the rectangle.
-Print out the area and perimeter of the two shapes. The "this" keyword does have another use. If a method is being called and the current object is to be passed to that method, setting a parameter to "this" achieves the desired result. 
+Print out the area and perimeter of the two shapes. 
 */
 using System;
 
@@ -25,7 +25,7 @@ class Rectangle
 		{
 			if (value < 0 || value > 100)
 			{
-				throw new OverflowException();
+				Console.WriteLine("Input is outside of range");
 			}
 	 
 			_width = value;
@@ -42,7 +42,7 @@ class Rectangle
 		{
 			if (value < 0 || value > 100)
 			{
-				throw new OverflowException();
+				Console.WriteLine("Input is outside of range");
 			}
 	 
 			_height = value;
@@ -67,21 +67,31 @@ class Rectangle
 		}
 	}
 	
-	static void Main(string[] args)
+	static void Main()
 	{
 		Rectangle rect = new Rectangle();
-		rect.Width = 50;
-		rect.Height = 25;
+		
+		Console.WriteLine("Enter rectangle width:");
+
+		rect.Width = int.Parse(Console.ReadLine());
+		
+		
+		Console.WriteLine("Enter rectangle height:");
+		
+		rect.Height = int.Parse(Console.ReadLine());
+		
 		 
 		Rectangle square = new Rectangle();
-		square.Height = square.Width = 40;
+		
+		Console.WriteLine("Enter square height:");
+		square.Height = square.Width = int.Parse(Console.ReadLine());
 		 
-		Console.WriteLine(rect.Height);         // Outputs "25"
-		Console.WriteLine(square.Width);        // Outputs "40"
+		Console.WriteLine("Rectangle Height: "+rect.Height);         // Outputs "25"
+		Console.WriteLine("Square Width: "+square.Width);        // Outputs "40"
 		 
 		//rect.Height = 125;                      // Throws the validation exception.
 		
-		Console.WriteLine(rect.Area);           // Outputs "96"
-		Console.WriteLine(rect.Perimeter);      // Outputs "40"
+		Console.WriteLine("Rectangle Area: "+rect.Area);           // Outputs "96"
+		Console.WriteLine("Rectangle perimeter: "+rect.Perimeter);      // Outputs "40"
 	}
 }

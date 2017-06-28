@@ -47,3 +47,13 @@ In the real world, this is similar to replacing a lightbulb. As long as we choos
 Public methods are part of the class's public interface, ie. these are the methods that can be called by other objects.
 To provide for encapsulation, where the internal functionality of the class is hidden, some methods will be defined as private. Methods with a private protection level are completely invisible to external classes.
 To define a method as private, the private keyword can be used as a prefix to the method. Alternatively, using no prefix at all implies that the method is private by default.
+
+To define a class-scoped variable, the declaration is made within the class's code block but outside of any methods or properties. Although not required, it is useful to precede the variable declaration with the private keyword to make the code clear and easy to read. 
+
+A final keyword to consider is "this". The "this" keyword can be used within a class's code to refer to the current instantiated object. 
+The "this" keyword does have another use. If a method is being called and the current object is to be passed to that method, setting a parameter to "this" achieves the desired result. 
+
+In order to set properties, an object is instantiated and the property values are assigned individually. This gives the desired result but is not ideal as it is possible for a property to be forgotten and left undefined, possibly leaving the entire object in an invalid state. This problem is solved with the use of constructors.
+A constructor is a special class member that is executed when a new object is created. The constructor's job is to initialise all of the public and private state of the new object and to perform any other tasks that the programmer requires before the object is used.
+The syntax to add a new constructor to a class is similar to that of adding a method. However, the constructor has the same name as the class and does not include a return type.
+
