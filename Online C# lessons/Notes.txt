@@ -29,3 +29,21 @@ The out modifier works pretty much like the ref modifier. They both ensure that 
 The params modifier
 So far, all of our functions have accepted a fixed amount of parameters. However, in some cases, you might need a function which takes an arbitrary number of parameters. By using the params keyword, you can specify a method parameter which takes a variable number of arguments.
 You can send a comma-separated list of arguments of the type specified in the parameter declaration or an array of arguments of the specified type. You also can send no arguments. If you send no arguments, the length of the params list is zero.
+
+Properties allow you to control the accessibility of a classes variables, and is the recommended way to access variables from the outside in an object oriented programming language like C#.
+A property is much like a combination of a variable and a method - it can't take any parameters, but you are able to process the value before it's assigned to our returned. A property consists of 2 parts, a get and a set method.
+Constructors are special methods, used when instantiating a class. A constructor can never return anything, which is why you don't have to define a return type for it. A normal method is defined like this:
+
+public string Describe()
+A constructor can be defined like this:
+public Car()
+A constructor can be overloaded as well, meaning we can have several constructors, with the same name, but different parameters. 
+
+Encapsulation
+Encapsulation,also known as data hiding, is an important object-oriented programming concept. It is the act of concealing the functionality of a class so that the internal operations are hidden, and irrelevant, to the programmer. With correct encapsulation, the developer does not need to understand how the class actually operates in order to communicate with it via its publicly available methods and properties; known as its public interface.
+Encapsulation is essential to creating maintainable object-oriented programs. When the interaction with an object uses only the publicly available interface of methods and properties, the class of the object becomes a correctly isolated unit. This unit can then be replaced independently to fix bugs, to change internal behaviour or to improve functionality or performance.
+In the real world, this is similar to replacing a lightbulb. As long as we choose the correct bulb size and connection (the public interface), it will work. It does not matter if the manufacturer is different or the internal workings of the bulb differ from the original. It may even offer an improvement in brightness!
+
+Public methods are part of the class's public interface, ie. these are the methods that can be called by other objects.
+To provide for encapsulation, where the internal functionality of the class is hidden, some methods will be defined as private. Methods with a private protection level are completely invisible to external classes.
+To define a method as private, the private keyword can be used as a prefix to the method. Alternatively, using no prefix at all implies that the method is private by default.
