@@ -4,3 +4,9 @@ D:\Downloads\InheritanceDemo\InheritanceDemo\InheritanceDemo\bin\Debug\Inheritan
 D:\Downloads\InheritanceDemo\InheritanceDemo\InheritanceDemo\obj\Debug\InheritanceDemo.csprojResolveAssemblyReference.cache
 D:\Downloads\InheritanceDemo\InheritanceDemo\InheritanceDemo\obj\Debug\InheritanceDemo.exe
 D:\Downloads\InheritanceDemo\InheritanceDemo\InheritanceDemo\obj\Debug\InheritanceDemo.pdb
+C:\Users\nathan.stasin\Desktop\cSharp\Online C# lessons\InheritanceDemo\InheritanceDemo\InheritanceDemo\bin\Debug\InheritanceDemo.exe.config
+C:\Users\nathan.stasin\Desktop\cSharp\Online C# lessons\InheritanceDemo\InheritanceDemo\InheritanceDemo\bin\Debug\InheritanceDemo.exe
+C:\Users\nathan.stasin\Desktop\cSharp\Online C# lessons\InheritanceDemo\InheritanceDemo\InheritanceDemo\bin\Debug\InheritanceDemo.pdb
+C:\Users\nathan.stasin\Desktop\cSharp\Online C# lessons\InheritanceDemo\InheritanceDemo\InheritanceDemo\obj\Debug\InheritanceDemo.csprojResolveAssemblyReference.cache
+C:\Users\nathan.stasin\Desktop\cSharp\Online C# lessons\InheritanceDemo\InheritanceDemo\InheritanceDemo\obj\Debug\InheritanceDemo.exe
+C:\Users\nathan.stasin\Desktop\cSharp\Online C# lessons\InheritanceDemo\InheritanceDemo\InheritanceDemo\obj\Debug\InheritanceDemo.pdb
