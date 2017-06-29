@@ -94,6 +94,7 @@ Now that both of the additional namespaces are referenced the compiler does not 
 This problem could be resolved by simply providing the fully qualified name when using the Test classes. However, namespace names can be very long and this presents the original problem of making the code more difficult to read. Instead, the using directive can be used to create an alias. This allows a shorter name to be linked to a namespace and to be used instead of the namespace to qualify the class.
 In addition, namespaces may be created within other namespaces to create a nested categorisation. This allows for deep tree structures to be created and for great control over the organisation of code modules.
 Consider the following nested namespace declarations:
+
 namespace Parent
 {
     namespace Child
@@ -114,6 +115,12 @@ namespace Parent
 In this situation there are three levels of namespace with each declared inside its parent. The "Test" class is declared within the third level of nesting. To access this class using its fully qualified name, all three namespaces must be specified with each prefixing its child and separated using a full stop. The fully qualified name for the Test class is therefore "Parent.Child.Grandchild.Test".
 As with single layer namespaces, a using directive can be added to remove the requirement to use the fully qualified name. In this case, the using directive would be:
 using Parent.Child.Grandchild;
+
+Inheritance is one of the most important, and most powerful, of the object-oriented programming concepts. Using inheritance, one class can be derived from another. The derived class, also known as the child class or subclass, inherits functionality from the base class, also known as the parent class or superclass. The subclass can add methods and properties or modify the functionality that it has inherited to provide a more specialised version of the base class.
+Using inheritance, classes become grouped together in a hierarchical tree structure. The more generalised classes appear at the root of the hierarchy with the more specific classes appearing on the tree's branches. 
+When using inheritance, all of the base class's methods, properties, events, indexers, operators and some internal variables are all automatically provided to every subclass. As this functionality is automatically available in the child class, there is no need to duplicate code. This reduces maintenance problems, as changes need only to be made in one class, rather than throughout a series of related classes.
+The syntax for declaring a derived class is similar to that for any other standard class. To specify the base class to inherit from, its name is appended to the subclass declaration, separated by a colon (:) as follows:
+class subclass : baseclass
 
 An interface can contain public members such as properties and methods but these members must have no functionality. Instead, they define items which must be made concrete within all classes that implement the interface. This means that an interface can be used to define what a class must do, but not how it will be achieved.
 Many classes may implement a single interface. This increases polymorphism by enabling classes to behave in many different ways depending upon their usage. For example, a Customer class, an Employee class and a Business class may all implement the IWriteable interface. A class can also implement many interfaces.
