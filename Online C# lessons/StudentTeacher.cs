@@ -24,7 +24,7 @@ namespace December_19th
 {
     class Person
     {
-        protected int age;
+        protected int age; //The protected type or member can be accessed only by code in the same class or struct, or in a class that is derived from that class.
         public void Greet()
         {
             Console.WriteLine("Hello");

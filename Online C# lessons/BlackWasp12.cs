@@ -1,3 +1,7 @@
+/*
+http://www.blackwasp.co.uk/Inheritance.aspx
+*/
+
 using System;
 
 namespace InheritanceDemo
@@ -24,7 +28,8 @@ namespace InheritanceDemo
 			_speed -= mph;
 		}
 
-		public virtual void Indicate(bool turningLeft)
+		public virtual void Indicate(bool turningLeft) //The virtual keyword is used to modify a method, property, indexer, or event declaration and allow for it to be overridden in a derived class. 
+		//By default, methods are non-virtual. You cannot override a non-virtual method.
 		{
 			if (turningLeft)
 				Console.WriteLine("Turning left");
@@ -81,7 +86,7 @@ namespace InheritanceDemo
             return fuelRequired;
         }
 
-        public override void Indicate(bool turningLeft)
+        public override void Indicate(bool turningLeft) //The override modifier is required to extend or modify the abstract or virtual implementation of an inherited method, property, indexer, or event.
         {
             if (turningLeft)
                 Console.WriteLine("Flashing left indicator");
@@ -129,7 +134,8 @@ namespace InheritanceDemo
 			Bicycle bike = new Bicycle();
 			bike.RingBell();  // Outputs "Ring!"
 			car.Indicate(true); // Outputs "Flashing left indicator"
- 			bike.Indicate(true);  //Turning left Raising left arm
+ 			bike.Indicate(true);  //Outputs Turning left 
+									//Outputs Raising left arm
 
         }
     }
