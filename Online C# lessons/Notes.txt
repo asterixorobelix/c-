@@ -110,6 +110,15 @@ namespace Parent
         }
     }
 }
+
 In this situation there are three levels of namespace with each declared inside its parent. The "Test" class is declared within the third level of nesting. To access this class using its fully qualified name, all three namespaces must be specified with each prefixing its child and separated using a full stop. The fully qualified name for the Test class is therefore "Parent.Child.Grandchild.Test".
 As with single layer namespaces, a using directive can be added to remove the requirement to use the fully qualified name. In this case, the using directive would be:
 using Parent.Child.Grandchild;
+
+An interface can contain public members such as properties and methods but these members must have no functionality. Instead, they define items which must be made concrete within all classes that implement the interface. This means that an interface can be used to define what a class must do, but not how it will be achieved.
+Many classes may implement a single interface. This increases polymorphism by enabling classes to behave in many different ways depending upon their usage. For example, a Customer class, an Employee class and a Business class may all implement the IWriteable interface. A class can also implement many interfaces.
+When a property is added to an interface it acts as a placeholder only, containing no functionality of its own. The functionality is added by the individual classes that implement the interface. Interface property declarations are therefore comparable to abstract property declarations and use a similar get and set accessor syntax. However, as all members of interfaces are public by definition, the "public" keyword is omitted.
+Methods may be created within interfaces. As with properties, the method must not include an access specifier or a code block. Otherwise, the declaration uses the same syntax as a standard method.
+Once an interface has been declared, one or more classes may implement it. Each class that implements an interface must make concrete all of the interface members. This is achieved by simply declaring all of the methods, properties, indexers, etc. that have been defined in the interface. In each case, the signature of the item from the interface must be exactly matched within the class implementing it.
+To create a class that implements an interface, the syntax is similar to that of inheritance. The new class named is followed by the name of the implemented interface. The two names are separated with a colon character (:). Where a class is also inheriting from a base class, the parent class's name follows the colon. The implemented interface name is then appended, separated from the base class name using a comma.
+ 

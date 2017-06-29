@@ -1,0 +1,6 @@
+D:\Downloads\InterfacesDemo\InterfacesDemo\InterfacesDemo\bin\Debug\InterfacesDemo.exe.config
+D:\Downloads\InterfacesDemo\InterfacesDemo\InterfacesDemo\bin\Debug\InterfacesDemo.exe
+D:\Downloads\InterfacesDemo\InterfacesDemo\InterfacesDemo\bin\Debug\InterfacesDemo.pdb
+D:\Downloads\InterfacesDemo\InterfacesDemo\InterfacesDemo\obj\Debug\InterfacesDemo.csprojResolveAssemblyReference.cache
+D:\Downloads\InterfacesDemo\InterfacesDemo\InterfacesDemo\obj\Debug\InterfacesDemo.exe
+D:\Downloads\InterfacesDemo\InterfacesDemo\InterfacesDemo\obj\Debug\InterfacesDemo.pdb
