@@ -5,71 +5,36 @@ In order to ensure that all triangles will have a height and base-length within 
 
 Sample Output:
 Triangle constructor executed
-Height: 1
-Base:   1
 Area:   0,5
 */
 using System;
 
-public class Triangle
-{
-	public Triangle()//constructor
-	{
-		Console.WriteLine("Triangle default constructor executed");
-	 
-		_height = _baseLength = 1;
+class Triangle{
+	
+	private float _height;
+	private float _base;
+		
+	public float Height{
+		get{return _height;}
+		set{_height=value;}
 	}
 	
-    private int _height;
-    private int _baseLength;
- 
-    public int Height
-    {
-        get
-        {
-            return _height;
-        }
-        set
-        {
-            if (value < 1 || value > 100)
-            {
-                Console.WriteLine("Input is outside of range");
-            }
- 
-            _height = value;
-        }
-    }
- 
-    public int BaseLength
-    {
-        get
-        {
-            return _baseLength;
-        }
-        set
-        {
-            if (value < 1 || value > 100)
-            {
-                Console.WriteLine("Input is outside of range");
-            }
-             _baseLength = value;
-        }
-    }
- 
-    public double Area
-    {
-        get
-        {
-            return _height * _baseLength * 0.5;
-        }
-    }
+	public float Base{
+		get{return _base;}
+		set{_base=value;}
+	}
 	
-	static void Main()
-	{
-		Triangle triangle = new Triangle();
-	 
-		Console.WriteLine("Height:\t{0}", triangle.Height); // \t =Horizontal tab
-		Console.WriteLine("Base:\t{0}", triangle.BaseLength);
-		Console.WriteLine("Area:\t{0}", triangle.Area);
+	public float Area{//read only
+		get{return (float)0.5*Base*Height;}
+	}
+	
+	Triangle(){
+		Console.WriteLine("Triangle default constructor executed");
+		Height=Base=1;
+	}
+	
+	static void Main(){
+		Triangle Tri = new Triangle();
+		Console.WriteLine("Area: "+Tri.Area);
 	}
 }

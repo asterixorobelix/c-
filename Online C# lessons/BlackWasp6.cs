@@ -1,56 +1,55 @@
 ﻿/* 
 http://www.blackwasp.co.uk/CSharpStaticBehaviour.aspx
-
-create a new class named 'MassCalculator', which multiplies density*volume. 
-This class provides a method which accepts the density and the volume of an item and calculates its mass. 
+Create a class named 'MassCalculator', which multiplies density*volume. 
+Provide a method which accepts the density and the volume of an item and calculates its mass. 
 The class will also maintain a property which counts the number of times that the calculation has been performed. 
 
-
 Sample Output:
-Mass1: 5000
-Mass2: 9000
-Calls: 2
+Mass: 1288
+Mass: 56781,12
+Mass: 6621,12
+Calculator has been used 3 times
 */
 using System;
 
-namespace CSharpStaticBehaviour
-{
-    class MassCalculator
-    {
-        private static int _callCount; //private variables may not be accessed by static methods, and this also applies in the case of static properties. Instead, we must create a static private variable if the property value is to be held rather than calculated.
-              
-        static void Main()
-        {
-            int density = 50;
-            int volume = 100;
-            int volume2 = 180;
-
-            int mass1 = MassCalculator.CalculateMass(density, volume);
-            int mass2 = MassCalculator.CalculateMass(density, volume2);
-            int calls = MassCalculator.CallCount;
-
-            Console.WriteLine("Mass1: {0}", mass1);         // Outputs "Mass1: 5000"
-            Console.WriteLine("Mass2: {0}", mass2);         // Outputs "Mass2: 9000"
-            Console.WriteLine("Calls: {0}", calls);         // Outputs "Calls: 2"
-        }
+class MassCalculator{
+	private double _density;
+	private double _volume;
+	private static int _count;//want _count to be independent of how many objects have been instantiated
+	
+	public double Density{
+		get{return _density;}
+		set{_density=value;}
+	}
+	
+	public double Volume{
+		get{return _volume;}
+		set{_volume=value;}
+	}
+	
+	public static int Count{
+		get{return _count;}
+	}
+	
+	MassCalculator(){
+		_count=0;
+	}
+	
+	public double CalculateMass(double d, double v){
+		++_count;
+		Console.WriteLine("Mass: "+d*v);
+		return  d*v;
+	}
+	
+	static void Main(){
+		MassCalculator Calc = new MassCalculator();
 		
-        public static int CalculateMass(int density, int volume)
-        {
-            _callCount++;
-            return density * volume;
-        }
-
-        public static int CallCount //adding a static property to a class requires only that the declaration includes the 'static' keyword to modify the property's behaviour
-        {
-            get// Read-only because only a get is provided
-            {
-                return _callCount;
-            }
-        }
-
-        static MassCalculator()//Default Constructor
-        {
-            _callCount = 0;
-        }
-    }
+		Calc.CalculateMass(23,56);
+		Calc.CalculateMass(1245.2,45.6);
+		Calc.CalculateMass(145.2,45.6);
+		
+		int CalcCount=MassCalculator.Count;
+		
+		Console.WriteLine("Calculator has been used {0} times",CalcCount);
+	}
 }

@@ -59,35 +59,20 @@ In order to ensure that all triangles will have a height and base-length within 
 
 Sample Output:
 Triangle constructor executed
-Height: 1
-Base:   1
-Area:   0,5
-*/
-
-/*
-http://www.blackwasp.co.uk/CSharpConstructors_2.aspx
-Create a new class to represent a triangular shape, called Triangle. This class will define three properties: the triangle's height, base-length and area.
-In order to ensure that all triangles will have a height and base-length within the valid range, make the class's default constructor set both of these properties to one unit for all new Triangle objects.
-
-Sample Output:
-Triangle constructor executed
-Height: 1
-Base:   1
 Area:   0,5
 */
 
 /* 
 http://www.blackwasp.co.uk/CSharpStaticBehaviour.aspx
-
-create a new class named 'MassCalculator', which multiplies density*volume. 
-This class provides a method which accepts the density and the volume of an item and calculates its mass. 
+Create a class named 'MassCalculator', which multiplies density*volume. 
+Provide a method which accepts the density and the volume of an item and calculates its mass. 
 The class will also maintain a property which counts the number of times that the calculation has been performed. 
 
-
 Sample Output:
-Mass1: 5000
-Mass2: 9000
-Calls: 2
+Mass: 1288
+Mass: 56781,12
+Mass: 6621,12
+Calculator has been used 3 times
 */
 
 /* 
