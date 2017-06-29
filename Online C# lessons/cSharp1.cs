@@ -15,9 +15,9 @@ class Car{
 	
 	private string _colour;
 	
-	public Car(string _c){//constructor
-		//The "this" keyword can be used within a class's code to refer to the current instantiated object. 
-		this._colour=_c;   //setting the underlying private variables in the constructor.
+	//constructor
+	Car (string c){
+		_colour=c;
 	}
 	
 	//properties
@@ -26,6 +26,7 @@ class Car{
 		set{value =_colour;}
 	}
 	
+	//method
 	public void Describe(){
 		Console.WriteLine("The colour of this car is: "+colour);
 	}

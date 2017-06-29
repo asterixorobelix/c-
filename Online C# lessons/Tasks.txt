@@ -28,17 +28,28 @@ This car is GREEN
 http://www.blackwasp.co.uk/CSharpSimpleClass_2.aspx
 Create a class called Vehicle. Add new method to the vehicle class for pressing a vehicle's horn.
 Create a new vehicle object and run its PressHorn method to see the results. 
+
+Sample Output:
+beep beeep Hoot hoot
 */
 
 /*
 http://www.blackwasp.co.uk/CSharpClassProperties.aspx\
 Create a Rectangle class. Add two private integer variables to the Rectangle class to hold the height and width.
 Add width and height properties.
-For both the width and height properties, if the value is negative or is greater than one hundred, an exception will be thrown and the property will remain unchanged.
+For both the width and height properties, if the value is negative or is greater than one hundred, display an error message and the property will remain unchanged.
 Create two objects based upon the Rectangle class, Rect and square.
 Ask the user to input width and height for these two objects and print out the widths and heights for the two.
 Add read-only properties for the area and perimeter of the rectangle.
-Print out the area and perimeter of the two shapes. The "this" keyword does have another use. If a method is being called and the current object is to be passed to that method, setting a parameter to "this" achieves the desired result. 
+Print out the area and perimeter of the two shapes. 
+
+Sample Output:
+Area:2500
+Perimeter: 250
+
+Square!
+Area:625
+Perimeter: 100
 */
 
 /*
