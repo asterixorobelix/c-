@@ -66,3 +66,50 @@ To add a static constructor, create a private constructor with the static keywor
 Polymorphism permits objects to behave in different ways according to the manner in which they are used. One part of polymorphism is the ability for a method to behave differently according to the types and number of parameters that are passed to it. This is achieved through method overloading.
 In order to use overloaded methods, the signature must differ for each method declaration. This means that every overloaded method in a class must have either a different number of parameters or a different set of argument data types to every other method with the same name. However, the return type of the method is not included in this signature. This means that two methods that differ only in return type cannot be created in the same class.
 Where parameters are passed by reference, they are considered to be different to those passed by value. This means that it is valid to have an overloaded method with the same set of parameter data types if one version passes parameters by value and the other by reference.
+
+Creating an overloaded constructor is as simple as adding overloaded methods. To add a second constructor, we simply declare another variation with a different signature. Overloaded constructors can be used to instantiate objects in exactly the same manner as for classes with a single constructor. During compilation of the code, the compiler compares the signature used for the new object to those available in the class. If there is a perfect match, the corresponding constructor is used. Where there is no signature with the correct parameters, the compiler will look for a constructor that can be used with implicit casting. If no such constructor exists, a compiler error occurs.
+Constructors can be very complex, performing many initialisation and validation functions for new objects. This can easily lead to large constructors with functionality that is repeated in each overloaded version. This, in turn, can lead to maintenance problems with the code when changes to construction logic are required. This can be minimised by having the constructor call methods within the class to perform common tasks. Another option is to allow code reuse by having the constructors call each other during object instantiation.
+To create a constructor that calls an existing constructor, a special syntax is used. The constructor is declared as usual and then a colon character (:) is appended. After the colon the this keyword and the parameter list of the called constructor is provided. Each parameter specified in the call must match one of those in the new constructor or be a literal value.
+
+public Constructor(parameters-1) : this(parameters-2) { }
+
+When the new constructor is utilised, the constructor indicated in the this command is executed first, then the code within the new constructor's code block is run. It is possible that the code block is empty where only a transformation of signature is required. In this case, only the original constructor is executed with the specified parameters.
+
+What is a Delegate?
+A delegate is a special kind of object that holds a reference to a method. The delegate can be called as if it were any other method. However, when called, the underlying referenced method is executed. This simple layer of abstraction is useful because unlike a direct call, the method being used does not need to be known when writing the code. The reference is created at run-time and may be changed repeatedly throughout the life of the executing program.
+NB: If you have previously used C++ function pointers then you will see many similarities between these and delegates. Unlike function pointers, C# delegates are object-oriented, secure and type-safe.
+
+Namespaces allow classes, structures and other items to be grouped and organised and remove the possibility of class-naming conflicts.
+The .NET framework provides a huge number of base classes, data types, algorithms, etc. If every one of these items had to be declared with a unique name, the naming task would be equally large and would leave very few good names available for the .NET developer.
+To ensure that naming conflicts do not occur, either within the .NET framework or in your own programs, namespaces are used. A namespace simply provides a named group of classes, structures, enumerations, delegates, interfaces and other namespaces. Within the namespace, all declared items must be uniquely named. However, the same name may be duplicated in different namespaces. This means that if you decide to create a mathematics library you will be able to call it 'Math' even though Microsoft have also provided a Math library.
+All definitions are created in a namespace, even if one is not explicitly declared. The .NET framework provides the default namespace, which is used automatically for any code that is written outside of any namespace declaration. This can be useful for short programs but has the drawback that all of the benefits that namespaces bring to organising your code are lost.
+Namespaces are declared using the namespace keyword. The basic syntax for creating a namespace is very simple, requiring only a name for the new grouping and a code block surrounded by braces:
+namespace namespace-name {}
+
+Namespace declarations are additive. This means that the same namespace definition can be included in your code in multiple locations. Where two or more matching declarations are made, the contents of the two namespaces are combined into one. This is especially useful when an application can be deployed in different versions as the optional code can be placed in separate code files. The files can then be "swapped in" to create the various build configurations.
+If you were required to prefix every use of every class, structure, enumeration, etc. with the name of the namespace that contained it, your code would become unwieldy. To avoid this the using directive can be used. You will already have seen this directive in action at the start of almost every code file that you have created.
+The using directive tells the compiler that a namespace is in use by the code. When the compiler finds a class name that is not recognised in the current namespace, it instead checks each namespace defined in a using directive to see if the item exists there. This means that the fully qualified name for items within such a referenced namespace need not be used.
+However, where two using directives are included and each referenced namespace contains a matching class name, a name conflict is created.
+Now that both of the additional namespaces are referenced the compiler does not know which Test class to use when creating the object in the Main method. 
+This problem could be resolved by simply providing the fully qualified name when using the Test classes. However, namespace names can be very long and this presents the original problem of making the code more difficult to read. Instead, the using directive can be used to create an alias. This allows a shorter name to be linked to a namespace and to be used instead of the namespace to qualify the class.
+In addition, namespaces may be created within other namespaces to create a nested categorisation. This allows for deep tree structures to be created and for great control over the organisation of code modules.
+Consider the following nested namespace declarations:
+namespace Parent
+{
+    namespace Child
+    {
+        namespace Grandchild
+        {
+            class Test
+            {
+                public void ShowMessage()
+                {
+                    Console.WriteLine("This is a nested namespace!");
+                }
+            }
+        }
+    }
+}
+In this situation there are three levels of namespace with each declared inside its parent. The "Test" class is declared within the third level of nesting. To access this class using its fully qualified name, all three namespaces must be specified with each prefixing its child and separated using a full stop. The fully qualified name for the Test class is therefore "Parent.Child.Grandchild.Test".
+As with single layer namespaces, a using directive can be added to remove the requirement to use the fully qualified name. In this case, the using directive would be:
+using Parent.Child.Grandchild;
