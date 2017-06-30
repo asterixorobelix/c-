@@ -7,7 +7,6 @@ John Sharp
 c# practicing websites
 https://www.codewars.com/
 https://leetcode.com/problemset/all/?difficulty=Easy
-https://caveofprogramming.com/c-sharp-tutorial/basic-c-programming-test-your-knowledge-2.html
 https://codefights.com/
 https://www.codingame.com/start
 https://www.codeeval.com/how_it_works/#anchor-for-hacker-deals
@@ -629,6 +628,29 @@ You can give the compiler a few additional options, such as:
 /target:winexe prevents the console application from appearing in the background
 
 eg csc /target:exe /out:HelloWorld_New.exe HelloWorld.cs
+
+https://mianlabs.com/2017/01/02/the-lazy-developers-guide-to-command-line-building-with-c/
+
+Compiling a file into an executable:
+csc File.cs
+
+Compiling a file into a custom-named executable:
+csc /out:Named.exe File.csc
+
+Compiling multiple files (from the current directory and a sub-directory named “lib”) into one executable:
+csc File1.cs File2.cs lib\Library.cs
+
+Compiling all the files in the current directory (one class file must contain a Main method):
+csc *.cs
+
+Compiling a file into an executable using a library (dll) reference:
+csc /reference:library.dll File.cs
+
+Compiling a file into a dynamically linked library:
+csc /target:library File.cs
+
+Mixing and matching arguments:
+csc /target:library /out:MyLib.dll *.cs
 
 Another way to compile C# programs (without using Visual Studio or without having it installed) is to create a user variable in environment variables, namely "PATH".
 Copy the following path in this variable:
