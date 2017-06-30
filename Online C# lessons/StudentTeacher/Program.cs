@@ -1,4 +1,12 @@
 /*
+In order to compile this seperately:
+cd into the folder containing the files.
+Type:
+csc *.cs
+This will compile all .cs files in the folder into an exe, which will be named after the file containing the Main method.
+https://mianlabs.com/2017/01/02/the-lazy-developers-guide-to-command-line-building-with-c/
+
+
 https://www.juanantonioripoll.es/practice-exercises-c-sharp/practice-exercises-c-sharp-exercise-6-1-Classes-Student-Teacher.aspx
 Create a class Person, which has private field called age and a public method called Greet, which takes no arguments and returns a greeting. 
 Create a class "Student" and another class "Teacher", both descendants of "Person". 
