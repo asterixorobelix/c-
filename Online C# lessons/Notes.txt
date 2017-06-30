@@ -128,4 +128,35 @@ When a property is added to an interface it acts as a placeholder only, containi
 Methods may be created within interfaces. As with properties, the method must not include an access specifier or a code block. Otherwise, the declaration uses the same syntax as a standard method.
 Once an interface has been declared, one or more classes may implement it. Each class that implements an interface must make concrete all of the interface members. This is achieved by simply declaring all of the methods, properties, indexers, etc. that have been defined in the interface. In each case, the signature of the item from the interface must be exactly matched within the class implementing it.
 To create a class that implements an interface, the syntax is similar to that of inheritance. The new class named is followed by the name of the implemented interface. The two names are separated with a colon character (:). Where a class is also inheriting from a base class, the parent class's name follows the colon. The implemented interface name is then appended, separated from the base class name using a comma.
- 
+A class may implement many interfaces. These may be implemented in addition to inheritance from a base class. 
+An interface is declared in a similar manner to a class. The definition of the interface appears in a namespace, or within the default namespace. The interface's name is prefixed with the interface keyword and requires a code block to contain the members that it defines.
+interface interface-name {}
+The "I" prefix for an interface is a recognised naming convention.
+Using polymorphism techniques, it is possible to declare a variable using an interface as its type. Although an interface cannot be instantiated, such a variable can be assigned an object of any type that implements the interface. 
+
+Polymorphism is an important object-oriented programming concept. When using inheritance, polymorphism is achieved when an object of a derived class is substituted where an instance of its parent class is expected. This uses a process known as upcasting. With upcasting, the object of the more specialised class is implicitly cast to the base class type required.
+The conversion between a child class and its parent is performed implicitly. The reverse is not true. If, for example, a Vehicle variable contained a MotorVehicle object, it could not be assigned directly to a MotorVehicle variable. In this case, an explicit cast would be required as shown below:
+Vehicle car = new MotorVehicle();
+MotorVehicle theCar = (MotorVehicle)car;    // Explicit cast
+
+Name hiding is a similar concept to overriding. With name hiding, a new version of a member or variable is created in a child class to replace or extend the parent's version. However, rather than using the override keyword, the new keyword prefixes the declaration.
+The main functional difference between name hiding and overriding is that the polymorphism effect is lost. When a derived class instance is assigned to a variable of the base class type, the functionality of the base class member is executed rather than the functionality of the method causing the name hiding.
+Name hiding is useful if you do not have control over a base class. This may be because it is part of a library for which you do not own the source code. If a member of a base class is not marked as virtual then you may not override it. However, even non-virtual members may be hidden.
+
+The protected access modifier. A protected item is generally as visible as if it were private except for one special case. If an item in a base class is declared as protected, it is visible to its subclasses.
+
+In some situations you may want to prevent inheritance. For example, you may create a class for use by other programmers where the class contains security functionality that must not be modified. To indicate that a class may not be inherited you can prefix the class definition with the sealed keyword.
+For instance the Vehicle class could be modified as follows:
+sealed class Vehicle
+
+As with any other class, a subclass (derived class) with no constructors defined is provided with a default constructor which provides no explicit functionality. The constructors from the base class are not made available when creating new subclass object instances.
+When a subclass is instantiated, the standard behaviour is for the default constructor of the base class to be called automatically. In this way, the base constructor can initialise the base class before the subclass's constructor is executed.
+When there are more than two levels of inheritance, the least specialised class's constructor is called first with each constructor down the tree called in turn until the specifically instantiated class' constructor is finally executed.
+
+There are two situations where this is inappropriate. Firstly, the base class may contain much more useful constructors that accept parameters. Secondly, if the base class does not include a default constructor the program will not compile unless an alternative is provided.
+One base constructor will always be called when a new object is created. However, the choice of base constructor to execute can be changed using the base keyword. The base keyword is used in a similar manner as the "this" keyword in constructor overloading. The constructor declaration is declared as usual, then a colon character (:) is appended. After the colon the base keyword and the parameter list of the base constructor to call is provided. Each parameter specified in the call to the base class must match one of those in the new constructor or be a literal value.
+public Constructor(parameters-1) : base(parameters-2)
+{
+}
+
+A constructor can be declared as protected in a base class. This constructor will not be available for use externally except within subclasses
