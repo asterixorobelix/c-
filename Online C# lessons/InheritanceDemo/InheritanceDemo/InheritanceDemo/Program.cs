@@ -1,6 +1,8 @@
-﻿/* Add the main method test code from the article.
- * Step through the code in Visual Studio by pressing F11.
- * Use the Locals window and the console output to see the results */
+﻿/* 
+ * Outputp:
+ * Speed: 0mph
+Speed: 25mph
+Speed: 10mph */
 
 using System;
 

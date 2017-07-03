@@ -3,7 +3,8 @@ http://csharp.net-tutorials.com/classes/introduction/
 Define a new class, called Car, which holds a single variable, called color. Use a color property to access the color variable.
 Create a constructor for your Car class, which takes a parameter which allows us to initialize Car objects with a color. 
 Also create the Describe() method, which prints out the colour of a Car.
-Create several Car objects and assign different colours to them.
+
+Create another class called Program which creates several Car objects and assigns different colours to them.
 
 Sample Output:
 This car is Red
@@ -14,10 +15,8 @@ This car is Green
 http://csharp.net-tutorials.com/classes/introduction/
 Define a new class, called Car, which holds a single variable, called color. Use a color property to access the color variable.
 Create a constructor for your Car class, which takes a parameter which allows us to initialize Car objects with a color. 
-Also create the Describe() method, which prints out the colour of a Car.
+Also create the Describe() method, which prints out the colour of a Car. However, make sure that the color variable will be returned in uppercase characters, since we apply the ToUpper() method to it
 Create several Car objects and assign different colours to them.
-
-Also, make sure that the color variable will be returned in uppercase characters, since we apply the ToUpper() method to it
 
 Sample Output:
 This car is RED
@@ -120,3 +119,67 @@ This is the first namespace!
 This is the second namespace!
 First namespace
 */
+
+/*
+https://www.juanantonioripoll.es/practice-exercises-c-sharp/practice-exercises-c-sharp-exercise-6-1-Classes-Student-Teacher.aspx
+Create a class Person, which has private field called age and a public method called Greet, which takes no arguments and returns a greeting. 
+Create a class "Student" and another class "Teacher", both descendants of "Person". 
+The class "Student" will have a public method "GoToClasses", which will write on screen "I’m going to class." 
+The class "Teacher" will have a public method "Explain", which will show on screen "Explanation begins". Also, it will have a private attribute "subject", a string. 
+The class Person must have a method "SetAge (int n)" which will indicate the value of their age (eg, 20 years old). 
+The student will have a public method "ShowAge" which will write on the screen "My age is: 20 years old" (or the corresponding number). 
+You must create another test class called "StudentAndTeacherTest" that will contain "Main" and: 
+Create a Person and make it say hello 
+Create a student, set his age to 21, tell him to Greet and display his age 
+Create a teacher, 30 years old, ask him to say hello and then explain. 
+
+Sample Output:
+Hello
+Hello
+My age is: 21 years old
+Hello
+Explanation begins
+*/
+
+/*
+   https://www.juanantonioripoll.es/practice-exercises-c-sharp/practice-exercises-c-sharp-exercise-6-2-PhotoAlbumTarea.aspx
+   Create a class "Album", in the PhotoAlbum namespace with a NumberOfPages property. 
+   It should also have a public method "GetNumberOfPages", which will return the number of pages. 
+   The default constructor will create an album with 16 pages. There will be an additional constructor, with which we can specify the number of pages we want in the album. 
+   Create a test class "Program" which creates an album with its default constructor and one with 24 pages.
+
+   Sample Ouput:
+   The number of pages: 16
+   The number of pages: 24
+*/
+
+/* 
+ * http://www.blackwasp.co.uk/Interfaces.aspx
+ *  In this article we will define interfaces and classes that represent predators and prey animals. Each animal class will implement at least one of the IPredator and IPrey interfaces.
+ * The first interface that we will create will be implemented by all animals that are prey to predators. To use the convention for interface naming, this interface will be called "IPrey". To create the interface, add a new interface file to the project named "IPrey". 
+ * The IPrey interface will define a property to hold the fleeing speed of prey animals. This is an important value when an animal must run away from a predator. 
+ * The IPrey interface will include a method called when the animal attempts to escape from a predator. This method will be named "Flee" and will require no parameters.
+ * We will also create a second interface to represent predatory animals. This interface will define a property and a method. The property will hold the attack speed of all animals that implement the IPredator interface.
+   The interface's method, "Attack" will be called when the predator wants to attack another creature. This method will accept a single parameter containing the prey animal to be attacked. So that any prey animal may be attacked, the parameter will be of the IPrey type.
+   Create a class for cats. The class will implement the IPredator interface. To create the class, add a new class file to the project and name it "Cat". 
+   Create a Cat-specific "Purr" method
+   Add a new class file named "Fish"
+   Test the cat and fish classes using the Main method of the program. For this simple test, we will create both a cat and a fish object before making the cat try to attack the fish. 
+   we have declared a class for fish and implemented the IPrey interface. Of course, fish can be predators too so we can sensibly implement the IPredator interface for this class. 
+*/
+
+/*
+ * http://www.blackwasp.co.uk/ConstructorInheritance.aspx
+ * Create a class called Program which instantiates a MySubclass object. 
+ * MyBaseClass is a class with a single constructor which outputs a message to the console. 
+ * MySubclass inherits from MyBaseClass and also outputs to the console when constructed.
+ * Add a destructor to the MyBaseClass and the MySubClass
+ * Add a new constructor to "MyBaseClass". This constructor will accept a single integer parameter, which will be outputted to the console.
+ * Add a constructor to "MySubclass" that calls the new base class constructor when an object is instantiated
+ * 
+ * OUTPUT
+    MyBaseClass created with value 10.
+    MySubclass created with value 10.
+    MySubclass destructor called.
+    MyBaseClass destructor called.
+ * */
