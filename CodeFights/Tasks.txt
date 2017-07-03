@@ -1,0 +1,103 @@
+/*
+Given an array of integers, find the pair of adjacent elements which has the largest absolute value product and return that product. Include a way to use your code with different arrays.
+
+[input] array.integer inputArray: An array of integers containing at least two elements.
+[output] integer : The largest product of adjacent elements.
+
+Guaranteed constraints:
+2 = inputArray.length = 10,
+-1000 = inputArray[i] = 1000.
+
+Sample Output:
+Random array:
+ -559 -435 738
+The largest product of adjacent elements is: 321030 which is -435*738
+
+Random array:
+ -739 -231 -905
+The largest product of adjacent elements is: 209055 which is -231*-905
+
+Random array:
+ -200 194 429 647 404
+The largest product of adjacent elements is: 277563 which is 429*647
+*/
+
+/*
+Given a year, return the century it is in. The first century spans from the year 1 up to and including the year 100, the second - from the year 101 up to and including the year 200, etc.
+Include a way to test your code with random years.
+
+Examples
+For year = 1905, the output should be
+centuryFromYear(year) = 20;
+For year = 1700, the output should be
+centuryFromYear(year) = 17.
+
+input: A positive integer, designating the year where: 1 = year = 2005.
+output: An integer representing the number of the century the year is in.
+
+Sample Output:
+Enter a year to calculate the century from:
+1905
+Year: 1905
+The century of year 1905 is 20
+
+Enter a year to calculate the century from:
+1700
+Year: 1700
+The century of year 1700 is 17
+
+Enter a year to calculate the century from:
+y
+Invalid input, generating random year..
+Year: 491
+The century of year 491 is 5
+*/
+
+/*Given the string, check if it is a palindrome. Don't worry about error handling or validating input.
+
+Examples
+For inputString = "aabaa", the output should be
+checkPalindrome(inputString) = true;
+
+Input/Output
+[input] string inputString: A non-empty string consisting of lowercase characters.
+[output] boolean: true if inputString is a palindrome, false otherwise.
+
+Guaranteed constraints: 1 = inputString.length = 105.
+
+Sample Output:
+Enter a name to test for palindrome:
+hello
+Is hello a palindrome?
+False
+
+Enter a name to test for palindrome:
+bob
+Is bob a palindrome?
+True
+
+Tests
+input: abac, result: false
+input: a, result: true 
+*/
+
+/*
+Ratiorg got statues of different sizes as a present from his CodeMaster for his birthday, each statue having an non-negative integer size. 
+Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one by exactly 1. 
+He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
+
+Example
+For statues = [6, 2, 3, 8], the output should be makeArrayConsecutive2(statues) = 3. Ratiorg needs 3 statues of sizes 4, 5 and 7.
+
+Input/Output
+[input] array.integer statues: An array of distinct non-negative integers.
+[output] integer : The minimal number of statues that need to be added to existing statues such that it contains every integer size from an interval [L, R] (for some L, R) and no other sizes.
+
+Guaranteed constraints:
+1 = statues.length = 10
+0 = statues[i] = 20
+
+Tests:
+Input: statues = [5, 4, 6]
+Expected Output: 0
+*/
