@@ -23,52 +23,65 @@ class Rectangle{
 	private int _width;
 	
 	public int Height{
-		get{return _height;}
+		get{
+			return _height;
+		}
 		set{
-			if(value>=0&&value<100){
-				_height=value;
-			}
-			else{
-				Console.WriteLine("input is out of range");
-			}
+			_height= Validate(value);
 		}
 	}
 	
 	public int Width{
-		get{return _width;}
+		get{ return _width;}
 		set{
-			if(value>=0&&value<100){
-				_height=value;
-			}
-			else{
-				Console.WriteLine("input is out of range");
-			}
+			_width=Validate(value);
 		}
 	}
 	
-	public int Area{
-		get{return _height*_width;}
+	private double AreaCalc(){
+		double _area=Height*Width;
+		Console.WriteLine("Area: "+_area);
+		return _area;
 	}
 	
-	public int Perimeter{
-		get{return 2*(_height+_width);}
-	}
-	
-	Rectangle(int h, int w){
-		_height=h;
-		_width=w;
+	public int Validate(int y){
+		int res;
 		
-		if(h==w){
-			Console.WriteLine("\nSquare!");
+		if(y>0&&y<=100){
+			//Console.WriteLine("Valid input");
+			res=y;
 		}
+		else{
+			Console.WriteLine("Input outside of range. Applying default value of 1");
+			res=1;				
+		}
+		return res;
+	}
+	
+	
+	public double Area{
+		get{
+			return AreaCalc();
+		}
+	}
+	
+	Rectangle(int h,int w){
+		Height=h;
+		Width=w;
 		
-		Console.WriteLine("Area:"+this.Area);
-		Console.WriteLine("Perimeter: "+this.Perimeter);
+		if(Height==Width){
+			Console.WriteLine("Square!");
+		}
 	}
 	
 	static void Main(){
-		Rectangle Rect = new Rectangle(25,100);
-				
-		Rectangle Square = new Rectangle(25,25);
+		Rectangle Rect=new Rectangle(-2,6);
+
+		double a1 = Rect.Area;
+		
+		Rectangle Square=new Rectangle(2,2);
+		double a2=Square.Area;
+		
+		Console.WriteLine("Total area: {0}",a2+a1);
 	}
 }

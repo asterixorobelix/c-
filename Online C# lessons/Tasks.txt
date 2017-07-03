@@ -32,7 +32,7 @@ Sample Output:
 beep beeep Hoot hoot
 */
 
-/*
+/*(BlackWasp3)
 http://www.blackwasp.co.uk/CSharpClassProperties.aspx\
 Create a Rectangle class. Add two private integer variables to the Rectangle class to hold the height and width.
 Add width and height properties.
@@ -155,7 +155,7 @@ Explanation begins
 
 /* 
  * http://www.blackwasp.co.uk/Interfaces.aspx
- *  In this article we will define interfaces and classes that represent predators and prey animals. Each animal class will implement at least one of the IPredator and IPrey interfaces.
+ * In this article we will define interfaces and classes which represent predators and prey animals. Each animal class will implement at least one of the IPredator and IPrey interfaces.
  * The first interface that we will create will be implemented by all animals that are prey to predators. To use the convention for interface naming, this interface will be called "IPrey". To create the interface, add a new interface file to the project named "IPrey". 
  * The IPrey interface will define a property to hold the fleeing speed of prey animals. This is an important value when an animal must run away from a predator. 
  * The IPrey interface will include a method called when the animal attempts to escape from a predator. This method will be named "Flee" and will require no parameters.
