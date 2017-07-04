@@ -1,4 +1,4 @@
-/*
+/* (Car)
 http://csharp.net-tutorials.com/classes/introduction/
 Define a new class, called Car, which holds a single variable, called color. Use a color property to access the color variable.
 Create a constructor for your Car class, which takes a parameter which allows us to initialize Car objects with a color. 
@@ -11,7 +11,7 @@ This car is Red
 This car is Green
 */
 
-/*
+/*(CarUppercase)
 http://csharp.net-tutorials.com/classes/introduction/
 Define a new class, called Car, which holds a single variable, called color. Use a color property to access the color variable.
 Create a constructor for your Car class, which takes a parameter which allows us to initialize Car objects with a color. 
