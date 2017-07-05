@@ -1,12 +1,4 @@
 /*
-In order to compile this seperately:
-cd into the folder containing the files.
-Type:
-csc *.cs
-This will compile all .cs files in the folder into an exe, which will be named after the file containing the Main method.
-https://mianlabs.com/2017/01/02/the-lazy-developers-guide-to-command-line-building-with-c/
-
-
 https://www.juanantonioripoll.es/practice-exercises-c-sharp/practice-exercises-c-sharp-exercise-6-1-Classes-Student-Teacher.aspx
 Create a class Person, which has private field called age and a public method called Greet, which takes no arguments and returns a greeting. 
 Create a class "Student" and another class "Teacher", both descendants of "Person". 
@@ -16,18 +8,27 @@ The class Person must have a method "SetAge (int n)" which will indicate the val
 The student will have a public method "ShowAge" which will write on the screen "My age is: 20 years old" (or the corresponding number). 
 You must create another test class called "StudentAndTeacherTest" that will contain "Main" and: 
 Create a Person and make it say hello 
-Create a student, set his age to 21, tell him to Greet and display his age 
+Create a student, set his age to 21, tell him to Greet and display his age and go to class. 
 Create a teacher, 30 years old, ask him to say hello and then explain. 
 
 Sample Output:
-Hello
-Hello
-My age is: 21 years old
-Hello
-Explanation begins
-*/
+Person constructor called
+Hello!
 
-namespace ConsoleApp1
+Person constructor called
+Student constructor called
+My age is 21 years old
+Hello!
+I'm going to class
+Person constructor called
+Teacher constructor called
+My age is 30 years old
+Hello!
+My explanation of Geography begins..
+*/
+using System;
+
+namespace StudentTeacher
 {
     class Program
     {
@@ -36,20 +37,21 @@ namespace ConsoleApp1
             //Create a Person and make it say hello
             Person myPerson = new Person();
             myPerson.Greet();
-
+			
+			Console.WriteLine();
             /*Create a student, set his age to 21, 
             tell him to Greet and display his age*/
-            Student myStudent = new Student();
-            myStudent.SetAge(21);
+            Student myStudent = new Student(21);
+            myStudent.GetAge();
             myStudent.Greet();
-            myStudent.ShowAge();
-
+			myStudent.GoToClasses();
+            
             /*Create a teacher, 30 years old, 
             ask him to say hello and then explain*/
-            Teacher myTeacher = new Teacher();
-            myTeacher.SetAge(30);
+            Teacher myTeacher = new Teacher(30);
+            myTeacher.GetAge();
             myTeacher.Greet();
-            myTeacher.Explain();
+            myTeacher.Explain("Geography");
         }
     }
 }

@@ -1,0 +1,15 @@
+c#
+
+Ebooks (Miles, Nakov, McGee)
+http://www.tutorialsteacher.com/csharp/csharp-tutorials
+Lynda
+http://www.blackwasp.co.uk/SOLIDPrinciples.aspx
+cs50.harvard.edu - computer science fundamentals harvard course
+Codewars, Codefights etc
+
+Asp.net mvc
+
+https://www.tutorialspoint.com/asp.net_mvc/index.htm
+http://www.tutorialsteacher.com/mvc/asp.net-mvc-tutorials
+https://www.lynda.com/ASP-NET-tutorials/MVC-mindset/170334/191101-4.html?srchtrk=index%3a1%0alinktypeid%3a2%0aq%3aasp.net+mvc%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2
+http://www.entityframeworktutorial.net/code-first/entity-framework-code-first.aspx

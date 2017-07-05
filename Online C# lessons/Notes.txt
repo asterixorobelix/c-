@@ -148,3 +148,20 @@ public Constructor(parameters-1) : base(parameters-2)
 }
 
 A constructor can be declared as protected in a base class. This constructor will not be available for use externally except within subclasses
+
+http://www.dotnetbull.com/2013/10/public-protected-private-internal-access-modifier-in-c.html
+Internal: - Internal members are accessible only within the assembly by inheritance or by instance of that class. So, internal is for assembly scope (i.e. only accessible from code in the same .exe or .dll)
+Private is for class scope (i.e. accessible only from code in the same class).
+
+public: Access is not restricted.
+protected: Access is limited to the containing class or types derived from the containing class.
+Internal: Access is limited to the current assembly.
+protected internal: Access is limited to the current assembly or types derived from the containing class.
+private: Access is limited to the containing type.
+
+In order to compile this seperately:
+cd into the folder containing the files.
+Type:
+csc *.cs
+This will compile all .cs files in the folder into an exe, which will be named after the file containing the Main method.
+https://mianlabs.com/2017/01/02/the-lazy-developers-guide-to-command-line-building-with-c/

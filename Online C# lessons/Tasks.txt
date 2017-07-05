@@ -59,35 +59,66 @@ Width: 3, Height: 3
 
 /*(StudentTeacher)
 https://www.juanantonioripoll.es/practice-exercises-c-sharp/practice-exercises-c-sharp-exercise-6-1-Classes-Student-Teacher.aspx
-Create a class Person, which has private field called age and a public method called Greet, which takes no arguments and returns a greeting. 
+Create a class Person, which has an Age property and a public method called Greet, which takes no arguments and returns a greeting. 
+The class Person must have a method "GetAge" which will indicate the value of their age (eg, 20 years old). 
 Create a class "Student" and another class "Teacher", both descendants of "Person". 
 The class "Student" will have a public method "GoToClasses", which will write on screen "I’m going to class." 
-The class "Teacher" will have a public method "Explain", which will show on screen "Explanation begins". Also, it will have a private attribute "subject", a string. 
-The class Person must have a method "SetAge (int n)" which will indicate the value of their age (eg, 20 years old). 
-The student will have a public method "ShowAge" which will write on the screen "My age is: 20 years old" (or the corresponding number). 
-You must create another test class called "StudentAndTeacherTest" that will contain "Main" and: 
+The class "Teacher" will have a public method "Explain", which will show on screen "My explanation of {subject} begins..". Also, it will have a private attribute "Subject", a string. 
+
 Create a Person and make it say hello 
-Create a student, set his age to 21, tell him to Greet and display his age 
+Create a student, set his age to 21, tell him to Greet, display his age and go to class. 
 Create a teacher, 30 years old, ask him to say hello and then explain. 
 
 Sample Output:
-Hello
-Hello
-My age is: 21 years old
-Hello
-Explanation begins
+Person constructor called
+Hello!
+
+Person constructor called
+Student constructor called
+My age is 21 years old
+Hello!
+I'm going to class
+Person constructor called
+Teacher constructor called
+My age is 30 years old
+Hello!
+My explanation of Geography begins..
 */
 
-/*
-https://www.juanantonioripoll.es/practice-exercises-c-sharp/practice-exercises-c-sharp-exercise-6-2-PhotoAlbumTarea.aspx
-Create a class "Album", in the PhotoAlbum namespace with a NumberOfPages property. 
-It should also have a public method "GetNumberOfPages", which will return the number of pages. 
-The default constructor will create an album with 16 pages. There will be an additional constructor, with which we can specify the number of pages we want in the album. 
-Create a test class "Program" which creates an album with its default constructor and one with 24 pages.
+/*(VehicleInherit)
+http://www.blackwasp.co.uk/Inheritance.aspx
 
-Sample Ouput:
-The number of pages: 16
-The number of pages: 24
+Create the Vehicle class. We will then create subclasses of Vehicle with more specialised functionality.
+Provide a Speed property and the Accelerate and Decelerate methods in the vehicles class.
+We can now create a class to represent motor vehicles such as cars, buses, etc. Since a motor vehicle is a specialised type of vehicle, we can derive the class from Vehicle. 
+So, create new class and name it "MotorVehicle".
+Add properties to identify how many gallons of fuel are present in the vehicle and how large the fuel tank is. We can also create a method to call when the motor vehicle is refuelled.
+The FuelRemaining property is read-only as it can only be changed via the Refuel method, which returns the number of gallons of fuel added to completely fill the tank.
+
+Create another class for bicycles named "Bicycle". Bicycles can also accelerate and decelerate so modify the class so that it also inherits its functionality from the Vehicle class.
+To give the Bicycle class additional functionality, let's add a method which rings the bell. In order to indicate that the rider has used the bell we will simply output a string to the console.
+
+The basic Vehicle class will simply output a message describing the indication direction given (eg Turning left). This will be overridden in the MotorVehicle and Bicycle classes.
+In the MotorVehicle class, the basic outputted message will be overridden to Flashing left/right indicator. 
+For bicycles, the rider will raise their arm to indicate that they are turning so Bicycle class message should be: "Raising left/right arm"
+
+Add a property to the MotorVehicle class which calculates the fuel efficiency of the motor vehicle in miles per gallon, with the calculation based upon the current speed of the vehicle.
+
+Create some basic Vehicle variables but assign MotorVehicle or Bicycle objects to them
+
+Sample Output:
+Speed: 0mph
+Speed: 25mph
+Speed: 10mph
+Fuel: 0g
+Fuel: 11g
+Ring!
+Flashing left indicator
+Turning left
+Raising left arm
+Flashing left indicator
+Turning left
+Raising left arm
 */
 
 /* 
@@ -104,19 +135,3 @@ Add a new class file named "Fish"
 Test the cat and fish classes using the Main method of the program. For this simple test, we will create both a cat and a fish object before making the cat try to attack the fish. 
 We have declared a class for fish and implemented the IPrey interface. Of course, fish can be predators too so we can sensibly implement the IPredator interface for this class. 
 */
-
-/*
- * http://www.blackwasp.co.uk/ConstructorInheritance.aspx
- * Create a class called Program which instantiates a MySubclass object. 
- * MyBaseClass is a class with a single constructor which outputs a message to the console. 
- * MySubclass inherits from MyBaseClass and also outputs to the console when constructed.
- * Add a destructor to the MyBaseClass and the MySubClass
- * Add a new constructor to "MyBaseClass". This constructor will accept a single integer parameter, which will be outputted to the console.
- * Add a constructor to "MySubclass" that calls the new base class constructor when an object is instantiated
- * 
- * OUTPUT
-    MyBaseClass created with value 10.
-    MySubclass created with value 10.
-    MySubclass destructor called.
-    MyBaseClass destructor called.
- * */
