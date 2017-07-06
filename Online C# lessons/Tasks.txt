@@ -88,50 +88,57 @@ My explanation of Geography begins..
 /*(VehicleInherit)
 http://www.blackwasp.co.uk/Inheritance.aspx
 
-Create the Vehicle class. We will then create subclasses of Vehicle with more specialised functionality.
-Provide a Speed property and the Accelerate and Decelerate methods in the vehicles class.
-We can now create a class to represent motor vehicles such as cars, buses, etc. Since a motor vehicle is a specialised type of vehicle, we can derive the class from Vehicle. 
-So, create new class and name it "MotorVehicle".
-Add properties to identify how many gallons of fuel are present in the vehicle and how large the fuel tank is. We can also create a method to call when the motor vehicle is refuelled.
-The FuelRemaining property is read-only as it can only be changed via the Refuel method, which returns the number of gallons of fuel added to completely fill the tank.
+Create the Vehicle class. Provide a Speed property. Provide the Accelerate and Decelerate methods, which take a parameter of kmh by which to accelerate.
 
-Create another class for bicycles named "Bicycle". Bicycles can also accelerate and decelerate so modify the class so that it also inherits its functionality from the Vehicle class.
-To give the Bicycle class additional functionality, let's add a method which rings the bell. In order to indicate that the rider has used the bell we will simply output a string to the console.
+We can now create a class called "MotorVehicle" which represents motor vehicles such as cars, buses, etc, and which derives from the Vehicle class. 
+Add properties to identify how many gallons of fuel are present in the vehicle (FuelRemaining) and how large the fuel tank is (FuelTankSize).
+Create a method to call when the motor vehicle is refuelled, called Refuel, which completely fills the fuel tank.
+The FuelRemaining property is read-only as it can only be changed via the Refuel method.
+
+Create a class for bicycles named "Bicycle". Bicycles can also accelerate and decelerate and are also a type of Vehicle, so should inherit from the Vehicle class.
 
 The basic Vehicle class will simply output a message describing the indication direction given (eg Turning left). This will be overridden in the MotorVehicle and Bicycle classes.
 In the MotorVehicle class, the basic outputted message will be overridden to Flashing left/right indicator. 
 For bicycles, the rider will raise their arm to indicate that they are turning so Bicycle class message should be: "Raising left/right arm"
 
-Add a property to the MotorVehicle class which calculates the fuel efficiency of the motor vehicle in miles per gallon, with the calculation based upon the current speed of the vehicle.
-
 Create some basic Vehicle variables but assign MotorVehicle or Bicycle objects to them
 
 Sample Output:
-Speed: 0mph
-Speed: 25mph
-Speed: 10mph
-Fuel: 0g
-Fuel: 11g
-Ring!
-Flashing left indicator
-Turning left
-Raising left arm
-Flashing left indicator
-Turning left
-Raising left arm
+MotorBike, of type Vehicle
+Speed: 30 km/h
+Turning Left!
+
+Car, of type MotorVehicle
+Refueled
+
+Beetle, of type MotorVehicle
+Flashing my left indicator
+
+Bicycle, of type Vehicle
+Raising my right arm
 */
 
-/* 
- * http://www.blackwasp.co.uk/Interfaces.aspx
+/*(IPredatorIPrey)
+http://www.blackwasp.co.uk/Interfaces.aspx
 In this article we will define interfaces and classes which represent predators and prey animals. Each animal class will implement at least one of the IPredator and IPrey interfaces.
-The first interface that we will create will be implemented by all animals that are prey to predators. To use the convention for interface naming, this interface will be called "IPrey". To create the interface, add a new interface file to the project named "IPrey". 
-The IPrey interface will define a property to hold the fleeing speed of prey animals. This is an important value when an animal must run away from a predator. 
-The IPrey interface will include a method called when the animal attempts to escape from a predator. This method will be named "Flee" and will require no parameters.
-We will also create a second interface to represent predatory animals. This interface will define a property and a method. The property will hold the attack speed of all animals that implement the IPredator interface.
-The interface's method, "Attack" will be called when the predator wants to attack another creature. This method will accept a single parameter containing the prey animal to be attacked. So that any prey animal may be attacked, the parameter will be of the IPrey type.
-Create a class for cats. The class will implement the IPredator interface. To create the class, add a new class file to the project and name it "Cat". 
-Create a Cat-specific "Purr" method
-Add a new class file named "Fish"
-Test the cat and fish classes using the Main method of the program. For this simple test, we will create both a cat and a fish object before making the cat try to attack the fish. 
-We have declared a class for fish and implemented the IPrey interface. Of course, fish can be predators too so we can sensibly implement the IPredator interface for this class. 
+Define an interface called IAnimal, which will have a property which holds the name of the type of animal.
+
+Create an interface called "IPrey", which will be implemented by all prey animals. 
+The IPrey interface will define a property to hold the fleeing speed of prey animals, of type double. This is an important value when an animal must run away from a predator. 
+The IPrey interface will include a method called when the animal attempts to escape from a predator. This method will be named "Flee" and will require no parameters and return no value.
+
+Create a second interface which represents predatory animals, called IPredator. This interface will define a property and a method. The property will hold the attack speed (double) of all animals which implement the IPredator interface.
+The interface's method, "Attack" will be called when the predator wants to attack another creature. This method will accept a single parameter containing the prey animal to be attacked and returns no value. 
+So that any prey animal may be attacked, the parameter will be of the IPrey type.
+
+Create a class for Cats. The class will implement the IPredator interface. So, it should specify how the properties Name and AttackSpeed will work. It should also specify how the Attack method will work.
+For the Attack method, if the AttackSpeed of the Predator animal is greater than the FleeSpeed of the Prey animal, write to the console that the animal was caught.
+
+Add a new class file named "Fish". Of course, fish can be predators too; so we can sensibly implement the IPredator interface for this class. It also needs to implement the PreyFleeSpeed and the Flee method.
+The Flee method writes to the console that the fish is fleeing.
+Create both a cat and a fish object before making the cat try to attack the fish.
+
+Sample Output:
+I am fleeing!
+The prey has been caught! 
 */
