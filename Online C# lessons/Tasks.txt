@@ -1,50 +1,3 @@
-/*(Rectangle)
-http://www.blackwasp.co.uk/CSharpClassProperties.aspx\
-Create a Rectangle class. Add two private integer variables to the Rectangle class to hold the height and width.
-Add width and height properties.
-For both the width and height properties, if the value is negative or is greater than one hundred, display an error message and the property will remain unchanged.
-Create two objects based upon the Rectangle class, Rect and square.
-Ask the user to input width and height for these two objects and print out the widths and heights for the two.
-Add read-only properties for the area and perimeter of the rectangle.
-Print out the area and perimeter of the two shapes. 
-
-Sample Output:
-Area:2500
-Perimeter: 250
-
-Square!
-Area:625
-Perimeter: 100
-*/
-
-/*(MassCalculator)
-http://www.blackwasp.co.uk/CSharpStaticBehaviour.aspx
-Create a class named 'MassCalculator', which multiplies density*volume. 
-Provide a method which accepts the density and the volume of an item and calculates its mass. The method should be overloaded in order to accept integer or double arguments.
-The class will also maintain a property which counts the number of times that the calculation has been performed. 
-
-Sample Output:
-Mass: 1288
-Mass: 56781,12
-Mass: 6621,12
-Calculator has been used 3 times
-*/
-
-/* (RectangleOverload)
-http://www.blackwasp.co.uk/ConstructorOverloading.aspx
-Create a Rectangle class. 
-Add width and height properties.
-Create overloaded constructors, so that a different constructor is called if a rectangle or a square is being created.
-Create two objects based upon the Rectangle class, Rect and square.
-Print out the widths and heights for the two objects.
-
-Sample Output:
-Rectangle constructor called
-Width: 4, Height: 3
-Square Constructor called
-Width: 3, Height: 3
- */
-
 /*(StudentTeacher)
 https://www.juanantonioripoll.es/practice-exercises-c-sharp/practice-exercises-c-sharp-exercise-6-1-Classes-Student-Teacher.aspx
 Create a class Person, which has an Age property and a public method called Greet, which takes no arguments and returns a greeting. 
@@ -81,7 +34,7 @@ Create the Vehicle class. Provide a Speed property. Provide the Accelerate and D
 We can now create a class called "MotorVehicle" which represents motor vehicles such as cars, buses, etc, and which derives from the Vehicle class. 
 Add properties to identify how many gallons of fuel are present in the vehicle (FuelRemaining) and how large the fuel tank is (FuelTankSize).
 Create a method to call when the motor vehicle is refuelled, called Refuel, which completely fills the fuel tank.
-The FuelRemaining property is read-only as it can only be changed via the Refuel method.
+The FuelRemaining property is read-only since it can only be changed via the Refuel method.
 
 Create a class for bicycles named "Bicycle". Bicycles can also accelerate and decelerate and are also a type of Vehicle, so should inherit from the Vehicle class.
 
