@@ -4,6 +4,15 @@ float cnTower = 553; //valid
 float empireStateBuilding = 443.1; //invalid
 float burjKhalifa = 829.3f; //valid
 
+Get and Set Accessors
+A property value is read with a get accessor and written with a set accessor. These get and set accessors function like methods.
+It is possible, though, to declare a property which has a get accessor with a different access level than a set accessor. However, the set and get accessors cannot be more accessible than the property itself. 
+In this example, the Birthday property has a public get accessor and a private set accessor:
+public DateTime Birthday { get; private set; } // Correct.
+
+This next example is an invalid property declaration because the get accessor is more accessible than the property:
+private DateTime Birthday { public get; private set; } // Incorrect. 
+
 Regular Expressions
 A regular expression is a sequence of characters that is used for pattern matching in strings. Regular expressions are often used to validate text inputs to ensure that the data conforms to the expected format. 
 Most modern programming languages enable regular expressions since they offer such concise and efficient pattern searching. 
@@ -19,3 +28,30 @@ pg 185
 
 The two primary C# types you need for manipulating dates and times are theTimeSpan type and the DateTime type. Both C# types are available through the System namespace.
 The TimeSpan type stores and manages time interval components for blocks of time, ranging from ticks to milliseconds to days. While TimeSpan objects do not store or manage dates, they are especially helpful when calculating time intervals between dates. 
+
+By design, a default C# class must be declared in one file. A partial class, however, allows you to define your classes in more than one file. Partial classes simplify code organization of large classes.
+Partial classes are declared with the partial keyword just before the class keyword in the class declaration. In a file named ClassName1.cs, the class declaration could look like the following:
+public partial class ClassName { }
+In another file, named ClassName2.cs, you could have the same class declaration to continue with the definition of the ClassName class:
+public partial class ClassName { }
+
+Sealing Classes
+Prefixing class declarations with a sealed modifier indicates that no classes can inherit from it.
+Sealing Members
+Prefixing a class member like a method with the keyword seal indicates that child classes cannot override this implementation.
+
+In order to manage large groups of objects Generic Types and Collections are used, such as List, ArrayList, Dictionary, and Hashtable collections. 
+These collection types are dynamically sized so items can be added or removed to and from them at run time. 
+Each collection class offers useful methods and options to add, insert, remove, and find specific items within the collection.
+
+Generic Types
+Generic classes and structs are type-safe templates which are defined without a specific data type. The big advantage generic templates offer is that they can be reused with different data types.
+Most often, C# developers will declare the first type argument as T. The next generic type is represented with U.
+
+List Collections
+List collections are dynamically allocated type-safe collections which implement generic types. They contain either objects of identical types or objects which inherit from the same base class. 
+Fittingly, the List class is included in the System.Collections.Generic namespace.
+Where T is the data type stored in the list, this collection is declared with the syntax:
+List<T> collection = new List<T>();
+
+The List class implements the IEnumerable interface, which allows you to iterate through the collection.
