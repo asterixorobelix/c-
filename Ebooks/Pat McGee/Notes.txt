@@ -16,3 +16,6 @@ bool match = regex.IsMatch(string input);
 
 Table of Regex operators:
 pg 185
+
+The two primary C# types you need for manipulating dates and times are theTimeSpan type and the DateTime type. Both C# types are available through the System namespace.
+The TimeSpan type stores and manages time interval components for blocks of time, ranging from ticks to milliseconds to days. While TimeSpan objects do not store or manage dates, they are especially helpful when calculating time intervals between dates. 
