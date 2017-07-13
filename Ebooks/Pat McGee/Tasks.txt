@@ -1,0 +1,24 @@
+/*Ex4point4-Pat McGee
+Write a method called AjustForInflation, which takes two inputs, which represent the value of a home and an income.
+The method should then adjust these values by an inflation rate of 1.0345. 
+The method should then return these values so that they may be printed to the screen.
+ 
+Sample Output:
+Values after inflation: House: 20690, Income: 7758,75
+*/
+
+/*Example6point4 - Pat McGee
+Create a regular expression to validate full names such as Jane Chen, Ron Terencio, or Raj Bains. 
+Assume that each first name and last name must begin with a capital letter and that all other characters in the name must be lowercase letters. 
+Each full name only has a first name and a last name. 
+There are no hyphens. First and last names are separated with one space.
+
+Sample Output:
+Enter your name:
+Nathan Stasin
+That is a name
+
+Enter your name:
+bob tabor
+That is not a name
+*/

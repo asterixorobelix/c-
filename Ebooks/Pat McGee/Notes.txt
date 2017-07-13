@@ -1,0 +1,18 @@
+Notice that fractional numeric values require a suffix of f to distinguish them as float types. Whole numbers can be assigned to float types because the float type is large enough to store any valid whole number.
+eg: 
+float cnTower = 553; //valid
+float empireStateBuilding = 443.1; //invalid
+float burjKhalifa = 829.3f; //valid
+
+Regular Expressions
+A regular expression is a sequence of characters that is used for pattern matching in strings. Regular expressions are often used to validate text inputs to ensure that the data conforms to the expected format. 
+Most modern programming languages enable regular expressions since they offer such concise and efficient pattern searching. 
+The C# regular expression library is defined in the System.Text.RegularExpressions namespace. Parsing and validation is enabled from this library with the Regex class. 
+When initializing a Regex object to validate a string, the regular expression pattern is passed as a parameter:
+Regex regex = new Regex(string regularExpression);
+
+The Regex object provides an IsMatch() method to validate strings:
+bool match = regex.IsMatch(string input);
+
+Table of Regex operators:
+pg 185
