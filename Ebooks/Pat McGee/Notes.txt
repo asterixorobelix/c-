@@ -72,3 +72,5 @@ The properties of the entity class represent columns of the associated table.
 DbSet
 DbSet is a generic class that manages create, read, update, and delete operations for entity collections. The DbSet class is only accessible as a property through an instance of the DbContext class. 
 DbSet is available through the System.Data.Entity namespace. 
+
+The Select() extension method can be used to define the columns of the data set which is returned from a LINQ query.

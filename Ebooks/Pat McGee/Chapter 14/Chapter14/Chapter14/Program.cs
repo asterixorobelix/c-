@@ -26,6 +26,8 @@ namespace Chapter14
         {
             Products.DisplayProducts();
             Employees.ShowEmployees();
+
+            Products.DisplayProductsRange(0.5m, 2);
             
         }
     }
