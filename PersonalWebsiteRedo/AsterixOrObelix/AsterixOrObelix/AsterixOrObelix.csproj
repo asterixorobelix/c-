@@ -263,6 +263,7 @@
     <Content Include="Views\Machine\Index.cshtml" />
     <Content Include="Views\Object\Index.cshtml" />
     <Content Include="Views\Software\Index.cshtml" />
+    <Content Include="Views\Machine\QualityControlRig.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

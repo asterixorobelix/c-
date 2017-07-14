@@ -15,9 +15,9 @@ namespace AsterixOrObelix.Controllers
         }
 
         // GET: Machine/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            return View(id);
         }
 
         // GET: Machine/Create
