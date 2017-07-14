@@ -22,3 +22,14 @@ Enter your name:
 bob tabor
 That is not a name
 */
+
+/*pg 305, Example10.1- pat mcgee
+Create a generic QuizQuestion class which stores quiz questions and answers in varying data formats. 
+Create a QuizQuestion object which assigns an integer to the generic type. Then, create a second QuizQuestion object which assigns a string to the generic type.
+
+Sample output:
+Question: How many teeth do sharks have?
+Answer: 300
+Question: Which shark is the fastest swimmer?
+Answer: The short fin mako shark
+*/
