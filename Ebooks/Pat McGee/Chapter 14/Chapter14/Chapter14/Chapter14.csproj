@@ -54,6 +54,8 @@
     <Compile Include="Building.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Employees.cs" />
+    <Compile Include="Products.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

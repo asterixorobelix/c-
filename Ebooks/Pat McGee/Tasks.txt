@@ -44,3 +44,32 @@ Question How many shark species exist?
 A) 350
 B) None of the above
 */
+
+/*pg 412, TryThis14-1- pat mcgee
+Using your FoodStore database,write a program which can retrieve all rows of the Employee table.
+Display values for the employee_id, last_name, and first_name properties.
+
+Sample Output:
+ID: 9001, Jane Chen - Branch: Vancouver
+ID: 9002, Jeff Johnson - Branch: Kamloops
+ID: 9003, Pam Rogers - Branch: Richmond
+ID: 9004, Baljeet Singh - Branch: Seattle
+*/
+
+/*pg 412 of McGee
+Create a program which can look at the Foodstore database and displays the Products and Employees in the database.
+
+Sample Output:
+All products:
+ID: 1, Name: Cake Mix, - Sysco - R2,99
+ID: 2, Name: Cookie Dough, - Sysco - R1,25
+ID: 3, Name: Orange Juice, - GFS - R4,25
+ID: 4, Name: Cookie Dough, - GFS - R1,45
+ID: 5, Name: Carrots, - GFS - R1,01
+
+All employees:
+ID: 9001, Jane Chen - Branch: Vancouver
+ID: 9002, Jeff Johnson - Branch: Kamloops
+ID: 9003, Pam Rogers - Branch: Richmond
+ID: 9004, Baljeet Singh - Branch: Seattle
+*/
