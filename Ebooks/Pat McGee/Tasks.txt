@@ -146,10 +146,12 @@ City Center
 Fairlane Square
 Peaceful Place
 Vineyard Estates
+There are 5 buildings in the db
 
 Unique Buildings:
 City Center
 Fairlane Square
 Peaceful Place
 Vineyard Estates
+There are 4 unique buildings in the list
 */
