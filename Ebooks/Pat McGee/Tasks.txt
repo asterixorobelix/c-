@@ -1,10 +1,12 @@
 /*Ex4point4-Pat McGee
 Write a method called AjustForInflation, which takes two inputs, which represent the value of a home and an income.
 The method should then adjust these values by an inflation rate of 1.0345. 
-The method should then return these values so that they may be printed to the screen.
+The method should then print these values to the screen.
  
 Sample Output:
-Values after inflation: House: 20690, Income: 7758,75
+original homevalue: 20000, original income: 7500
+Adjusted home value: 20690
+Adjusted income: 7758,75
 */
 
 /*Example6point4 - Pat McGee
@@ -34,8 +36,7 @@ Question: Which shark is the fastest swimmer?
 Answer: The short fin mako shark
 */
 
-/*
- * pg 305, Example10.2- pat mcgee
+/*pg 305, Example10.2- pat mcgee
 Create a generic QuizQuestion class which stores quiz questions and answers in varying data formats. 
 Create a QuizQuestion object which assigns an integer and a string to the generic type.
 
@@ -72,4 +73,83 @@ ID: 9001, Jane Chen - Branch: Vancouver
 ID: 9002, Jeff Johnson - Branch: Kamloops
 ID: 9003, Pam Rogers - Branch: Richmond
 ID: 9004, Baljeet Singh - Branch: Seattle
+*/
+
+/*pg 461 of McGee, chapter 16
+Write a program which contains a method, DisplayProductsRange, which selects and prints to the console items which fall within that range.
+
+Products with a price between 0,5 and 2
+ID: 2, Name: Cookie Dough, - Sysco - R1,25
+ID: 4, Name: Cookie Dough, - GFS - R1,45
+ID: 5, Name: Carrots, - GFS - R1,01
+*/
+
+/*
+Create a console application which references the FoodStore database.
+Create a program which allows you to select and display the branch and building_name column values from the Store table of the FoodStore database for all stores which are located in a certain region.
+
+Sample Output:
+
+You selected the state: WA
+Seattle - Fairlane Square
+
+
+You selected the state: BC
+Kamloops - Vineyard Estates
+Mission - Peaceful Place
+Richmond -
+Vancouver - City Center
+*/
+
+
+/*pg 472 of McGee, Self test 16.3
+Create a console app which connects to the Foodstore database.
+Create a method called GetEmployeeNames which can retrieve all first_names and last_names of employees, provided that their employee ID is greater than 9002.
+
+Sample Output:
+Pam-Rogers
+Baljeet-Singh
+*/
+
+/*Page 472, chapter 16, self test exercise 5 from Pat McGee
+Create a program to select and display productID, name, mfg, vendor, and price column values of the Product
+table from the FoodStore database for any product named “Cake Mix” or “Cookie Dough”.
+
+Sample Output:
+Products containing Cookie Dough in the name:
+2-Cookie Dough-Duncan Hines-Sysco-1,2500
+4-Cookie Dough-Pilsbury-GFS-1,4500
+*/
+
+/*
+Write a program that uses method-based syntax to query the Employee
+table of the FoodStore database to show first_name and last_name column
+values for all employees with a first name starting with the letter “J”.
+
+Sample Output:
+Employees whose first name begins with J:
+Jane Chen
+Jeff Johnson
+
+Employees whose first name begins with B:
+Baljeet Singh
+*/
+
+/*
+Select a list of unique building_name columns
+from the Building table in the FoodStore database. 
+
+Sample Output:
+All buildings:
+City Center
+City Center
+Fairlane Square
+Peaceful Place
+Vineyard Estates
+
+Unique Buildings:
+City Center
+Fairlane Square
+Peaceful Place
+Vineyard Estates
 */
