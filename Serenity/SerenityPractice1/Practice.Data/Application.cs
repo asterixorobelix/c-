@@ -1,4 +1,8 @@
-﻿namespace Practice.Data
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Practice.Data
 {
     public class Application
     {
