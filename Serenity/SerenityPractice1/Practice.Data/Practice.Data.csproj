@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DataModel.cs" />
     <Compile Include="Migrations\201707181522002_InitialCommit.cs" />
