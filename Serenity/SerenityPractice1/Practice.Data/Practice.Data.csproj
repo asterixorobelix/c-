@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201707181522002_InitialCommit.Designer.cs">
       <DependentUpon>201707181522002_InitialCommit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707181527509_ApplicationTable.cs" />
+    <Compile Include="Migrations\201707181527509_ApplicationTable.Designer.cs">
+      <DependentUpon>201707181527509_ApplicationTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +70,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707181522002_InitialCommit.resx">
       <DependentUpon>201707181522002_InitialCommit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707181527509_ApplicationTable.resx">
+      <DependentUpon>201707181527509_ApplicationTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
