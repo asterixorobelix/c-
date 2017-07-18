@@ -322,6 +322,55 @@ var SerenityPractice1;
 })(SerenityPractice1 || (SerenityPractice1 = {}));
 var SerenityPractice1;
 (function (SerenityPractice1) {
+    var Default;
+    (function (Default) {
+        var ApplicationsForm = (function (_super) {
+            __extends(ApplicationsForm, _super);
+            function ApplicationsForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return ApplicationsForm;
+        }(Serenity.PrefixedContext));
+        ApplicationsForm.formKey = 'Default.Applications';
+        Default.ApplicationsForm = ApplicationsForm;
+        [['ApplicationName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(ApplicationsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Default = SerenityPractice1.Default || (SerenityPractice1.Default = {}));
+})(SerenityPractice1 || (SerenityPractice1 = {}));
+var SerenityPractice1;
+(function (SerenityPractice1) {
+    var Default;
+    (function (Default) {
+        var ApplicationsRow;
+        (function (ApplicationsRow) {
+            ApplicationsRow.idProperty = 'ApplicationId';
+            ApplicationsRow.nameProperty = 'ApplicationName';
+            ApplicationsRow.localTextPrefix = 'Default.Applications';
+            var Fields;
+            (function (Fields) {
+            })(Fields = ApplicationsRow.Fields || (ApplicationsRow.Fields = {}));
+            ['ApplicationId', 'ApplicationName'].forEach(function (x) { return Fields[x] = x; });
+        })(ApplicationsRow = Default.ApplicationsRow || (Default.ApplicationsRow = {}));
+    })(Default = SerenityPractice1.Default || (SerenityPractice1.Default = {}));
+})(SerenityPractice1 || (SerenityPractice1 = {}));
+var SerenityPractice1;
+(function (SerenityPractice1) {
+    var Default;
+    (function (Default) {
+        var ApplicationsService;
+        (function (ApplicationsService) {
+            ApplicationsService.baseUrl = 'Default/Applications';
+            var Methods;
+            (function (Methods) {
+            })(Methods = ApplicationsService.Methods || (ApplicationsService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                ApplicationsService[x] = function (r, s, o) { return Q.serviceRequest(ApplicationsService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = ApplicationsService.baseUrl + '/' + x;
+            });
+        })(ApplicationsService = Default.ApplicationsService || (Default.ApplicationsService = {}));
+    })(Default = SerenityPractice1.Default || (SerenityPractice1.Default = {}));
+})(SerenityPractice1 || (SerenityPractice1 = {}));
+var SerenityPractice1;
+(function (SerenityPractice1) {
     var Membership;
     (function (Membership) {
         var ChangePasswordForm = (function (_super) {
@@ -2404,6 +2453,98 @@ var SerenityPractice1;
         }());
         Common.UserPreferenceStorage = UserPreferenceStorage;
     })(Common = SerenityPractice1.Common || (SerenityPractice1.Common = {}));
+})(SerenityPractice1 || (SerenityPractice1 = {}));
+var SerenityPractice1;
+(function (SerenityPractice1) {
+    var Default;
+    (function (Default) {
+        var ApplicationsDialog = (function (_super) {
+            __extends(ApplicationsDialog, _super);
+            function ApplicationsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.ApplicationsForm(_this.idPrefix);
+                return _this;
+            }
+            ApplicationsDialog.prototype.getFormKey = function () { return Default.ApplicationsForm.formKey; };
+            ApplicationsDialog.prototype.getIdProperty = function () { return Default.ApplicationsRow.idProperty; };
+            ApplicationsDialog.prototype.getLocalTextPrefix = function () { return Default.ApplicationsRow.localTextPrefix; };
+            ApplicationsDialog.prototype.getNameProperty = function () { return Default.ApplicationsRow.nameProperty; };
+            ApplicationsDialog.prototype.getService = function () { return Default.ApplicationsService.baseUrl; };
+            return ApplicationsDialog;
+        }(Serenity.EntityDialog));
+        ApplicationsDialog = __decorate([
+            Serenity.Decorators.registerClass(),
+            Serenity.Decorators.responsive()
+        ], ApplicationsDialog);
+        Default.ApplicationsDialog = ApplicationsDialog;
+    })(Default = SerenityPractice1.Default || (SerenityPractice1.Default = {}));
+})(SerenityPractice1 || (SerenityPractice1 = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var SerenityPractice1;
+(function (SerenityPractice1) {
+    var Default;
+    (function (Default) {
+        var ApplicationsEditor = (function (_super) {
+            __extends(ApplicationsEditor, _super);
+            function ApplicationsEditor(container) {
+                return _super.call(this, container) || this;
+            }
+            ApplicationsEditor.prototype.getColumnsKey = function () { return 'Default.Applications'; };
+            ApplicationsEditor.prototype.getDialogType = function () { return Default.ApplicationsEditorDialog; };
+            ApplicationsEditor.prototype.getLocalTextPrefix = function () { return Default.ApplicationsRow.localTextPrefix; };
+            return ApplicationsEditor;
+        }(SerenityPractice1.Common.GridEditorBase));
+        ApplicationsEditor = __decorate([
+            Serenity.Decorators.registerClass()
+        ], ApplicationsEditor);
+        Default.ApplicationsEditor = ApplicationsEditor;
+    })(Default = SerenityPractice1.Default || (SerenityPractice1.Default = {}));
+})(SerenityPractice1 || (SerenityPractice1 = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var SerenityPractice1;
+(function (SerenityPractice1) {
+    var Default;
+    (function (Default) {
+        var ApplicationsEditorDialog = (function (_super) {
+            __extends(ApplicationsEditorDialog, _super);
+            function ApplicationsEditorDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.ApplicationsForm(_this.idPrefix);
+                return _this;
+            }
+            ApplicationsEditorDialog.prototype.getFormKey = function () { return Default.ApplicationsForm.formKey; };
+            ApplicationsEditorDialog.prototype.getLocalTextPrefix = function () { return Default.ApplicationsRow.localTextPrefix; };
+            ApplicationsEditorDialog.prototype.getNameProperty = function () { return Default.ApplicationsRow.nameProperty; };
+            return ApplicationsEditorDialog;
+        }(SerenityPractice1.Common.GridEditorDialog));
+        ApplicationsEditorDialog = __decorate([
+            Serenity.Decorators.registerClass(),
+            Serenity.Decorators.responsive()
+        ], ApplicationsEditorDialog);
+        Default.ApplicationsEditorDialog = ApplicationsEditorDialog;
+    })(Default = SerenityPractice1.Default || (SerenityPractice1.Default = {}));
+})(SerenityPractice1 || (SerenityPractice1 = {}));
+var SerenityPractice1;
+(function (SerenityPractice1) {
+    var Default;
+    (function (Default) {
+        var ApplicationsGrid = (function (_super) {
+            __extends(ApplicationsGrid, _super);
+            function ApplicationsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            ApplicationsGrid.prototype.getColumnsKey = function () { return 'Default.Applications'; };
+            ApplicationsGrid.prototype.getDialogType = function () { return Default.ApplicationsDialog; };
+            ApplicationsGrid.prototype.getIdProperty = function () { return Default.ApplicationsRow.idProperty; };
+            ApplicationsGrid.prototype.getLocalTextPrefix = function () { return Default.ApplicationsRow.localTextPrefix; };
+            ApplicationsGrid.prototype.getService = function () { return Default.ApplicationsService.baseUrl; };
+            return ApplicationsGrid;
+        }(Serenity.EntityGrid));
+        ApplicationsGrid = __decorate([
+            Serenity.Decorators.registerClass()
+        ], ApplicationsGrid);
+        Default.ApplicationsGrid = ApplicationsGrid;
+    })(Default = SerenityPractice1.Default || (SerenityPractice1.Default = {}));
 })(SerenityPractice1 || (SerenityPractice1 = {}));
 var SerenityPractice1;
 (function (SerenityPractice1) {

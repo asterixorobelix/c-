@@ -412,6 +412,46 @@ declare namespace SerenityPractice1.Common {
         Value?: string;
     }
 }
+declare namespace SerenityPractice1.Default {
+    class ApplicationsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface ApplicationsForm {
+        ApplicationName: Serenity.StringEditor;
+    }
+}
+declare namespace SerenityPractice1.Default {
+    interface ApplicationsRow {
+        ApplicationId?: string;
+        ApplicationName?: string;
+    }
+    namespace ApplicationsRow {
+        const idProperty = "ApplicationId";
+        const nameProperty = "ApplicationName";
+        const localTextPrefix = "Default.Applications";
+        namespace Fields {
+            const ApplicationId: any;
+            const ApplicationName: any;
+        }
+    }
+}
+declare namespace SerenityPractice1.Default {
+    namespace ApplicationsService {
+        const baseUrl = "Default/Applications";
+        function Create(request: Serenity.SaveRequest<ApplicationsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ApplicationsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ApplicationsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ApplicationsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
 declare namespace SerenityPractice1 {
     interface ExcelImportRequest extends Serenity.ServiceRequest {
         FileName?: string;
@@ -923,6 +963,42 @@ declare namespace SerenityPractice1.Common {
     class UserPreferenceStorage implements Serenity.SettingStorage {
         getItem(key: string): string;
         setItem(key: string, data: string): void;
+    }
+}
+declare namespace SerenityPractice1.Default {
+    class ApplicationsDialog extends Serenity.EntityDialog<ApplicationsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ApplicationsForm;
+    }
+}
+declare namespace SerenityPractice1.Default {
+    class ApplicationsEditor extends Common.GridEditorBase<ApplicationsRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ApplicationsEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace SerenityPractice1.Default {
+    class ApplicationsEditorDialog extends Common.GridEditorDialog<ApplicationsRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: ApplicationsForm;
+    }
+}
+declare namespace SerenityPractice1.Default {
+    class ApplicationsGrid extends Serenity.EntityGrid<ApplicationsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ApplicationsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace SerenityPractice1.Membership {

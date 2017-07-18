@@ -1507,6 +1507,14 @@
     <TypeScriptCompile Include="Modules\Common\Helpers\BasicProgressDialog.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\BulkServiceAction.ts" />
     <TypeScriptCompile Include="Scripts\typings\serenity\Serenity.CoreLib.d.ts" />
+    <Content Include="Modules\Default\Applications\ApplicationsIndex.cshtml" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ApplicationsRow.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ApplicationsService.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ApplicationsForm.ts" />
+    <TypeScriptCompile Include="Modules\Default\Applications\ApplicationsGrid.ts" />
+    <TypeScriptCompile Include="Modules\Default\Applications\ApplicationsDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Applications\ApplicationsEditor.ts" />
+    <TypeScriptCompile Include="Modules\Default\Applications\ApplicationsEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1684,6 +1692,12 @@
     <Compile Include="Modules\Administration\UserPermission\UserPermissionRow.cs" />
     <Compile Include="Modules\Administration\UserPermission\UserPermissionRepository.cs" />
     <Compile Include="Modules\Administration\UserPermission\UserPermissionEndpoint.cs" />
+    <Compile Include="Modules\Default\Applications\ApplicationsRow.cs" />
+    <Compile Include="Modules\Default\Applications\ApplicationsColumns.cs" />
+    <Compile Include="Modules\Default\Applications\ApplicationsForm.cs" />
+    <Compile Include="Modules\Default\Applications\ApplicationsRepository.cs" />
+    <Compile Include="Modules\Default\Applications\ApplicationsEndpoint.cs" />
+    <Compile Include="Modules\Default\Applications\ApplicationsPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
