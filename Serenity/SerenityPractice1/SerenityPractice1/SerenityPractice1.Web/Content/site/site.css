@@ -7493,3 +7493,9 @@ section.content > .s-DataGrid {
   font-style: italic;
   color: #966;
 }
+.s-Default-ApplicationsDialog > .size {
+  width: 650px;
+}
+.s-Default-ApplicationsDialog .caption {
+  width: 150px;
+}
