@@ -18,3 +18,7 @@ View - transforms model into HTML
 Tab and Shift+Tab is to increase/decrease indent.
 
 can return Json in an ActionResult. eg: return Json(Object data)
+
+Entity framework will create a database the first time that a db is needed, even if one doesn't exist yet.
+
+

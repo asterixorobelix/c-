@@ -3,3 +3,9 @@
 }
 
 @model IEnumerable<BuildingMVCApplications.Models.Restaurant>
+
+@foreach (var item in Model)
+{
+    <h1>@item.Name</h1>//Restaurant name
+    <p>@item.City</p>
+}
