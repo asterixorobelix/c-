@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practice.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,5 +10,6 @@ namespace API.Controllers
 {
     public class SectionsController : ApiController
     {
+        DataModel db = new DataModel();
     }
 }
