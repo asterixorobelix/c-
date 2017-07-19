@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common.Types
 {
-    class HelpText
+    public class HelpText
     {
         public string Text { get; set; }
     }
