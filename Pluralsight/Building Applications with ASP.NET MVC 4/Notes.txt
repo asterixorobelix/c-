@@ -11,3 +11,6 @@ View - transforms model into HTML
 
 @model - using statement for Razor (@model BuildingMVCApplications.Models.AboutModel) for the class
 @Model - object instance passed into the view
+
+<p>@Html.ActionLink("Details", "Details","Machine", new { id = "QualityControlRig"}, new { @class = "btn btn-default btn-large"})</p>
+@*html.actionlink("linkText","actionName","controllerName","routeValues","htmlAttributes") *@

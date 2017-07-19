@@ -12,11 +12,10 @@
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Search by restaurant cuisine
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>@Html.ActionLink("Search!", "Search", "Cuisine",null ,  new { @class = "btn btn-default btn-large" })</p>
+        @*html.actionlink("linkText","actionName","controllerName","routeValues","htmlAttributes") *@
     </div>
     <div class="col-md-4">
         <h2>Get more libraries</h2>
