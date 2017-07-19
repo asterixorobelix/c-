@@ -19,7 +19,7 @@ namespace BuildingMVCApplications.Controllers
             var model = new AboutModel();
             model.Name = "Nathan";
             model.Location = "Canal Walk";
-            ViewBag.Location = "Cape Town, South Africa";
+            ViewBag.Message = "Hello from Cape Town, South Africa";
 
             return View("About",model);
         }
