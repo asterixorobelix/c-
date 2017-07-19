@@ -16,3 +16,5 @@ View - transforms model into HTML
 @*html.actionlink("linkText","actionName","controllerName","routeValues","htmlAttributes") *@
 
 Tab and Shift+Tab is to increase/decrease indent.
+
+can return Json in an ActionResult. eg: return Json(Object data)
