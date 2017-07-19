@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerenityPractice1.Web", "Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Data", "Practice.Data\Practice.Data.csproj", "{74BBD90C-98D6-4A06-BF9C-892B655FB396}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{E7C019B9-A3AF-4A56-9FC3-2740D32DB2E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{74BBD90C-98D6-4A06-BF9C-892B655FB396}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74BBD90C-98D6-4A06-BF9C-892B655FB396}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74BBD90C-98D6-4A06-BF9C-892B655FB396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7C019B9-A3AF-4A56-9FC3-2740D32DB2E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C019B9-A3AF-4A56-9FC3-2740D32DB2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C019B9-A3AF-4A56-9FC3-2740D32DB2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C019B9-A3AF-4A56-9FC3-2740D32DB2E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
