@@ -2,10 +2,12 @@ https://app.pluralsight.com/library/courses/mvc4-building/table-of-contents
 
 Router
 The router examines incoming URLs and determines which controllers and actions to call. It also generates the outgoing URLs.
+url: "{controller}/{action}/{id}"
 
 Model, Controller, View
 Controller - provides action methods and builds the model
 Model - carries data and logic
 View - transforms model into HTML
 
-
+@model - using statement for Razor (@model BuildingMVCApplications.Models.AboutModel) for the class
+@Model - object instance passed into the view

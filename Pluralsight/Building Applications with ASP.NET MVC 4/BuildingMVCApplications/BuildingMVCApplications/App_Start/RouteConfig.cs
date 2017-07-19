@@ -11,7 +11,8 @@ namespace BuildingMVCApplications
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");//This call makes the Framework ignore URL's which match the route for a specific file on the filesystem.
+            //For instance, if the URL points to a document to download.
 
             routes.MapRoute(
                 name: "Default",
