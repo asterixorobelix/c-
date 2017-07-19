@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BuildingMVCApplications.Models
 {
-    public class OdeToFoodDb
+    public class OdeToFoodDb : DbContext
     {
     }
 }
