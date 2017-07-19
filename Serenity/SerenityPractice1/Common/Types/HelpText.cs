@@ -8,5 +8,6 @@ namespace Common.Types
 {
     class HelpText
     {
+        public string Text { get; set; }
     }
 }
