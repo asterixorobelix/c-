@@ -16,6 +16,7 @@ namespace BuildingMVCApplications.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
+            ViewBag.Location = "Cape Town, South Africa";
 
             return View();
         }
