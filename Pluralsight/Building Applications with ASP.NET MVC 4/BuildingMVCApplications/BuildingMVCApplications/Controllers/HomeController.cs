@@ -9,6 +9,9 @@ namespace BuildingMVCApplications.Controllers
 {
     public class HomeController : Controller
     {
+        //Instantiate the db
+        OdeToFoodDb db = new OdeToFoodDb();
+
         public ActionResult Index()
         {
             return View();
