@@ -1,3 +1,5 @@
+https://app.pluralsight.com/library/courses/mvc4-building/table-of-contents
+
 Router
 The router examines incoming URLs and determines which controllers and actions to call. It also generates the outgoing URLs.
 
