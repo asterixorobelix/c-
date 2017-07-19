@@ -14,3 +14,5 @@ View - transforms model into HTML
 
 <p>@Html.ActionLink("Details", "Details","Machine", new { id = "QualityControlRig"}, new { @class = "btn btn-default btn-large"})</p>
 @*html.actionlink("linkText","actionName","controllerName","routeValues","htmlAttributes") *@
+
+Tab and Shift+Tab is to increase/decrease indent.
