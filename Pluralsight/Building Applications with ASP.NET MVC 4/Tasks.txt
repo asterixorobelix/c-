@@ -1,3 +1,0 @@
-Modify the About action in the HomeController, in order to pass a viewbag containing your location (as a string) into the About view.
-
-Add an AboutModel class, which contains Name and Location properties as strings. Use the AboutModel to transfer information to the about view.
