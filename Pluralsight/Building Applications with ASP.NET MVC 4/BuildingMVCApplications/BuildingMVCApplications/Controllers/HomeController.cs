@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BuildingMVCApplications.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,10 +16,12 @@ namespace BuildingMVCApplications.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            var model = new AboutModel();
+            model.Name = "Nathan";
+            model.Location = "Canal Walk";
             ViewBag.Location = "Cape Town, South Africa";
 
-            return View();
+            return View("About",model);
         }
 
         public ActionResult Contact()
