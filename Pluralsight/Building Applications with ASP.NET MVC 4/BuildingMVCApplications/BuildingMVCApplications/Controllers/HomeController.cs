@@ -14,7 +14,10 @@ namespace BuildingMVCApplications.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            //Retrieve all restaurants in the database, convert it to a list and place it in the model variable.
+            var model = db.Restaurants.ToList();
+
+            return View("Index",model);
         }
 
         public ActionResult About()
