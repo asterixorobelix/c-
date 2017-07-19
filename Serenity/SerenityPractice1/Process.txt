@@ -1,0 +1,21 @@
+Serenity Initial COmmit
+Ran website for first time
+Added data project
+Added data entity model to Data project (empty code first template)
+Changed data project config file to point at Serenity db on local
+Did a build and typed "Enable-Migrations" into package manager console for Data project
+Generated blank InitialCommit migration by typing "Add-Migration InitialCommit" into console
+Added virtual DbSet for Applications in DataModel
+Generated Application class in a seperate file
+Added some details to the Application class
+Pulled in required usings for Application file
+Generated ApplicationTable migration by typing "Add-Migration ApplicationTable" into console
+Typed sergen into the Console for Web project in order to generate files for Applications Table
+Ran site for first time after adding applications files via sergen
+Created Common project which is a class library to contain the classes for api controllers (in similar way to how data project is classes for web project)
+Added HelpText class to Common project
+Added Text property to HelpText class
+Created Web application project and made it an API project by ticking the API checkbox
+Added blank Web Api Controller called SectionsController
+Added database context for the SectionsController and reference to Data project with a using statement
+Made Common.Types.HelpText class public and added reference to it in SectionsController
