@@ -7,3 +7,5 @@ Model, Controller, View
 Controller - provides action methods and builds the model
 Model - carries data and logic
 View - transforms model into HTML
+
+
