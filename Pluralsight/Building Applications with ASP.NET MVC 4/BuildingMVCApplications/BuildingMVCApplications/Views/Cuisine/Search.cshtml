@@ -1,4 +1,4 @@
-﻿
+﻿@model BuildingMVCApplications.Models.CuisineModel
 @{
     ViewBag.Title = "Search";
 }
@@ -12,10 +12,10 @@
             Cuisine Type:
         </p>
     
-        <p>@Html.TextBox("Cuisine")</p>
+        <p>@Html.TextBoxFor(Model=>Model.CuisineName)</p>
     </div> 
 
     <div>
-        <button type="submit" class="btn btn-success">Submit!</button>
+        <button type="submit" class="btn btn-success">Search!</button>
     </div>
 }
