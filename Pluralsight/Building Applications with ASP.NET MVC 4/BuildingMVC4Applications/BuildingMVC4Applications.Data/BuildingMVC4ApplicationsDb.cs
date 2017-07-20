@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BuildingMVC4Applications.Data
 {
-    class BuildingMVC4ApplicationsDb
+    class BuildingMVC4ApplicationsDb :DbContext
     {
     }
 }
