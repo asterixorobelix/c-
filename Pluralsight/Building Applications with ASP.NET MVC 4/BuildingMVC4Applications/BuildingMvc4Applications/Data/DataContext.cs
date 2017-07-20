@@ -12,7 +12,7 @@ namespace Data
     {
         //The first time that Update-Database is run, a database called: Data.DataContext is created
 
-        public DataContext():base("DefaultConnection")
+        public DataContext():base("name=DefaultConnection")
         {
 
         }
