@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SerenityOdeToFood.Data
 {
-    class SerenityOdeToFoodDb: DbContext
+    public class SerenityOdeToFoodDb: DbContext
     {
         public SerenityOdeToFoodDb():base("Name=Default")
         {

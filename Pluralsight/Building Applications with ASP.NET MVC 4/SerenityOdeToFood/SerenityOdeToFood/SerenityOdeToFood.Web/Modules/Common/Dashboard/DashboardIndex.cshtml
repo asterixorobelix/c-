@@ -1,7 +1,12 @@
-﻿@model SerenityOdeToFood.Common.DashboardPageModel
-
+﻿
 @{
     ViewData["Title"] = "Dashboard";
     ViewData["PageId"] = "Dashboard";
 }
 
+@model  ICollection<SerenityOdeToFood.Data.Restaurant>
+
+@foreach (var restaurant in Model)
+{
+    <h1>@restaurant.RestaurantName</h1>
+}
