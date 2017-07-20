@@ -3,11 +3,21 @@
 Created data project
 Installed Entity Framework for data project
 Added data context class for entity framework to connect to db
-Added connection string to db
+In App.Config: Add your connection string, somewhere between the <configuration> tags. Eg:   
+<connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSqlLocalDb;Initial Catalog=Data.DataContext;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+</connectionStrings>
 db context should inherit from DbContext
 Typed "Enable-Migrations" into the console
 Created initial, blank migration by typing "Add-Migration InitialMigration" into console
-Typed Updatee-Database into console. This created a database named: Data.Datacontext
+Typed Update-Database into console. This created a database named: Data.Datacontext
+Created Restaurant class
+Added virtual property for Restaurants to DataContext class
+Create Migration for your class by typing into the console: Add-Migration CreateRestaurantsTable
+
+
+
 
 
 
