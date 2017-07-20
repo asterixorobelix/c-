@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201707201435549_CreateRestaurantsTable.Designer.cs">
       <DependentUpon>201707201435549_CreateRestaurantsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707201450229_CreateReviewsTable.cs" />
+    <Compile Include="Migrations\201707201450229_CreateReviewsTable.Designer.cs">
+      <DependentUpon>201707201450229_CreateReviewsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Review.cs" />
@@ -81,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707201435549_CreateRestaurantsTable.resx">
       <DependentUpon>201707201435549_CreateRestaurantsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707201450229_CreateReviewsTable.resx">
+      <DependentUpon>201707201450229_CreateReviewsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
