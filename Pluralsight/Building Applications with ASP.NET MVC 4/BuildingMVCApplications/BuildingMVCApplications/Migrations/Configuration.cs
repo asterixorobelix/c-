@@ -9,9 +9,11 @@ namespace BuildingMVCApplications.Migrations
     {
         public Configuration()
         {
+            //This means that EF won't make changes to your db unless you explicitly tell it to
             AutomaticMigrationsEnabled = false;
         }
 
+        //Use this Seed method to populate the database with some initial data
         protected override void Seed(BuildingMVCApplications.Models.OdeToFoodDb context)
         {
             //  This method will be called after migrating to the latest version.
