@@ -9,5 +9,9 @@ namespace BuildingApplications.Data
 {
     class BuildingApplicationsDb:DbContext
     {
+        public BuildingApplicationsDb():base("BuildingApplications.Data.Properties.Settings.DefaultConnection")//Name of connection string defined in App.Config
+        {
+                
+        }
     }
 }

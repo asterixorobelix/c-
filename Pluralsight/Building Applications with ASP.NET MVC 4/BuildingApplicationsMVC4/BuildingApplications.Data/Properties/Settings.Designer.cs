@@ -28,9 +28,9 @@ namespace BuildingApplications.Data.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\MSSqlLocalDb;Initial Catalog=OdeToFood;Integrated Security=" +
             "True")]
-        public string Setting {
+        public string DefaultConnection {
             get {
-                return ((string)(this["Setting"]));
+                return ((string)(this["DefaultConnection"]));
             }
         }
     }
