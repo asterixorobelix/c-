@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BuildingMVC4Applications.Data
+namespace Data
 {
-    class BuildingMVC4ApplicationsDb :DbContext
+    public class Class1
     {
     }
 }
