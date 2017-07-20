@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Data.Models
 {
     [Table("Reviews")]
-    class Review
+    public class Review
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ReviewId { get; set; }

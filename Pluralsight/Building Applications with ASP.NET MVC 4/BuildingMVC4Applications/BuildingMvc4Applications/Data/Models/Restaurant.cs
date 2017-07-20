@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Data.Models
 {
     [Table("Restaurants")]
-    class Restaurant
+    public class Restaurant
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid RestaurantId { get; set; }

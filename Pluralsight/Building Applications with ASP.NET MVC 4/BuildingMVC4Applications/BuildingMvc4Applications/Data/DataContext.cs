@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    class DataContext:DbContext
+    public class DataContext:DbContext
     {
         //The first time that Update-Database is run, a database called: Data.DataContext is created
 
