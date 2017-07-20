@@ -15,7 +15,7 @@ Typed Update-Database into console. This created a database named: Data.Datacont
 Created Restaurant class
 Added virtual property for Restaurants to DataContext class
 Create Migration for your class by typing into the console: Add-Migration CreateRestaurantsTable
-
+Update-Database for the migration to be applied to db
 
 
 
