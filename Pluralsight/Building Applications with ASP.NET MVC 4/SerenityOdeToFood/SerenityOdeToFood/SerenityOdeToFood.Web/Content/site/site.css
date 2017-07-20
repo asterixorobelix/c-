@@ -7493,3 +7493,15 @@ section.content > .s-DataGrid {
   font-style: italic;
   color: #966;
 }
+.s-Default-RestaurantsDialog > .size {
+  width: 650px;
+}
+.s-Default-RestaurantsDialog .caption {
+  width: 150px;
+}
+.s-Default-ReviewsDialog > .size {
+  width: 650px;
+}
+.s-Default-ReviewsDialog .caption {
+  width: 150px;
+}

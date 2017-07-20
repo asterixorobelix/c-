@@ -322,6 +322,104 @@ var SerenityOdeToFood;
 })(SerenityOdeToFood || (SerenityOdeToFood = {}));
 var SerenityOdeToFood;
 (function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var RestaurantsForm = (function (_super) {
+            __extends(RestaurantsForm, _super);
+            function RestaurantsForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return RestaurantsForm;
+        }(Serenity.PrefixedContext));
+        RestaurantsForm.formKey = 'Default.Restaurants';
+        Default.RestaurantsForm = RestaurantsForm;
+        [['City', function () { return Serenity.StringEditor; }], ['Country', function () { return Serenity.StringEditor; }], ['RestaurantName', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(RestaurantsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var RestaurantsRow;
+        (function (RestaurantsRow) {
+            RestaurantsRow.idProperty = 'RestaurantId';
+            RestaurantsRow.nameProperty = 'City';
+            RestaurantsRow.localTextPrefix = 'Default.Restaurants';
+            var Fields;
+            (function (Fields) {
+            })(Fields = RestaurantsRow.Fields || (RestaurantsRow.Fields = {}));
+            ['RestaurantId', 'City', 'Country', 'RestaurantName'].forEach(function (x) { return Fields[x] = x; });
+        })(RestaurantsRow = Default.RestaurantsRow || (Default.RestaurantsRow = {}));
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var RestaurantsService;
+        (function (RestaurantsService) {
+            RestaurantsService.baseUrl = 'Default/Restaurants';
+            var Methods;
+            (function (Methods) {
+            })(Methods = RestaurantsService.Methods || (RestaurantsService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                RestaurantsService[x] = function (r, s, o) { return Q.serviceRequest(RestaurantsService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = RestaurantsService.baseUrl + '/' + x;
+            });
+        })(RestaurantsService = Default.RestaurantsService || (Default.RestaurantsService = {}));
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var ReviewsForm = (function (_super) {
+            __extends(ReviewsForm, _super);
+            function ReviewsForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return ReviewsForm;
+        }(Serenity.PrefixedContext));
+        ReviewsForm.formKey = 'Default.Reviews';
+        Default.ReviewsForm = ReviewsForm;
+        [['ReviewText', function () { return Serenity.StringEditor; }], ['Rating', function () { return Serenity.IntegerEditor; }], ['RestaurantId', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(ReviewsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var ReviewsRow;
+        (function (ReviewsRow) {
+            ReviewsRow.idProperty = 'ReviewId';
+            ReviewsRow.nameProperty = 'ReviewText';
+            ReviewsRow.localTextPrefix = 'Default.Reviews';
+            var Fields;
+            (function (Fields) {
+            })(Fields = ReviewsRow.Fields || (ReviewsRow.Fields = {}));
+            ['ReviewId', 'ReviewText', 'Rating', 'RestaurantId', 'RestaurantCity', 'RestaurantCountry', 'RestaurantRestaurantName'].forEach(function (x) { return Fields[x] = x; });
+        })(ReviewsRow = Default.ReviewsRow || (Default.ReviewsRow = {}));
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var ReviewsService;
+        (function (ReviewsService) {
+            ReviewsService.baseUrl = 'Default/Reviews';
+            var Methods;
+            (function (Methods) {
+            })(Methods = ReviewsService.Methods || (ReviewsService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                ReviewsService[x] = function (r, s, o) { return Q.serviceRequest(ReviewsService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = ReviewsService.baseUrl + '/' + x;
+            });
+        })(ReviewsService = Default.ReviewsService || (Default.ReviewsService = {}));
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
     var Membership;
     (function (Membership) {
         var ChangePasswordForm = (function (_super) {
@@ -2404,6 +2502,100 @@ var SerenityOdeToFood;
         }());
         Common.UserPreferenceStorage = UserPreferenceStorage;
     })(Common = SerenityOdeToFood.Common || (SerenityOdeToFood.Common = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var RestaurantsDialog = (function (_super) {
+            __extends(RestaurantsDialog, _super);
+            function RestaurantsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.RestaurantsForm(_this.idPrefix);
+                return _this;
+            }
+            RestaurantsDialog.prototype.getFormKey = function () { return Default.RestaurantsForm.formKey; };
+            RestaurantsDialog.prototype.getIdProperty = function () { return Default.RestaurantsRow.idProperty; };
+            RestaurantsDialog.prototype.getLocalTextPrefix = function () { return Default.RestaurantsRow.localTextPrefix; };
+            RestaurantsDialog.prototype.getNameProperty = function () { return Default.RestaurantsRow.nameProperty; };
+            RestaurantsDialog.prototype.getService = function () { return Default.RestaurantsService.baseUrl; };
+            return RestaurantsDialog;
+        }(Serenity.EntityDialog));
+        RestaurantsDialog = __decorate([
+            Serenity.Decorators.registerClass(),
+            Serenity.Decorators.responsive()
+        ], RestaurantsDialog);
+        Default.RestaurantsDialog = RestaurantsDialog;
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var RestaurantsGrid = (function (_super) {
+            __extends(RestaurantsGrid, _super);
+            function RestaurantsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            RestaurantsGrid.prototype.getColumnsKey = function () { return 'Default.Restaurants'; };
+            RestaurantsGrid.prototype.getDialogType = function () { return Default.RestaurantsDialog; };
+            RestaurantsGrid.prototype.getIdProperty = function () { return Default.RestaurantsRow.idProperty; };
+            RestaurantsGrid.prototype.getLocalTextPrefix = function () { return Default.RestaurantsRow.localTextPrefix; };
+            RestaurantsGrid.prototype.getService = function () { return Default.RestaurantsService.baseUrl; };
+            return RestaurantsGrid;
+        }(Serenity.EntityGrid));
+        RestaurantsGrid = __decorate([
+            Serenity.Decorators.registerClass()
+        ], RestaurantsGrid);
+        Default.RestaurantsGrid = RestaurantsGrid;
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var ReviewsDialog = (function (_super) {
+            __extends(ReviewsDialog, _super);
+            function ReviewsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.ReviewsForm(_this.idPrefix);
+                return _this;
+            }
+            ReviewsDialog.prototype.getFormKey = function () { return Default.ReviewsForm.formKey; };
+            ReviewsDialog.prototype.getIdProperty = function () { return Default.ReviewsRow.idProperty; };
+            ReviewsDialog.prototype.getLocalTextPrefix = function () { return Default.ReviewsRow.localTextPrefix; };
+            ReviewsDialog.prototype.getNameProperty = function () { return Default.ReviewsRow.nameProperty; };
+            ReviewsDialog.prototype.getService = function () { return Default.ReviewsService.baseUrl; };
+            return ReviewsDialog;
+        }(Serenity.EntityDialog));
+        ReviewsDialog = __decorate([
+            Serenity.Decorators.registerClass(),
+            Serenity.Decorators.responsive()
+        ], ReviewsDialog);
+        Default.ReviewsDialog = ReviewsDialog;
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
+})(SerenityOdeToFood || (SerenityOdeToFood = {}));
+var SerenityOdeToFood;
+(function (SerenityOdeToFood) {
+    var Default;
+    (function (Default) {
+        var ReviewsGrid = (function (_super) {
+            __extends(ReviewsGrid, _super);
+            function ReviewsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            ReviewsGrid.prototype.getColumnsKey = function () { return 'Default.Reviews'; };
+            ReviewsGrid.prototype.getDialogType = function () { return Default.ReviewsDialog; };
+            ReviewsGrid.prototype.getIdProperty = function () { return Default.ReviewsRow.idProperty; };
+            ReviewsGrid.prototype.getLocalTextPrefix = function () { return Default.ReviewsRow.localTextPrefix; };
+            ReviewsGrid.prototype.getService = function () { return Default.ReviewsService.baseUrl; };
+            return ReviewsGrid;
+        }(Serenity.EntityGrid));
+        ReviewsGrid = __decorate([
+            Serenity.Decorators.registerClass()
+        ], ReviewsGrid);
+        Default.ReviewsGrid = ReviewsGrid;
+    })(Default = SerenityOdeToFood.Default || (SerenityOdeToFood.Default = {}));
 })(SerenityOdeToFood || (SerenityOdeToFood = {}));
 var SerenityOdeToFood;
 (function (SerenityOdeToFood) {

@@ -412,6 +412,104 @@ declare namespace SerenityOdeToFood.Common {
         Value?: string;
     }
 }
+declare namespace SerenityOdeToFood.Default {
+    class RestaurantsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface RestaurantsForm {
+        City: Serenity.StringEditor;
+        Country: Serenity.StringEditor;
+        RestaurantName: Serenity.StringEditor;
+    }
+}
+declare namespace SerenityOdeToFood.Default {
+    interface RestaurantsRow {
+        RestaurantId?: string;
+        City?: string;
+        Country?: string;
+        RestaurantName?: string;
+    }
+    namespace RestaurantsRow {
+        const idProperty = "RestaurantId";
+        const nameProperty = "City";
+        const localTextPrefix = "Default.Restaurants";
+        namespace Fields {
+            const RestaurantId: any;
+            const City: any;
+            const Country: any;
+            const RestaurantName: any;
+        }
+    }
+}
+declare namespace SerenityOdeToFood.Default {
+    namespace RestaurantsService {
+        const baseUrl = "Default/Restaurants";
+        function Create(request: Serenity.SaveRequest<RestaurantsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RestaurantsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RestaurantsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RestaurantsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace SerenityOdeToFood.Default {
+    class ReviewsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface ReviewsForm {
+        ReviewText: Serenity.StringEditor;
+        Rating: Serenity.IntegerEditor;
+        RestaurantId: Serenity.StringEditor;
+    }
+}
+declare namespace SerenityOdeToFood.Default {
+    interface ReviewsRow {
+        ReviewId?: string;
+        ReviewText?: string;
+        Rating?: number;
+        RestaurantId?: string;
+        RestaurantCity?: string;
+        RestaurantCountry?: string;
+        RestaurantRestaurantName?: string;
+    }
+    namespace ReviewsRow {
+        const idProperty = "ReviewId";
+        const nameProperty = "ReviewText";
+        const localTextPrefix = "Default.Reviews";
+        namespace Fields {
+            const ReviewId: any;
+            const ReviewText: any;
+            const Rating: any;
+            const RestaurantId: any;
+            const RestaurantCity: string;
+            const RestaurantCountry: string;
+            const RestaurantRestaurantName: string;
+        }
+    }
+}
+declare namespace SerenityOdeToFood.Default {
+    namespace ReviewsService {
+        const baseUrl = "Default/Reviews";
+        function Create(request: Serenity.SaveRequest<ReviewsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ReviewsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ReviewsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ReviewsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
 declare namespace SerenityOdeToFood {
     interface ExcelImportRequest extends Serenity.ServiceRequest {
         FileName?: string;
@@ -923,6 +1021,46 @@ declare namespace SerenityOdeToFood.Common {
     class UserPreferenceStorage implements Serenity.SettingStorage {
         getItem(key: string): string;
         setItem(key: string, data: string): void;
+    }
+}
+declare namespace SerenityOdeToFood.Default {
+    class RestaurantsDialog extends Serenity.EntityDialog<RestaurantsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: RestaurantsForm;
+    }
+}
+declare namespace SerenityOdeToFood.Default {
+    class RestaurantsGrid extends Serenity.EntityGrid<RestaurantsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof RestaurantsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace SerenityOdeToFood.Default {
+    class ReviewsDialog extends Serenity.EntityDialog<ReviewsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ReviewsForm;
+    }
+}
+declare namespace SerenityOdeToFood.Default {
+    class ReviewsGrid extends Serenity.EntityGrid<ReviewsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ReviewsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace SerenityOdeToFood.Membership {

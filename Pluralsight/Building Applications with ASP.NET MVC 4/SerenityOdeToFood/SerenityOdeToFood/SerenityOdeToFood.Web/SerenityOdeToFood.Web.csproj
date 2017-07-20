@@ -1507,6 +1507,18 @@
     <TypeScriptCompile Include="Modules\Common\Helpers\BasicProgressDialog.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\BulkServiceAction.ts" />
     <TypeScriptCompile Include="Scripts\typings\serenity\Serenity.CoreLib.d.ts" />
+    <Content Include="Modules\Default\Restaurants\RestaurantsIndex.cshtml" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.RestaurantsRow.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.RestaurantsService.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.RestaurantsForm.ts" />
+    <TypeScriptCompile Include="Modules\Default\Restaurants\RestaurantsGrid.ts" />
+    <TypeScriptCompile Include="Modules\Default\Restaurants\RestaurantsDialog.ts" />
+    <Content Include="Modules\Default\Reviews\ReviewsIndex.cshtml" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ReviewsRow.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ReviewsService.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ReviewsForm.ts" />
+    <TypeScriptCompile Include="Modules\Default\Reviews\ReviewsGrid.ts" />
+    <TypeScriptCompile Include="Modules\Default\Reviews\ReviewsDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1684,6 +1696,18 @@
     <Compile Include="Modules\Administration\UserPermission\UserPermissionRow.cs" />
     <Compile Include="Modules\Administration\UserPermission\UserPermissionRepository.cs" />
     <Compile Include="Modules\Administration\UserPermission\UserPermissionEndpoint.cs" />
+    <Compile Include="Modules\Default\Restaurants\RestaurantsRow.cs" />
+    <Compile Include="Modules\Default\Restaurants\RestaurantsColumns.cs" />
+    <Compile Include="Modules\Default\Restaurants\RestaurantsForm.cs" />
+    <Compile Include="Modules\Default\Restaurants\RestaurantsRepository.cs" />
+    <Compile Include="Modules\Default\Restaurants\RestaurantsEndpoint.cs" />
+    <Compile Include="Modules\Default\Restaurants\RestaurantsPage.cs" />
+    <Compile Include="Modules\Default\Reviews\ReviewsRow.cs" />
+    <Compile Include="Modules\Default\Reviews\ReviewsColumns.cs" />
+    <Compile Include="Modules\Default\Reviews\ReviewsForm.cs" />
+    <Compile Include="Modules\Default\Reviews\ReviewsRepository.cs" />
+    <Compile Include="Modules\Default\Reviews\ReviewsEndpoint.cs" />
+    <Compile Include="Modules\Default\Reviews\ReviewsPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
