@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SerenityOdeToFood.Data
 {
-    [Table("Restaurants")]
+    [Table("Reviews")]
     public class RestaurantReview
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -23,5 +23,6 @@ namespace SerenityOdeToFood.Data
 
         [ForeignKey("RestaurantId")]
         public virtual Restaurant Restaurant { get; set; }
+
     }
 }
