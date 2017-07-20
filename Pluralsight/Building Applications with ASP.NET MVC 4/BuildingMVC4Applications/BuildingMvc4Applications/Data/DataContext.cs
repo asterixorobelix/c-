@@ -18,5 +18,6 @@ namespace Data
         }
 
         public virtual DbSet<Restaurant> Restaurants { get; set; }
+        public virtual DbSet<Review> Reviews { get; set; }
     }
 }
