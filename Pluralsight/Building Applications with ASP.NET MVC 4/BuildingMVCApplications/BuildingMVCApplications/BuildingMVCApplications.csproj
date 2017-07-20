@@ -149,6 +149,14 @@
     <Compile Include="Migrations\201707200652440_InitialCommit.Designer.cs">
       <DependentUpon>201707200652440_InitialCommit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707200701404_AddedKeyAttribute.cs" />
+    <Compile Include="Migrations\201707200701404_AddedKeyAttribute.Designer.cs">
+      <DependentUpon>201707200701404_AddedKeyAttribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200705070_MadeKeyDatabaseGenerated.cs" />
+    <Compile Include="Migrations\201707200705070_MadeKeyDatabaseGenerated.Designer.cs">
+      <DependentUpon>201707200705070_MadeKeyDatabaseGenerated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AboutModel.cs" />
     <Compile Include="Models\CuisineModel.cs" />
@@ -216,6 +224,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707200652440_InitialCommit.resx">
       <DependentUpon>201707200652440_InitialCommit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200701404_AddedKeyAttribute.resx">
+      <DependentUpon>201707200701404_AddedKeyAttribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200705070_MadeKeyDatabaseGenerated.resx">
+      <DependentUpon>201707200705070_MadeKeyDatabaseGenerated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
