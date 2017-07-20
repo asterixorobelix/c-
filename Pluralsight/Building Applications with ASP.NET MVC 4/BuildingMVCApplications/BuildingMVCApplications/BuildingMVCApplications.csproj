@@ -157,6 +157,10 @@
     <Compile Include="Migrations\201707200705070_MadeKeyDatabaseGenerated.Designer.cs">
       <DependentUpon>201707200705070_MadeKeyDatabaseGenerated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707200726050_ForeignKeyReview.cs" />
+    <Compile Include="Migrations\201707200726050_ForeignKeyReview.Designer.cs">
+      <DependentUpon>201707200726050_ForeignKeyReview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AboutModel.cs" />
     <Compile Include="Models\CuisineModel.cs" />
@@ -230,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707200705070_MadeKeyDatabaseGenerated.resx">
       <DependentUpon>201707200705070_MadeKeyDatabaseGenerated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200726050_ForeignKeyReview.resx">
+      <DependentUpon>201707200726050_ForeignKeyReview.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

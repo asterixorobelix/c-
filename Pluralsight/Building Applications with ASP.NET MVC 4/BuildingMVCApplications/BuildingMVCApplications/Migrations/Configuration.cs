@@ -10,7 +10,7 @@ namespace BuildingMVCApplications.Migrations
         public Configuration()
         {
             //This means that EF won't make changes to your db unless you explicitly tell it to
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         //Use this Seed method to populate the database with some initial data
