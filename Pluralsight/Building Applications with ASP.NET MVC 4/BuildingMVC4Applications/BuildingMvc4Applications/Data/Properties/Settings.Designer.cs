@@ -28,9 +28,9 @@ namespace Data.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\MSSqlLocalDb;Initial Catalog=Data.DataContext;Integrated Se" +
             "curity=True")]
-        public string Default {
+        public string DefaultConnection {
             get {
-                return ((string)(this["Default"]));
+                return ((string)(this["DefaultConnection"]));
             }
         }
     }

@@ -12,6 +12,11 @@ namespace Data
     {
         //The first time that Update-Database is run, a database called: Data.DataContext is created
 
+        public DataContext():base("DefaultConnection")
+        {
+
+        }
+
         public virtual DbSet<Restaurant> Restaurants { get; set; }
     }
 }
