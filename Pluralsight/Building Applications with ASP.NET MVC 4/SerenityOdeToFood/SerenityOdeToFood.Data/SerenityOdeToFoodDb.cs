@@ -9,5 +9,9 @@ namespace SerenityOdeToFood.Data
 {
     class SerenityOdeToFoodDb: DbContext
     {
+        public SerenityOdeToFoodDb():base("Name=Default")
+        {
+
+        }
     }
 }
