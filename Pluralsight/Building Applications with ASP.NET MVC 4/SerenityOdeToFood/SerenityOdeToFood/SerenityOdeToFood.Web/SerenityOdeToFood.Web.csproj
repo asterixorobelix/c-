@@ -1624,7 +1624,7 @@
     <Compile Include="Modules\Administration\Translation\TranslationUpdateRequest.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationListRequest.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationItem.cs" />
-    <Compile Include="Modules\Common\Dashboard\DashboardPage.cs" />
+    <Compile Include="Modules\Common\Dashboard\DashboardController.cs" />
     <Compile Include="Modules\Common\Helpers\SqlExceptionHelper.cs" />
     <Compile Include="Imports\MVC\MVC.cs">
       <AutoGen>True</AutoGen>
