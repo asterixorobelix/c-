@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace SerenityOdeToFood.Data
 {
-    class RestaurantReview
+    [Table("Restaurants")]
+    public class RestaurantReview
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ReviewId { get; set; }
