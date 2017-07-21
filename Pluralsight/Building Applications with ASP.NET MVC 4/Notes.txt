@@ -27,4 +27,13 @@ Update-Database -TargetMigration:"name_of_migration"
 
 Linq using extension methods and Lambda expressions
 
+@Html.DisplayFor(model => model.RestaurantName)
+            @*DisplayFor helper method is a strongly typed extension method. It generates a html string for the model object property specified using a lambda expression.*@
+            @*Html.DisplayFor() will render the DisplayTemplate that matches the property's type.*@
+            @*This is useful if your Model has a Data annotation. For instance, if the property on the model is decorated with the EmailAddress data annotation, DisplayFor will render it as a mailto: link.*@
 
+@Html.DisplayNameFor(model => model.RestaurantName)
+            @*The DisplayNameFor shows the name of the property or the string defined in the display attribute for the property.*@
+            @*    [Display(Name = "Current name")]
+                  public string Name { get; set; }
+              This would display Current name, rather than just Name*@
