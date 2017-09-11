@@ -14,6 +14,7 @@ View - transforms model into HTML
 
 <p>@Html.ActionLink("Details", "Details","Machine", new { id = "QualityControlRig"}, new { @class = "btn btn-default btn-large"})</p>
 @*html.actionlink("linkText","actionName","controllerName","routeValues","htmlAttributes") *@
+@Html.ActionLink("Your profile", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
 
 Tab and Shift+Tab is to increase/decrease indent.
 
@@ -37,3 +38,11 @@ Linq using extension methods and Lambda expressions
             @*    [Display(Name = "Current name")]
                   public string Name { get; set; }
               This would display Current name, rather than just Name*@
+
+<connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSqlLocalDb;Initial Catalog=Data.DataContext;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+</connectionStrings>
+
+Making the two navigation properties (Blog.Posts and Post.Blog) virtual. This enables the Lazy Loading feature of Entity Framework. Lazy Loading means that the contents of these properties will be automatically loaded from the database when you try to access them.
+

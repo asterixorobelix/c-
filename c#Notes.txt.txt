@@ -955,4 +955,73 @@ This method provides a quick way of printing out the contents of an account vari
 PrintAccount (RobsAccount);
 
 It is also possible to create methods that return results which are of a structure type, for example we could create a ReadAccount method that reads an account and returns it.
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Contextual Help</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/fullstack-favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
 Unlike classes, structures cannot inherit from other structures.
+
+https://app.pluralsight.com/library/courses/mvc4-building/table-of-contents
+
+Router
+The router examines incoming URLs and determines which controllers and actions to call. It also generates the outgoing URLs.
+url: "{controller}/{action}/{id}"
+
+Model, Controller, View
+Controller - provides action methods and builds the model
+Model - carries data and logic
+View - transforms model into HTML
+
+@model - using statement for Razor (@model BuildingMVCApplications.Models.AboutModel) for the class
+@Model - object instance passed into the view
+
+<p>@Html.ActionLink("Details", "Details","Machine", new { id = "QualityControlRig"}, new { @class = "btn btn-default btn-large"})</p>
+@*html.actionlink("linkText","actionName","controllerName","routeValues","htmlAttributes") *@
+@Html.ActionLink("Your profile", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+@Html.ActionLink(linkText: "Reviews", controllerName: "Reviews", actionName:"Index", routeValues: new { id = item.RestaurantId }, htmlAttributes:null)
+<li>@Html.ActionLink(linkText:"Reviews", actionName:"Index", controllerName:"Reviews")</li>
+
+Tab and Shift+Tab is to increase/decrease indent.
+
+can return Json in an ActionResult. eg: return Json(Object data)
+
+Entity framework will create a database the first time that a db is needed, even if one doesn't exist yet.
+The configuration class is about controlling code first migrations.
+
+Rolling back a migration:
+Update-Database -TargetMigration:"name_of_migration"
+
+Linq using extension methods and Lambda expressions
+
+@Html.DisplayFor(model => model.RestaurantName)
+            @*DisplayFor helper method is a strongly typed extension method. It generates a html string for the model object property specified using a lambda expression.*@
+            @*Html.DisplayFor() will render the DisplayTemplate that matches the property's type.*@
+            @*This is useful if your Model has a Data annotation. For instance, if the property on the model is decorated with the EmailAddress data annotation, DisplayFor will render it as a mailto: link.*@
+
+@Html.DisplayNameFor(model => model.RestaurantName)
+            @*The DisplayNameFor shows the name of the property or the string defined in the display attribute for the property.*@
+            @*    [Display(Name = "Current name")]
+                  public string Name { get; set; }
+              This would display Current name, rather than just Name*@
+
+<connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSqlLocalDb;Initial Catalog=Data.DataContext;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+</connectionStrings>
+
+Making the two navigation properties (Blog.Posts and Post.Blog) virtual. This enables the Lazy Loading feature of Entity Framework. Lazy Loading means that the contents of these properties will be automatically loaded from the database when you try to access them.
+
+@Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Review Text")
+
+Ajax is not a programming language or a tool, but a concept. Ajax is a client-side script which communicates to and from a server/database without the need for a postback or a complete page refresh. 
+A definition is that AJAX is a “the method of exchanging data with a server, and updating parts of a web page – without reloading the entire page.” Ajax itself is mostly a generic term for various JavaScript techniques used to connect to a web server dynamically without necessarily loading multiple pages.
+Ajax was originally an acronym for Asynchronous JavaScript and XML. “Asynchronous” means that multiple events are happening independently of one another. Once a client initializes an Ajax callback to the server, the client will not need to wait for a response and can continue to use the web application while the request is being processed. 
+Once the request is complete, the server will send a response back to the client and the client will process it as necessary.
+
+Example of difference between standard and AJAX website: https://www.tutorialspoint.com/ajax/ajax_examples.htm
