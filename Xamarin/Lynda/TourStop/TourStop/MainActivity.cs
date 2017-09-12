@@ -12,7 +12,13 @@ namespace TourStop
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
-            // SetContentView (Resource.Layout.Main);
+            SetContentView (Resource.Layout.Main);
+
+            Button btn = FindViewById<Button>(Resource.Id.button);
+
+            int count = 1;
+
+            btn.Click += delegate { btn.Text = string.Format($"{count} clicks!", count++); };
         }
     }
 }
